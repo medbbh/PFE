@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>register</title>
+</head>
+
+<body>
+  <div class="d-flex justify-content-center">
+    <!-- profile pic -->
+    <img class="rounded-circle profile" alt="profile"
+      src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255710-stock-illustration-avatar-vector-male-profile-gray.jpg">
+    <form class="rounded-3 border py-3 px-5 bg-white">
+      <!-- Name input -->
+      <div class="form-outline mb-3 mt-5">
+        <label class="form-label fw-semibold" for="name">Nom</label>
+        <input type="text" id="name" class="form-control bg-light" />
+      </div>
+      <!-- prename input -->
+      <div class="form-outline mb-3">
+        <label class="form-label fw-semibold" for="prenom">Prenom</label>
+        <input type="text" id="prenom" class="form-control bg-light" />
+      </div>
+      <!-- Email input -->
+      <div class="form-outline mb-3">
+        <label class="form-label fw-semibold" for="email">Email</label>
+        <input type="email" id="email" class="form-control bg-light" />
+      </div>
+      <!-- Password input -->
+      <div class="form-outline mb-3">
+        <label class="form-label fw-semibold" for="mdp">Mot de passe</label>
+        <input type="password" id="mdp" class="form-control bg-light" />
+      </div>
+      <!-- Submit button -->
+      <button type="button" class="btn btn-primary btn-block mb-3 btn-login">Connecter</button>
+      <div>
+        <!-- registr link -->
+        <a routerLink="/login" class="form-link float-end">J’ai déjà un compte </a>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+
+</html>
+
+
