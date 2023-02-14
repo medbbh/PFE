@@ -7,7 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 const routes: Routes = [
   {'path' : 'register' , component : RegisterComponent},
   {'path' : 'login' , component : LoginComponent},
-  {'path' : 'home' , component : NavbarComponent}
+  {'path' : 'navbar' , component : NavbarComponent}
 
 ];
 

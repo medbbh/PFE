@@ -31,3 +31,8 @@
 ul li h5 {
   margin-left: 250px;
 }
+
+/* sidebar */
+.sidebar a{
+ text-decoration: none;
+}
