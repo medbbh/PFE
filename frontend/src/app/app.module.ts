@@ -12,6 +12,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './auth.guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CentresComponent } from './centres/centres.component';
+import { EditCentreComponent } from './edit-centre/edit-centre.component';
+import { NewCentreComponent } from './new-centre/new-centre.component';
 
 
 const routes:Routes = [
@@ -24,6 +27,12 @@ const routes:Routes = [
 
     path:'register' , component : RegisterComponent
   },
+  {
+    path: 'add-centre' , component:NewCentreComponent
+  },
+  {
+    path: 'edit/:centreId' ,component:EditCentreComponent
+  }
 
 
 ]
@@ -33,7 +42,10 @@ const routes:Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    CentresComponent,
+    EditCentreComponent,
+    NewCentreComponent
   ],
   imports: [
     BrowserModule,
