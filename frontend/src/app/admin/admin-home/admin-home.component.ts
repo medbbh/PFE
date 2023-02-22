@@ -1,14 +1,15 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import jwt_decode from "jwt-decode";
-import {faBars} from '@fortawesome/free-solid-svg-icons'
+import {faBars} from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-admin-home',
+  templateUrl: './admin-home.component.html',
+  styleUrls: ['./admin-home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class AdminHomeComponent implements OnInit {
+
   // icons
   faBars = faBars
   // end icons
@@ -24,9 +25,6 @@ export class HomeComponent implements OnInit {
     this.token = localStorage.getItem('token')
     this.userData = jwt_decode(this.token)
     this.email = this.userData.user_email.substring(0,this.userData.user_email.indexOf("@"))
-
-    console.log(this.token)
-    console.log(this.userData)
   }
 
   logout(){
@@ -35,5 +33,4 @@ export class HomeComponent implements OnInit {
     this.route.navigate(['/login'])
 
   }
-
 }

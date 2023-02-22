@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CentreService } from '../service/centre.service';
+import { CentreService } from '../../service/centre.service';
 
 @Component({
   selector: 'app-centres',
-  templateUrl: './centres.component.html',
-  styleUrls: ['./centres.component.scss']
+  templateUrl: './centre.component.html',
+  styleUrls: ['./centre.component.scss']
 })
 export class CentresComponent implements OnInit{
 
@@ -20,7 +20,7 @@ export class CentresComponent implements OnInit{
   showCentres(){
     this.centres = this.centreservice.listCentre().subscribe(centre=>{
       this.centres=centre;
-      console.log(this.centres);
+      // console.log(this.centres);
     });
   }
 
@@ -30,6 +30,6 @@ export class CentresComponent implements OnInit{
         this.centres = this.centres.filter((a:any) => a.id == id);
       }
     );
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl('/admin/centre')
   }
 }

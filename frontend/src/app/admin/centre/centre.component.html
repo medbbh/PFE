@@ -1,0 +1,33 @@
+<app-admin-home></app-admin-home>
+
+
+<div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
+  <h6 class="position-absolute top-0 start-0 translate-middle">Les Centre de Santé</h6>
+
+
+  <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn">
+    <button type="button" class="btn btn-outline-primary py-2" routerLink="/admin/add-centre">Ajouter nouveaux centres</button>
+  </div>
+
+<table class="table table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom de Centre</th>
+      <th scope="col">Localisation</th>
+      <th scope="col">Type</th>
+      <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody  *ngIf="centres.length">
+    <tr *ngFor="let centre of centres">
+      <th scope="row">{{centre.id}}</th>
+      <td>{{centre.nom}}</td>
+      <td>{{centre.localisation}}</td>
+      <td>{{centre.type}}</td>
+      <td><button class="btn btn-info" routerLink="/admin/edit-centre/{{centre.id}}">Edit</button>&nbsp; <button class="btn btn-danger" (click)="deleteCentre(centre.id)" >Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

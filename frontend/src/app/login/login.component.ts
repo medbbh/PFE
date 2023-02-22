@@ -14,15 +14,15 @@ export class LoginComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
   data: any;
-  token:any;
+  token: any;
 
-  constructor(private dataService: DataService, private toastr: ToastrService,private formBuilder: FormBuilder,private router: Router ) { }
+  constructor(private dataService: DataService, private toastr: ToastrService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm();
   }
 
-  loginForm(){
+  loginForm() {
     this.form = this.formBuilder.group(
       {
         email: ['', [Validators.required, Validators.email]],
@@ -32,38 +32,66 @@ export class LoginComponent implements OnInit {
     )
   }
 
-  get f(){
+  get f() {
     return this.form.controls
   }
 
-  submit(){
+  submit() {
     this.submitted = true
 
-    if(this.form.invalid){
+    if (this.form.invalid) {
       return;
     }
 
     this.dataService.login(this.form.value).subscribe(
-      res=>{
+      res => {
         this.data = res
-        console.log(this.data)
-        if(this.data.status === 1){
-          this.token = this.data.data.token
-          localStorage.setItem('token',this.token);
-          this.router.navigate(['/'])
-          this.toastr.success(JSON.stringify(this.data.message),JSON.stringify(this.data.code), {
-          timeOut : 2000,
-          progressBar : true
-          })
-        }else if(this.data.status === 0){
-          this.toastr.error(JSON.stringify(this.data.message),JSON.stringify(this.data.code), {
-            timeOut : 2000,
-            progressBar : true
-          })
+        // console.log(res)
+        // user condition
+        if (this.data.userType == '0') {
+
+          if (this.data.status === 1) {
+            this.token = this.data.data.token
+            localStorage.setItem('token', this.token);
+            this.router.navigate(['/'])
+            this.toastr.success(JSON.stringify(this.data.message), JSON.stringify(this.data.code), {
+              timeOut: 2000,
+              progressBar: true
+            })
+          } else if (this.data.status === 0) {
+            this.toastr.error(JSON.stringify(this.data.message), JSON.stringify(this.data.code), {
+              timeOut: 2000,
+              progressBar: true
+            })
+          }
+
         }
+
+        // admin condition
+        else if (this.data.userType === '1') {
+          if (this.data.status === 1) {
+            this.token = this.data.data.token
+            localStorage.setItem('token', this.token);
+            this.router.navigate(['/admin/home'])
+            this.toastr.success(JSON.stringify(this.data.message), JSON.stringify(this.data.code), {
+              timeOut: 2000,
+              progressBar: true
+            })
+          } else if (this.data.status === 0) {
+            this.toastr.error(JSON.stringify(this.data.message), JSON.stringify(this.data.code), {
+              timeOut: 2000,
+              progressBar: true
+            })
+          }
+        }else {
+          this.toastr.error(JSON.stringify(this.data.message), JSON.stringify(this.data.code), {
+            timeOut: 2000,
+            progressBar: true
+          })
+
+        }
+
       }
-
     )
-
   }
-  }
+}

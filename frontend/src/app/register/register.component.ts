@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../confirmed.validator';
@@ -13,12 +14,12 @@ export class RegisterComponent implements OnInit {
   form!: FormGroup;
   submitted = false
   data: any
-  constructor(private formBuilder: FormBuilder, private dataService: DataService, private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private dataService: DataService, private toastr: ToastrService,private router: Router) { }
 
 
   createForm() {
 
-    
+
     this.form = this.formBuilder.group(
       {
         name: ['', Validators.required],
@@ -53,6 +54,7 @@ export class RegisterComponent implements OnInit {
           timeOut : 2000,
           progressBar : true
         })
+        this.router.navigate([''])
       }else {
         this.toastr.error(JSON.stringify(this.data.message),JSON.stringify(this.data.code), {
           timeOut : 2000,

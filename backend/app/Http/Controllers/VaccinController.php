@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\vaccin;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\Centre;
 
-class CentreController extends Controller
+class VaccinController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Centre::all();
+        return vaccin::all();
     }
 
     /**
@@ -21,7 +22,7 @@ class CentreController extends Controller
      */
     public function store(Request $request)
     {
-        return Centre::create($request ->all());
+        vaccin::create($request ->all());
     }
 
     /**
@@ -29,7 +30,7 @@ class CentreController extends Controller
      */
     public function show($id)
     {
-        return Centre::find($id);
+        return vaccin::find($id);
     }
 
     /**
@@ -37,15 +38,18 @@ class CentreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(Centre::where('id' ,$id)->exists()){
-            $centre = Centre::find($id);
-            $centre->nom = $request->nom;
-            $centre->localisation = $request->localisation;
-            $centre->type = $request->type;
+        if(vaccin::where('id' ,$id)->exists()){
+            $vaccin = vaccin::find($id);
+            $vaccin->nom = $request->nom;
+            $vaccin->type = $request->type;
+            $vaccin->date_fab = $request->date_fab;
+            $vaccin->date_exp = $request->date_exp;
+            $vaccin->fabricant = $request->fabricant;
 
-            $centre->save();
+
+            $vaccin->update($request);
             return response()->json([
-                'message'=>'record updated successfully'
+                'message'=>'vaccin updated successfully'
             ],200);
         }else{
             return response()->json([
@@ -59,9 +63,9 @@ class CentreController extends Controller
      */
     public function destroy( $id)
     {
-        if(Centre::where('id' ,$id)->exists()){
-            $centre = Centre::find($id);
-            $centre->delete();
+        if(vaccin::where('id' ,$id)->exists()){
+            $vaccin = vaccin::find($id);
+            $vaccin->delete();
 
 
             return response()->json([
@@ -69,7 +73,7 @@ class CentreController extends Controller
             ],200);
         }else{
             return response()->json([
-                'message'=>'centre not found'
+                'message'=>'vaccin not found'
             ],404);
         }
     }

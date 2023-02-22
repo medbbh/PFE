@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTExceptions;
+// use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
+
 
     public function register(Request $request)
     {
@@ -22,7 +26,7 @@ class UserController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => bcrypt($request->password)
+                'password' => bcrypt($request->password),
             ]);
 
             $response['status'] = 1;
@@ -33,6 +37,7 @@ class UserController extends Controller
         return response()->json($response);
     }
 
+
     public function login(Request $request){
         $credentials = $request->only('email','password');
         try{
@@ -41,6 +46,7 @@ class UserController extends Controller
                 $response['code'] = 401;
                 $response['data'] =null;
                 $response['message'] = 'Email or password is incorrect';
+
                 return response()->json($response);
 
              };
@@ -62,6 +68,8 @@ class UserController extends Controller
         $response['status'] =1;
         $response['code'] = 200;
         $response['message'] = 'Login succesfuly';
+        $response['userType'] = $response['userType'] = Auth::user()->userType;
+
 
         return response()->json($response);
 
