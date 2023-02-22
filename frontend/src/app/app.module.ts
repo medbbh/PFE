@@ -19,6 +19,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CentresComponent } from './admin/centre/centre.component';
 import { VaccinComponent } from './admin/vaccin/vaccin.component';
 import { NewVaccinComponent } from './admin/new-vaccin/new-vaccin.component';
+import { EditVaccinComponent } from './admin/edit-vaccin/edit-vaccin.component';
+import { StockModule } from './stock/stock.module';
+import { EditComponent } from './stock/edit/edit.component';
+import { CreateComponent } from './stock/create/create.component';
+import { IndexComponent } from './stock/index/index.component';
 
 
 const routes:Routes = [
@@ -52,6 +57,19 @@ const routes:Routes = [
   {
     path: 'admin/add-vaccin' , component:NewVaccinComponent, canActivate :[AuthGuard]
   },
+  {
+    path: 'admin/edit-vaccin/:vaccinId' , component:EditVaccinComponent, canActivate :[AuthGuard]
+  },
+  {
+    path: 'edit/:stockId' , component:EditComponent
+  },
+  {
+    path: 'create' , component:CreateComponent
+  },
+  {
+    path: 'index' ,component:IndexComponent
+  },
+
 
 
 
@@ -74,7 +92,8 @@ const routes:Routes = [
     NotfoundComponent,
     CentresComponent,
     VaccinComponent,
-    NewVaccinComponent
+    NewVaccinComponent,
+    EditVaccinComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +105,7 @@ const routes:Routes = [
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
+    StockModule
   ],
   providers: [],
   bootstrap: [AppComponent]

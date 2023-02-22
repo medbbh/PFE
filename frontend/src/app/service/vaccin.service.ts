@@ -28,7 +28,7 @@ export class vaccinService {
   }
 
   update(id:number ,vaccin:any ){
-    return this.http.put(environment.apiUrl +'/api/vaccin/' + id,vaccin,this.httpOptions);
+    return this.http.put(environment.apiUrl +'/api/edit-vaccin/' + id,vaccin,this.httpOptions);
   }
 
   deleteVaccin(id: any){
