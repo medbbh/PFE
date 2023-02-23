@@ -64,10 +64,10 @@ const routes:Routes = [
     path: 'edit/:stockId' , component:EditComponent
   },
   {
-    path: 'create' , component:CreateComponent
+    path: 'stock/create' , component:CreateComponent
   },
   {
-    path: 'index' ,component:IndexComponent
+    path: 'stock/index' ,component:IndexComponent
   },
 
 

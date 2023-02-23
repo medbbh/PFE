@@ -1,13 +1,13 @@
-<section>
 
-    <div class="d-flex justify-content-between">
-      <h4>Les Stocks :</h4>
-      <a routerLink="/stock/create" class="btn btn-success">Create New Stock</a>
-    </div>
 
-    <br>
+    <div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
+      <h1>Les Stocks :</h1>
+       <br>
+       <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn">
+        <button type="button" class="btn btn-outline-primary py-2" routerLink="/stock/create">Ajouter nouveaux stocks</button>
     
-    <table class="table ">
+      </div>
+      <table class="table ">
       <tr>
         <th>ID</th>
         <th>Nom de Vaccin</th>
@@ -30,4 +30,4 @@
         </td>
       </tr>
     </table>
- </section>
+  </div>

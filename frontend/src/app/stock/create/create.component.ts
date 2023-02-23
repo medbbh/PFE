@@ -20,9 +20,9 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = new FormGroup({
-      nomvaccin:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      quantite: new FormControl('', [ Validators.required, Validators.pattern('^[0-9-a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      lieu: new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
+      nomvaccin:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìôÓóÒòÚúÙùÑñüÜ \-\']+') ]),
+      quantite: new FormControl('', [ Validators.required, Validators.pattern('^[0-9-a-zA-ZÁáÀàÉéÈèÍíÌìôÓóÒòÚúÙùÑñüÜ \-\']+') ]),
+      lieu: new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìôÓóÒòÚúÙùÑñüÜ \-\']+') ]),
       dateproduction: new FormControl('', [ Validators.required]),
       dateexpiration: new FormControl('', [ Validators.required])
     });
@@ -37,7 +37,7 @@ export class CreateComponent implements OnInit {
     console.log(this.form.value);
     this.stockService.create(this.form.value).subscribe(res => {
          console.log('Stock created successfully!');
-         this.router.navigateByUrl('stock/index');
+         this.router.navigateByUrl('/stock/index');
     })
   }
 
