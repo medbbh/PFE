@@ -47,7 +47,7 @@ class VaccinController extends Controller
             $vaccin->fabricant = $request->fabricant;
 
 
-            $vaccin->update($request);
+            $vaccin->save();
             return response()->json([
                 'message'=>'vaccin updated successfully'
             ],200);

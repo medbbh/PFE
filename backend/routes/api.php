@@ -60,6 +60,6 @@ Route::get('/vaccin/{id}' ,function($id){
 
 Route::post('/add-vaccin' , [VaccinController::class ,'store']);
 
-Route::put('/vaccin/{id}' , [VaccinController::class ,'update']);
+Route::put('/edit-vaccin/{id}' , [VaccinController::class ,'update']);
 
 Route::delete('/vaccin/{id}' , [VaccinController::class ,'destroy']);
