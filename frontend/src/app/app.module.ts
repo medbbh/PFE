@@ -20,7 +20,14 @@ import { CentresComponent } from './admin/centre/centre.component';
 import { VaccinComponent } from './admin/vaccin/vaccin.component';
 import { NewVaccinComponent } from './admin/new-vaccin/new-vaccin.component';
 import { EditVaccinComponent } from './admin/edit-vaccin/edit-vaccin.component';
+<<<<<<< HEAD
 import { RoleGuard} from './core/role-guard.guard';
+=======
+import { StockModule } from './stock/stock.module';
+import { EditComponent } from './stock/edit/edit.component';
+import { CreateComponent } from './stock/create/create.component';
+import { IndexComponent } from './stock/index/index.component';
+>>>>>>> ac7d9b97abb6bd7b74512e5f666856bbfa1c23dd
 
 
 const routes:Routes = [
@@ -63,6 +70,19 @@ const routes:Routes = [
     ]
 
   },
+  {
+    path: 'admin/edit-vaccin/:vaccinId' , component:EditVaccinComponent, canActivate :[AuthGuard]
+  },
+  {
+    path: 'edit/:stockId' , component:EditComponent
+  },
+  {
+    path: 'stock/create' , component:CreateComponent
+  },
+  {
+    path: 'stock/index' ,component:IndexComponent
+  },
+
 
 
 
@@ -99,6 +119,7 @@ const routes:Routes = [
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
+    StockModule
   ],
   providers: [],
   bootstrap: [AppComponent]

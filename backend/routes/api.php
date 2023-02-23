@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CentreController;
 use App\Http\Controllers\VaccinController;
+use App\Http\Controllers\API\StockController;
 use App\Models\Centre;
 use App\Http\Resources\CentreResource;
 use App\Http\Resources\VaccinResource;
@@ -63,3 +64,12 @@ Route::post('/add-vaccin' , [VaccinController::class ,'store']);
 Route::put('/edit-vaccin/{id}' , [VaccinController::class ,'update']);
 
 Route::delete('/vaccin/{id}' , [VaccinController::class ,'destroy']);
+
+
+//stock
+
+Route::get('/stock',[ StockController::class, 'getAll']);
+Route::post('/stock',[ StockController::class, 'create']);
+Route::delete('/stock/{id}',[ StockController::class, 'delete']);
+Route::get('/stock/{id}',[ StockController::class, 'get']);
+Route::put('/stock/{id}',[ StockController::class, 'update']);
