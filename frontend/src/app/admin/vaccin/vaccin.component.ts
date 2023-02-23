@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class VaccinComponent implements OnInit {
 
   constructor(private vaccinService:vaccinService ,private router:Router){}
-
+  index = 0
   vaccins:any;
 
   ngOnInit(): void {
@@ -27,10 +27,9 @@ export class VaccinComponent implements OnInit {
   deleteVaccin(id:any){
     this.vaccinService.deleteVaccin(id).subscribe(
       res =>{
-        this.vaccins = this.vaccins.filter((a:any) => a.id == id);
+        this.showVaccins()
       }
     );
-    // this.router.navigateByUrl('/admin/home')
   }
 
 }

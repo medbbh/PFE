@@ -31,10 +31,12 @@ export class EditCentreComponent implements OnInit{
   };
 
   update(nom:string ,localisation:string, type:string){
-    this.centreservice.update(this.centreId, this.centre).subscribe((res)=>{
-      console.log(res)
+    this.centreservice.update(this.centreId, this.centre).subscribe(
+      res=>{
+            this.router.navigate(['/admin/centre']);
+
+      // console.log(res)
       // centre = res.
     });
-    this.router.navigate(['/admin/centre']);
   }
 }

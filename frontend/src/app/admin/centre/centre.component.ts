@@ -10,6 +10,8 @@ import { CentreService } from '../../service/centre.service';
 export class CentresComponent implements OnInit{
 
   constructor(private centreservice:CentreService ,private router:Router){}
+  
+  index = 0
 
   centres:any;
 
@@ -20,16 +22,14 @@ export class CentresComponent implements OnInit{
   showCentres(){
     this.centres = this.centreservice.listCentre().subscribe(centre=>{
       this.centres=centre;
-      // console.log(this.centres);
     });
   }
 
   deleteCentre(id:any){
     this.centreservice.deleteCentre(id).subscribe(
       res =>{
-        this.centres = this.centres.filter((a:any) => a.id == id);
+        this.showCentres()
       }
     );
-    this.router.navigateByUrl('/admin/centre')
   }
 }

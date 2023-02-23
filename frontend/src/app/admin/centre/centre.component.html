@@ -21,8 +21,8 @@
     </tr>
   </thead>
   <tbody  *ngIf="centres.length">
-    <tr *ngFor="let centre of centres">
-      <th scope="row">{{centre.id}}</th>
+    <tr *ngFor="let centre of centres ;let i = index">
+      <th scope="row">{{i + 1}}</th>
       <td>{{centre.nom}}</td>
       <td>{{centre.localisation}}</td>
       <td>{{centre.type}}</td>

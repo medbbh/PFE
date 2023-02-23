@@ -10,7 +10,7 @@ import {FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './core/auth.guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewCentreComponent } from './admin/new-centre/new-centre.component';
@@ -19,6 +19,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CentresComponent } from './admin/centre/centre.component';
 import { VaccinComponent } from './admin/vaccin/vaccin.component';
 import { NewVaccinComponent } from './admin/new-vaccin/new-vaccin.component';
+import { EditVaccinComponent } from './admin/edit-vaccin/edit-vaccin.component';
+import { RoleGuard} from './core/role-guard.guard';
 
 
 const routes:Routes = [
@@ -35,23 +37,33 @@ const routes:Routes = [
 
   // admin routes
   {
-    path: 'admin/home' ,component:AdminHomeComponent, canActivate :[AuthGuard]
+    path: 'admin/home' ,component:AdminHomeComponent, canActivate :[AuthGuard,RoleGuard],
+    data:{
+      expectedRoles : 'admin'
+    },
+    children : [
+      {
+        path: 'admin/centre' ,component:CentresComponent , canActivate :[AuthGuard]
+      },
+      {
+        path: 'admin/add-centre' , component:NewCentreComponent, canActivate :[AuthGuard]
+      },
+      {
+        path: 'admin/edit-centre/:centreId' ,component:EditCentreComponent, canActivate :[AuthGuard]
+      },
+      {
+        path: 'admin/vaccin' ,component:VaccinComponent, canActivate :[AuthGuard]
+      },
+      {
+        path: 'admin/add-vaccin' , component:NewVaccinComponent, canActivate :[AuthGuard]
+      },
+      {
+        path: 'admin/edit-vaccin/:vaccinId' , component:EditVaccinComponent, canActivate :[AuthGuard]
+      },
+    ]
+
   },
-  {
-    path: 'admin/centre' ,component:CentresComponent , canActivate :[AuthGuard]
-  },
-  {
-    path: 'admin/add-centre' , component:NewCentreComponent, canActivate :[AuthGuard]
-  },
-  {
-    path: 'admin/edit-centre/:centreId' ,component:EditCentreComponent, canActivate :[AuthGuard]
-  },
-  {
-    path: 'admin/vaccin' ,component:VaccinComponent, canActivate :[AuthGuard]
-  },
-  {
-    path: 'admin/add-vaccin' , component:NewVaccinComponent, canActivate :[AuthGuard]
-  },
+
 
 
 
@@ -74,7 +86,8 @@ const routes:Routes = [
     NotfoundComponent,
     CentresComponent,
     VaccinComponent,
-    NewVaccinComponent
+    NewVaccinComponent,
+    EditVaccinComponent
   ],
   imports: [
     BrowserModule,
