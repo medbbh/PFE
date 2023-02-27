@@ -6,7 +6,8 @@
     "axe/forms": [
       "default",
       {
-        "label": "off"
+        "label": "off",
+        "select-name": "off"
       }
     ],
     "button-type": "off",
@@ -15,6 +16,7 @@
       {
         "aria-command-name": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }

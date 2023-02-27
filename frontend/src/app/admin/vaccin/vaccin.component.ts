@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { vaccinService } from './../../service/vaccin.service';
 import { Component, OnInit } from '@angular/core';
+import { Vaccin } from '../vaccin';
 
 @Component({
   selector: 'app-vaccin',
@@ -9,27 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VaccinComponent implements OnInit {
 
-  constructor(private vaccinService:vaccinService ,private router:Router){}
+  constructor(private vaccinService: vaccinService, private router: Router) { }
   index = 0
-  vaccins:any;
+  vaccins: Vaccin[] = []
 
   ngOnInit(): void {
-    this.showVaccins();
-  }
-
-  showVaccins(){
-    this.vaccins = this.vaccinService.listVaccin().subscribe(vaccin=>{
-      this.vaccins=vaccin;
+    this.vaccinService.getAll().subscribe((data: Vaccin[]) => {
+      this.vaccins = data;
       console.log(this.vaccins);
     });
   }
 
-  deleteVaccin(id:any){
-    this.vaccinService.deleteVaccin(id).subscribe(
-      res =>{
-        this.showVaccins()
-      }
-    );
-  }
 
+  deleteVaccin(id: number) {
+
+    this.vaccinService.delete(id).subscribe(res => {
+      this.vaccins = this.vaccins.filter(item => item.id !== id);
+      console.log('Vaccin deleted successfully!');
+    })
+  }
 }

@@ -1,0 +1,64 @@
+<app-admin-home></app-admin-home>
+
+<section>
+  <div class="container py-5">
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{user.name}}</h5>
+            <p class="text-muted mb-1">{{user.email}}</p>
+            <div>
+              <p class="text-muted mb-4" *ngIf="user.userType == 1">Admin</p>
+              <p class="text-muted mb-4" *ngIf="user.userType == 0">Utilisateur</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+
+            <form>
+            <div class="row">
+              <div class="col-sm-3 col-lg-4 mb-3">
+                <label class="mb-0">Nom</label>
+              </div>
+              <div class="col-sm-9 col-lg-8 mb-3">
+                <input type="text" class="text-muted mb-0" class="form-control" [(ngModel)]="user.name"  name="name" #nom>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3 col-lg-4">
+                <label class="mb-0">Email</label>
+              </div>
+              <div class="col-sm-9 col-lg-8 mb-3">
+                <input type="text" class="text-muted mb-0" class="form-control" [(ngModel)]="user.email" name="email" #email>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-9 col-lg-12">
+                <button type="submit" class="btn btn-success " (click)="update(nom.value ,email.value)">Modifier</button>
+              </div>
+            </div>
+
+
+          </form>
+
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+</section>
+
+

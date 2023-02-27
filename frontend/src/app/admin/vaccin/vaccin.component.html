@@ -7,32 +7,35 @@
 
 
   <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn">
-    <button type="button" class="btn btn-outline-primary py-2" routerLink="/admin/add-vaccin">Ajouter nouveaux centres</button>
+    <button type="button" class="btn btn-outline-primary py-2" routerLink="/admin/add-vaccin">Ajouter nouveaux vaccin</button>
+
+
   </div>
 
-<table class="table table-hover mt-5">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nom de Vaccin</th>
-      <th scope="col">Type</th>
-      <th scope="col">Date de Production</th>
-      <th scope="col">Date d'expiration</th>
-      <th scope="col">Fabricant</th>
-      <th scope="col">Action</th>
+  <table class="table table-hover mt-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom de Vaccin</th>
+        <th scope="col">Date de Production</th>
+        <th scope="col">Date d'expiration</th>
+        <th scope="col">Fabricant</th>
+        <th scope="col">Action</th>
 
-    </tr>
-  </thead>
-  <tbody  *ngIf="vaccins.length">
-    <tr *ngFor="let vaccin of vaccins ; let i = index">
-      <th scope="row">{{i + 1}}</th>
-      <td>{{vaccin.nom}}</td>
-      <td>{{vaccin.type}}</td>
-      <td>{{vaccin.date_fab}}</td>
-      <td>{{vaccin.date_exp}}</td>
-      <td>{{vaccin.fabricant}}</td>
-      <td><button class="btn btn-info" routerLink="/admin/edit-vaccin/{{vaccin.id}}">Edit</button>&nbsp; <button class="btn btn-danger" (click)="deleteVaccin(vaccin.id)" >Delete</button></td>
-    </tr>
-  </tbody>
-</table>
+      </tr>
+    </thead>
+    <tbody *ngIf="vaccins.length">
+      <tr *ngFor="let vaccin of vaccins ; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{vaccin.nom}}</td>
+        <td>{{vaccin.fabricant}}</td>
+        <td>{{vaccin.date_fab}}</td>
+        <td>{{vaccin.date_exp}}</td>
+        <td>
+          <button class="btn btn-info" routerLink="/admin/edit-vaccin/{{vaccin.id}}">Edit</button>&nbsp;
+          <button class="btn btn-danger" (click)="deleteVaccin(vaccin.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -1,3 +1,4 @@
+import { Centre } from './../admin/centre';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http'
@@ -10,7 +11,7 @@ export class CentreService {
   constructor(private http:HttpClient) { }
 
   listCentre(){
-    return this.http.get(environment.apiUrl + '/api/centres');
+    return this.http.get<Centre[]>(environment.apiUrl + '/api/centres');
   }
 
   httpOptions ={

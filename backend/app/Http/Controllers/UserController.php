@@ -74,4 +74,51 @@ class UserController extends Controller
         return response()->json($response);
 
     }
+
+
+    public function get($id)
+    {
+        $data =  User::find($id);
+        return response()->json($data, 200);
+
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        if(User::where('id' ,$id)->exists()){
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+
+            $user->save();
+            return response()->json([
+                'message'=>'record updated successfully'
+            ],200);
+        }else{
+            return response()->json([
+                'message'=>'Article not found'
+            ],404);
+        }
+    }
+
+
+    public function destroy( $id)
+    {
+        if(User::where('id' ,$id)->exists()){
+            $user = user::find($id);
+            $user->delete();
+
+
+            return response()->json([
+                'message'=>'user deleted successfully'
+            ],200);
+        }else{
+            return response()->json([
+                'message'=>'user not found'
+            ],404);
+        }
+    }
+
+
 }

@@ -8,7 +8,10 @@ use App\Http\Controllers\API\StockController;
 use App\Models\Centre;
 use App\Http\Resources\CentreResource;
 use App\Http\Resources\VaccinResource;
-use App\Models\vaccin;
+use App\Http\Controllers\UserController;
+use App\Models\User;
+use App\Http\Resources\UserResource;
+use App\Models\vaccins;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +32,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register','App\Http\Controllers\UserController@register');
 Route::post('login','App\Http\Controllers\UserController@login');
 
-
 // centre
 Route::get('/centres' ,function(){
     return CentreResource::collection(Centre::all());
@@ -48,28 +50,35 @@ Route::delete('/centre/{id}' , [CentreController::class ,'destroy']);
 
 
 // vaccin
-
-// Route::resource('/vaccin',VaccinController::class);
-
-Route::get('/vaccins' ,function(){
-    return VaccinResource::collection(vaccin::all());
-});
-
-Route::get('/vaccin/{id}' ,function($id){
-    return new VaccinResource(vaccin::findOrFail($id));
-});
-
-Route::post('/add-vaccin' , [VaccinController::class ,'store']);
-
-Route::put('/edit-vaccin/{id}' , [VaccinController::class ,'update']);
-
-Route::delete('/vaccin/{id}' , [VaccinController::class ,'destroy']);
+Route::get('/vaccin',[ VaccinController::class, 'getAll']);
+Route::post('/vaccin',[ VaccinController::class, 'create']);
+Route::delete('/vaccin/{id}',[ VaccinController::class, 'delete']);
+Route::get('/vaccin/{id}',[ VaccinController::class, 'get']);
+Route::put('/vaccin/{id}',[ VaccinController::class, 'update']);
 
 
 //stock
-
 Route::get('/stock',[ StockController::class, 'getAll']);
 Route::post('/stock',[ StockController::class, 'create']);
 Route::delete('/stock/{id}',[ StockController::class, 'delete']);
 Route::get('/stock/{id}',[ StockController::class, 'get']);
 Route::put('/stock/{id}',[ StockController::class, 'update']);
+
+
+
+
+// user
+
+Route::get('/users' ,function(){
+    return UserResource::collection(User::all());
+});
+
+Route::get('/user/{id}',[UserController::class ,'get']);
+
+Route::delete('/user/{id}' , [UserController::class ,'destroy']);
+
+// Route::put('/madeAdmin/{id}',[ UserController::class, 'madeAdmin']);
+
+Route::put('/user/{id}',[ UserController::class, 'update']);
+
+
