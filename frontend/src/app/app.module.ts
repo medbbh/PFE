@@ -1,5 +1,5 @@
 import { EditCentreComponent } from './admin/edit-centre/edit-centre.component';
-import { NgModule, Component } from '@angular/core';
+import { NgModule, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule,Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -20,10 +20,18 @@ import { CentresComponent } from './admin/centre/centre.component';
 import { VaccinComponent } from './admin/vaccin/vaccin.component';
 import { NewVaccinComponent } from './admin/new-vaccin/new-vaccin.component';
 import { EditVaccinComponent } from './admin/edit-vaccin/edit-vaccin.component';
-import { StockModule } from './stock/stock.module';
+
 import { EditComponent } from './stock/edit/edit.component';
 import { CreateComponent } from './stock/create/create.component';
 import { IndexComponent } from './stock/index/index.component';
+import { StockModule } from './stock/stock.module';
+
+
+import { NewComponent } from './person-vaccinee/new/new.component';
+import { ModifyComponent } from './person-vaccinee/modify/modify.component';
+import { PersonComponent } from './person-vaccinee/person/person.component';
+import { PersonVaccineeModule } from './person-vaccinee/person-vaccinee.module';
+
 
 
 const routes:Routes = [
@@ -69,6 +77,17 @@ const routes:Routes = [
   {
     path: 'stock/index' ,component:IndexComponent
   },
+  {
+    path: 'person-vaccinee/person' ,component:PersonComponent
+  },
+  {
+    path: 'person-vaccinee/new' , component:NewComponent
+  },
+  {
+    path: 'modify/:idPerson' ,component:ModifyComponent
+  },
+  
+ 
 
 
 
@@ -93,7 +112,10 @@ const routes:Routes = [
     CentresComponent,
     VaccinComponent,
     NewVaccinComponent,
-    EditVaccinComponent
+    EditVaccinComponent,
+    IndexComponent,
+    CreateComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +127,7 @@ const routes:Routes = [
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
-    StockModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
