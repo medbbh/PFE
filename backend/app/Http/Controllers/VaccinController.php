@@ -2,79 +2,68 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\vaccin;
-use Illuminate\Http\RedirectResponse;
+use App\Models\vaccins;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class VaccinController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function getAll()
     {
-        return vaccin::all();
+        $data = vaccins::get();
+        return response()->json($data, 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+
+
+    public function create(Request $request)
     {
-        vaccin::create($request ->all());
+        $data['nom'] = $request['nom'];
+        $data['fabricant'] = $request['fabricant'];
+        $data['date_fab'] = $request['date_fab'];
+        $data['date_exp'] = $request['date_exp'];
+        vaccins::create($data);
+        return response()->json([
+            'message' => "Successfully created",
+            'success' => true
+        ], 200);
+
+
+        // return Vaccins::create($request->all());
+
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
+
+    public function delete($id)
     {
-        return vaccin::find($id);
+        $res = vaccins::find($id)->delete();
+        return response()->json([
+            'message' => "Successfully deleted",
+            'success' => true
+        ], 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
+
+    public function get($id)
+    {
+        $data = vaccins::find($id);
+        return response()->json($data, 200);
+    }
+
+
+
     public function update(Request $request, $id)
     {
-        if(vaccin::where('id' ,$id)->exists()){
-            $vaccin = vaccin::find($id);
-            $vaccin->nom = $request->nom;
-            $vaccin->type = $request->type;
-            $vaccin->date_fab = $request->date_fab;
-            $vaccin->date_exp = $request->date_exp;
-            $vaccin->fabricant = $request->fabricant;
+        $data['nom'] = $request['nom'];
+        $data['date_fab'] = $request['date_fab'];
+        $data['date_exp'] = $request['date_exp'];
+        $data['fabricant'] = $request['fabricant'];
 
-
-            $vaccin->save();
-            return response()->json([
-                'message'=>'vaccin updated successfully'
-            ],200);
-        }else{
-            return response()->json([
-                'message'=>'Article not found'
-            ],404);
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy( $id)
-    {
-        if(vaccin::where('id' ,$id)->exists()){
-            $vaccin = vaccin::find($id);
-            $vaccin->delete();
-
-
-            return response()->json([
-                'message'=>'record deleted successfully'
-            ],200);
-        }else{
-            return response()->json([
-                'message'=>'vaccin not found'
-            ],404);
-        }
+        vaccins::find($id)->update($data);
+        return response()->json([
+            'message' => 'vaccin updated successfully'
+        ], 200);
     }
 }

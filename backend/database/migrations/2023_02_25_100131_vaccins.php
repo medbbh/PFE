@@ -12,21 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vaccins', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom');
-            $table->string('type');
-            $table->string('date_fab');
-            $table->string('date_exp');
-            $table->string('fabricant');
-            $table->timestamps();
-        });
-    }
 
+        $table->id();
+        $table->string('nom');
+        $table->date('date_fab');
+        $table->date('date_exp');
+        $table->string('fabricant');
+        $table->timestamps();
+    });
+}
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
         Schema::dropIfExists('vaccins');
+
     }
 };

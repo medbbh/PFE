@@ -19,12 +19,15 @@ export class AdminHomeComponent implements OnInit {
   userData:any
   Router: any;
   email : any;
+  id!:number
   constructor(private route : Router) { }
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token')
     this.userData = jwt_decode(this.token)
     this.email = this.userData.user_email.substring(0,this.userData.user_email.indexOf("@"))
+    this.id = this.userData.user_id
+
   }
 
   logout(){

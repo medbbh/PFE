@@ -2,6 +2,7 @@ import { vaccinService } from './../../service/vaccin.service';
 import { Component, OnInit } from '@angular/core';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-vaccin',
@@ -13,28 +14,36 @@ export class NewVaccinComponent implements OnInit {
   // font awesome icons
   faArrowLeft = faArrowLeft
   // end
-  constructor(private vaccinService: vaccinService) { }
 
-  vaccins: any;
+  form!: FormGroup;
+
+  constructor(private vaccinService: vaccinService,private router: Router) { }
+
 
   ngOnInit(): void {
 
+    this.form = new FormGroup({
+      nom:  new FormControl('', [ Validators.required ]),
+      date_fab: new FormControl('', [ Validators.required]),
+      date_exp: new FormControl('', [ Validators.required]),
+      fabricant: new FormControl('', [ Validators.required]),
+
+    });
+
+
+  }
+  get f(){
+    return this.form.controls;
   }
 
-  add(nom: string, type: string, date_fab: string,date_exp:string,fabricant:string) {
-    this.vaccins = {
-      'nom': nom,
-      'type': type,
-      'date_fab': date_fab,
-      'date_exp': date_exp,
-      'fabricant': fabricant,
-    };
-    this.vaccinService.addVaccin(this.vaccins as any).subscribe(vaccin => {
-      this.vaccins = vaccin;
-    });
-    // console.log(this.centres);
-    // this.router.navigate(['admin/vaccin'])
-  };
+  submit(){
+    // console.log(this.form.value);
+    this.vaccinService.create(this.form.value).subscribe(
+      res => {
+        this.router.navigate(['/admin/vaccin'])
+      }
+    )
+  }
 
 
 }

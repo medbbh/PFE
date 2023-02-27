@@ -1,0 +1,34 @@
+<app-admin-home></app-admin-home>
+
+
+<div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
+
+  <h6 class="position-absolute top-0 start-0 translate-middle ps-5 ms-4 pb-4">Les Utilisateurs</h6>
+
+
+  <table class="table table-hover mt-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom d'utilisateur</th>
+        <th scope="col">Email</th>
+        <th scope="col">User Type</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody *ngIf="users.length">
+      <tr *ngFor="let user of users ; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{user.nom}}</td>
+        <td>{{user.email}}</td>
+          <td *ngIf="user.userType == 1">Admin</td>
+          <td *ngIf="user.userType == 0">User</td>
+        <td>
+          <button class="btn btn-info" (click)="madeAdmin(user.id)">Edit</button>&nbsp;
+          <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

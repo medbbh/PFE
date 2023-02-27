@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
       {
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
         confirmpassword: ['', Validators.required]
 
       }, {
@@ -47,14 +47,15 @@ export class RegisterComponent implements OnInit {
 
     this.dataService.registerUser(this.form.value).subscribe(res => {
       this.data = res
-      // console.log(res)
+      console.log(res)
 
       if(this.data.status === 1){
         this.toastr.success(JSON.stringify(this.data.message),JSON.stringify(this.data.code), {
           timeOut : 2000,
           progressBar : true
         })
-        this.router.navigate([''])
+        this.router.navigate(['login'])
+
       }else {
         this.toastr.error(JSON.stringify(this.data.message),JSON.stringify(this.data.code), {
           timeOut : 2000,

@@ -8,34 +8,44 @@
       </div>
       <h5 class="mt-3 mb-5 col-lg-12 text-center">Ajouter un vaccin</h5>
 
-      <form class="col-lg-12 p-3">
+      <form class="col-lg-12 p-3" [formGroup]="form" (ngSubmit)="submit()">
         <div class="row">
 
           <div class="mb-2 col-lg-6 px-3">
             <label for="nom" class="form-label">Nom de Vaccin</label>
-            <input type="text" class="form-control"  placeholder="le nom de vaccin" #nom>
+            <input type="text" class="form-control" formControlName="nom" placeholder="le nom de vaccin">
+            <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+              <div *ngIf="f.nom.errors?.required">*Name is required.</div>
+            </div>
           </div>
+
           <div class="mb-2 col-lg-6 px-3">
-            <label for="localisation" class="form-label">Type</label>
-            <input type="text" class="form-control" placeholder="le type de vaccin" #type>
+            <label for="type" class="form-label">Fabricant</label>
+            <input type="text" class="form-control" formControlName="fabricant" placeholder="lefabricant de vaccin">
+            <div *ngIf="f.fabricant.touched && f.fabricant.invalid" class="alert alert-danger">
+              <div *ngIf="f.fabricant.errors?.required">*Fabricant is required.</div>
+            </div>
           </div>
+
           <div class="mb-2 col-lg-6 px-3">
             <label for="type" class="form-label">Date de Production</label>
-            <input type="text" class="form-control" #date_fab>
+            <input type="date" class="form-control" formControlName="date_fab">
+            <div *ngIf="f.date_fab.touched && f.date_fab.invalid" class="alert alert-danger">
+              <div *ngIf="f.date_fab.errors?.required">*Date fab is required.</div>
+            </div>
           </div>
           <div class="mb-2 col-lg-6 px-3">
             <label for="type" class="form-label">Date d'Expiration</label>
-            <input type="text" class="form-control" #date_exp>
+            <input type="date" class="form-control" formControlName="date_exp">
+            <div *ngIf="f.date_exp.touched && f.date_exp.invalid" class="alert alert-danger">
+              <div *ngIf="f.date_exp.errors?.required">*Date exp is required.</div>
+            </div>
           </div>
-          <div class="mb-2 col-lg-6 px-3">
-            <label for="type" class="form-label">Fabricant</label>
-            <input type="text" class="form-control" placeholder="lefabricant de vaccin" #fabricant>
-          </div>
+
 
           <div class="ms-lg-5 pt-3">
             <div class="my-4 col-lg-6 text-center ms-lg-5">
-              <button type="button" class="btn btn-success ms-lg-5"
-                (click)="add(nom.value ,type.value, date_fab.value,date_exp.value,fabricant.value);nom.value='';type.value=''; date_fab.value='';date_exp.value='';fabricant.value=''">Ajouter</button>
+              <button type="submit" class="btn btn-success ms-lg-5">Ajouter</button>
             </div>
           </div>
 

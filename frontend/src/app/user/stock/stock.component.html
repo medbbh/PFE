@@ -1,0 +1,42 @@
+<app-home></app-home>
+
+<div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
+
+  <h6 class="position-absolute top-0 start-0 translate-middle ps-5 ms-5 pb-4">Le Stock des vaccins</h6>
+
+
+  <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn">
+    <button type="button" class="btn btn-outline-primary py-2" routerLink="/stock/create">Ajouter un nouveaux
+      stock</button>
+  </div>
+
+  <table class="table ">
+    <thead>
+
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom de Vaccin</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Lieu</th>
+        <th scope="col">Date de Production</th>
+        <th scope="col">Date d'expiration</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of stocks ; let i = index">
+        <td scope="row">{{i + 1}}</td>
+        <td>{{ stock.nomvaccin }}</td>
+        <td>{{ stock.quantite }}</td>
+        <td>{{ stock.lieu }}</td>
+        <td>{{stock.dateproduction}}</td>
+        <td>{{stock.dateexpiration}}</td>
+        <td>
+          <button routerLink="edit/{{stock.id}}" class="btn btn-info text-white">Edit</button>
+          <button class="btn btn-danger ms-2" (click)="deleteStock(stock.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>

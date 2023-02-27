@@ -28,8 +28,10 @@ export class NewCentreComponent implements OnInit {
     };
     this.centreservice.addCentre(this.centres as any).subscribe(centre => {
       this.centres = centre;
+      this.router.navigateByUrl('/admin/centre')
     });
     // console.log(this.centres);
+
   };
 
 }

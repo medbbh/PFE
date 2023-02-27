@@ -6,36 +6,47 @@
       <div class="position-absolute top-0 end-0 pt-3 pe-auto">
         <fa-icon [icon]="faArrowLeft" routerLink="/admin/vaccin" role="button"></fa-icon>
       </div>
-      <h5 class="mt-3 mb-5 col-lg-12 text-center">Ajouter un vaccin</h5>
+      <h5 class="mt-3 mb-5 col-lg-12 text-center">Modifier les info du vaccin</h5>
 
-      <form class="col-lg-12 p-3">
+      <form class="col-lg-12 p-3" [formGroup]="form" (ngSubmit)="submit()">
         <div class="row">
 
           <div class="mb-2 col-lg-6 px-3">
             <label for="nom" class="form-label">Nom de Vaccin</label>
-            <input type="text" class="form-control"  placeholder="le nom de vaccin" [(ngModel)]="vaccin.nom" name="nom" #nom>
-          </div>
-          <div class="mb-2 col-lg-6 px-3">
-            <label for="localisation" class="form-label">Type</label>
-            <input type="text" class="form-control" placeholder="le type de vaccin" [(ngModel)]="vaccin.type" name="type" #type>
-          </div>
-          <div class="mb-2 col-lg-6 px-3">
-            <label for="type" class="form-label">Date de Production</label>
-            <input type="text" class="form-control" [(ngModel)]="vaccin.date_fab" name="date_fab" #date_fab>
-          </div>
-          <div class="mb-2 col-lg-6 px-3">
-            <label for="type" class="form-label">Date d'Expiration</label>
-            <input type="text" class="form-control" [(ngModel)]="vaccin.date_exp" name="date_exp" #date_exp>
+            <input type="text" class="form-control" formControlName="nom" [(ngModel)]="vaccin.nom"
+              placeholder="le nom de vaccin" #nom>
+            <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+              <div *ngIf="f.nom.errors?.required">*Name is required.</div>
+            </div>
           </div>
           <div class="mb-2 col-lg-6 px-3">
             <label for="type" class="form-label">Fabricant</label>
-            <input type="text" class="form-control" [(ngModel)]="vaccin.fabricant" name="fabricant" placeholder="lefabricant de vaccin" #fabricant>
+            <input type="text" class="form-control" formControlName="fabricant" [(ngModel)]="vaccin.fabricant" placeholder="lefabricant de vaccin"
+              #fabricant>
+            <div *ngIf="f.fabricant.touched && f.fabricant.invalid" class="alert alert-danger">
+              <div *ngIf="f.fabricant.errors?.required">*Fabricant is required.</div>
+            </div>
           </div>
+          <div class="mb-2 col-lg-6 px-3">
+            <label for="type" class="form-label">Date de Production</label>
+            <input type="date" class="form-control" formControlName="date_fab" [(ngModel)]="vaccin.date_fab" #date_fab>
+            <div *ngIf="f.date_fab.touched && f.date_fab.invalid" class="alert alert-danger">
+              <div *ngIf="f.date_fab.errors?.required">*Date fab is required.</div>
+            </div>
+          </div>
+          <div class="mb-2 col-lg-6 px-3">
+            <label for="type" class="form-label">Date d'Expiration</label>
+            <input type="date" class="form-control" formControlName="date_exp" [(ngModel)]="vaccin.date_exp" #date_exp>
+            <div *ngIf="f.date_exp.touched && f.date_exp.invalid" class="alert alert-danger">
+              <div *ngIf="f.date_exp.errors?.required">*Date exp is required.</div>
+            </div>
+          </div>
+
 
           <div class="ms-lg-5 pt-3">
             <div class="my-4 col-lg-6 text-center ms-lg-5">
-              <button type="button" class="btn btn-success ms-lg-5"
-                (click)="update(nom.value ,type.value, date_fab.value,date_exp.value,fabricant.value)">Modifier</button>
+              <button type="submit" class="btn btn-success ms-lg-5">Ajouter</button>
+
             </div>
           </div>
 
