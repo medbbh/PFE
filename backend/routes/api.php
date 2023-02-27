@@ -65,7 +65,6 @@ Route::delete('/stock/{id}',[ StockController::class, 'delete']);
 Route::get('/stock/{id}',[ StockController::class, 'get']);
 Route::put('/stock/{id}',[ StockController::class, 'update']);
 
-<<<<<<< HEAD
 //person vaccinee
 
 Route::get('/person',[ PersonController::class, 'getAll']);
@@ -73,7 +72,6 @@ Route::post('/person',[ PersonController::class, 'create']);
 Route::delete('/person/{id}',[ PersonController::class, 'delete']);
 Route::get('/person/{id}',[ PersonController::class, 'get']);
 Route::put('/person/{id}',[ PersonController::class, 'update']);
-=======
 
 
 
@@ -92,4 +90,3 @@ Route::delete('/user/{id}' , [UserController::class ,'destroy']);
 Route::put('/user/{id}',[ UserController::class, 'update']);
 
 
->>>>>>> e23b5646eecc869b6492dc3b8d7f7e7b822f7020

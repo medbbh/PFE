@@ -1,9 +1,5 @@
 import { EditCentreComponent } from './admin/edit-centre/edit-centre.component';
-<<<<<<< HEAD
-import { NgModule, } from '@angular/core';
-=======
 import { NgModule } from '@angular/core';
->>>>>>> e23b5646eecc869b6492dc3b8d7f7e7b822f7020
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -23,12 +19,6 @@ import { CentresComponent } from './admin/centre/centre.component';
 import { VaccinComponent } from './admin/vaccin/vaccin.component';
 import { NewVaccinComponent } from './admin/new-vaccin/new-vaccin.component';
 import { EditVaccinComponent } from './admin/edit-vaccin/edit-vaccin.component';
-<<<<<<< HEAD
-
-import { EditComponent } from './stock/edit/edit.component';
-import { CreateComponent } from './stock/create/create.component';
-import { IndexComponent } from './stock/index/index.component';
-import { StockModule } from './stock/stock.module';
 
 
 import { NewComponent } from './person-vaccinee/new/new.component';
@@ -36,7 +26,6 @@ import { ModifyComponent } from './person-vaccinee/modify/modify.component';
 import { PersonComponent } from './person-vaccinee/person/person.component';
 import { PersonVaccineeModule } from './person-vaccinee/person-vaccinee.module';
 
-=======
 import { NewStockComponent } from './user/new-stock/new-stock.component';
 import { EditStockComponent } from './user/edit-stock/edit-stock.component';
 import { StockComponent } from './user/stock/stock.component';
@@ -44,7 +33,6 @@ import { UtilisateurComponent } from './admin/utilisateur/utilisateur.component'
 import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
->>>>>>> e23b5646eecc869b6492dc3b8d7f7e7b822f7020
 
 
 
@@ -134,18 +122,12 @@ const routes: Routes = [
     VaccinComponent,
     NewVaccinComponent,
     EditVaccinComponent,
-<<<<<<< HEAD
-    IndexComponent,
-    CreateComponent,
-    EditComponent
-=======
     NewStockComponent,
     EditStockComponent,
     StockComponent,
     UtilisateurComponent,
     ProfileComponent,
     AdminProfileComponent
->>>>>>> e23b5646eecc869b6492dc3b8d7f7e7b822f7020
   ],
   imports: [
     BrowserModule,
@@ -157,12 +139,7 @@ const routes: Routes = [
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
-<<<<<<< HEAD
-   
-=======
-
->>>>>>> e23b5646eecc869b6492dc3b8d7f7e7b822f7020
-  ],
+     ],
   providers: [],
   bootstrap: [AppComponent]
 })
