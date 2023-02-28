@@ -39,6 +39,7 @@ class UserController extends Controller
 
 
     public function login(Request $request){
+
         $credentials = $request->only('email','password');
         try{
              if(!JWTAuth::attempt($credentials)){
@@ -62,6 +63,7 @@ class UserController extends Controller
         $data['token'] = auth()->claims([
             'user_id' =>$user->id,
             'user_email' =>$user->email,
+            'user_type' =>$user->userType
         ])->attempt($credentials);
 
         $response['data'] =$data;

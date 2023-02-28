@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CanActivate, Router } from "@angular/router";
+import { CanActivate, Router ,ActivatedRoute} from "@angular/router";
 
 
 @Injectable({
@@ -7,7 +7,7 @@ import { CanActivate, Router } from "@angular/router";
 })
 
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   token: any;
 
@@ -21,5 +21,7 @@ export class AuthGuard implements CanActivate {
       return this.router.navigate(['/login'])
     }
 
+
   }
+
 }

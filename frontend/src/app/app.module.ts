@@ -26,66 +26,78 @@ import { UtilisateurComponent } from './admin/utilisateur/utilisateur.component'
 import { AuthGuard } from './auth.guard';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { UserGuard } from './user.guard';
+import { AdminGuard } from './admin.guard';
 
 
 
 const routes: Routes = [
-  {
-    path: '', component: HomeComponent, canActivate: [AuthGuard]
-  },
+
   {
     path: 'login', component: LoginComponent
-  }, {
-
+  },
+  {
     path: 'register', component: RegisterComponent
   },
 
 
   // admin routes
   {
-    path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard],
+    path: 'admin/home', component: AdminHomeComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path: 'admin/centre', component: CentresComponent, canActivate: [AuthGuard]
+    path: 'admin/centre', component: CentresComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path: 'admin/add-centre', component: NewCentreComponent, canActivate: [AuthGuard]
+    path: 'admin/add-centre', component: NewCentreComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path: 'admin/edit-centre/:centreId', component: EditCentreComponent, canActivate: [AuthGuard]
+    path: 'admin/edit-centre/:centreId', component: EditCentreComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path: 'admin/vaccin', component: VaccinComponent, canActivate: [AuthGuard]
+    path: 'admin/vaccin', component: VaccinComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path: 'admin/add-vaccin', component: NewVaccinComponent, canActivate: [AuthGuard]
+    path: 'admin/add-vaccin', component: NewVaccinComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path: 'admin/edit-vaccin/:vaccinId', component: EditVaccinComponent, canActivate: [AuthGuard]
+    path: 'admin/edit-vaccin/:vaccinId', component: EditVaccinComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path : 'admin/utilisateur', component : UtilisateurComponent
+    path: 'admin/utilisateur', component: UtilisateurComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path: 'admin/profile/:id', component: AdminProfileComponent
+    path: 'admin/profile/:id', component: AdminProfileComponent, canActivate: [AuthGuard, AdminGuard]
   },
 
 
+// user routes
 
+  {
+    path: '', component: HomeComponent, canActivate: [AuthGuard,UserGuard]
+  },
+  {
+    path: 'stock', component: StockComponent, canActivate: [AuthGuard,UserGuard]
+  },
+  {
+    path: 'stock/create', component: NewStockComponent, canActivate: [AuthGuard,UserGuard]
+  },
+  {
+    path: 'stock/edit/:idStock', component: EditStockComponent, canActivate: [AuthGuard,UserGuard]
+  },
 
-
-  { path: 'stock', component: StockComponent },
-  { path: 'stock/create', component: NewStockComponent },
-  { path: 'stock/edit/:idStock', component: EditStockComponent },
-
-  { path: 'profile/:id', component: ProfileComponent },
+  {
+    path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard,UserGuard]
+  },
 
 
 
 
 
   // 404
-  { 'path': '**', component: NotfoundComponent }
+  {
+    'path': '**', component: NotfoundComponent ,canActivate: [AuthGuard]
+  }
 
 ]
 
