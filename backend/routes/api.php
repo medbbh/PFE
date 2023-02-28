@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CentreController;
 use App\Http\Controllers\VaccinController;
 use App\Http\Controllers\API\StockController;
+use App\Http\Controllers\API\PersonController;
 use App\Models\Centre;
 use App\Http\Resources\CentreResource;
 use App\Http\Resources\VaccinResource;
@@ -64,6 +65,13 @@ Route::delete('/stock/{id}',[ StockController::class, 'delete']);
 Route::get('/stock/{id}',[ StockController::class, 'get']);
 Route::put('/stock/{id}',[ StockController::class, 'update']);
 
+//person vaccinee
+
+Route::get('/person',[ PersonController::class, 'getAll']);
+Route::post('/person',[ PersonController::class, 'create']);
+Route::delete('/person/{id}',[ PersonController::class, 'delete']);
+Route::get('/person/{id}',[ PersonController::class, 'get']);
+Route::put('/person/{id}',[ PersonController::class, 'update']);
 
 
 

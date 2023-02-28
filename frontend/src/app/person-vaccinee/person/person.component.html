@@ -1,0 +1,46 @@
+<section>
+
+    <div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
+      <h1>Les Personnes Vaccinée :</h1>
+       <br>
+       <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn">
+        <button type="button" class="btn btn-outline-primary py-2" routerLink="/person-vaccinee/new">Ajouter nouveaux person</button>
+       </div>
+      <br>
+      
+      <table class="table ">
+        <tr>
+          <th>ID</th>
+          <th>NNI</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Age</th>
+          <th>Sex</th>
+          <th>Nom de vaccin</th>
+          <th>Nombre de dose</th>
+          <th>Terminer le Vaccin</th>
+          <th>Date Prochaine</th>
+          <th>Date Actuel</th>
+          <th width="200px">Action</th>
+        </tr>
+        <tr *ngFor="let person of persons">
+          <td>{{ person.id }}</td>
+          <td>{{person.nni}}</td>
+          <td>{{ person.name }}</td>
+          <td>{{ person.prenom }}</td>
+          <td>{{ person.age }}</td>
+          <td>{{person.sex}}</td>
+          <td>{{person.nomvaccin}}</td>
+          <td>{{person.nbrdose}}</td>
+          <td>{{person.terminervaccin}}</td>
+          <td>{{person.dateprochaine}}</td>
+          <td>{{person.dateactuel}}</td>
+          <td>
+            <a href="#" routerLink="/modify/{{person.id}}" class="btn btn-primary">Edit</a>
+            <button type="button" (click)="deletePerson(person.id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </table>
+      </div>
+   </section>
+  
