@@ -1,5 +1,5 @@
 import { EditCentreComponent } from './admin/edit-centre/edit-centre.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -21,11 +21,6 @@ import { NewVaccinComponent } from './admin/new-vaccin/new-vaccin.component';
 import { EditVaccinComponent } from './admin/edit-vaccin/edit-vaccin.component';
 
 
-import { NewComponent } from './person-vaccinee/new/new.component';
-import { ModifyComponent } from './person-vaccinee/modify/modify.component';
-import { PersonComponent } from './person-vaccinee/person/person.component';
-import { PersonVaccineeModule } from './person-vaccinee/person-vaccinee.module';
-
 import { NewStockComponent } from './user/new-stock/new-stock.component';
 import { EditStockComponent } from './user/edit-stock/edit-stock.component';
 import { StockComponent } from './user/stock/stock.component';
@@ -35,6 +30,11 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { UserGuard } from './user.guard';
 import { AdminGuard } from './admin.guard';
+import { NewPersonneComponent } from './user/new-personne/new-personne.component';
+import { PersonneComponent } from './user/personne/personne.component';
+import { EditPersonneComponent } from './user/edit-personne/edit-personne.component';
+import { QRCodeModule } from 'angular2-qrcode';
+import { PersonInfoComponent } from './user/person-info/person-info.component';
 
 
 
@@ -76,17 +76,9 @@ const routes: Routes = [
   {
     path: 'admin/profile/:id', component: AdminProfileComponent, canActivate: [AuthGuard, AdminGuard]
   },
-  {
-    path: 'person-vaccinee/person' ,component:PersonComponent
-  },
-  {
-    path: 'person-vaccinee/new' , component:NewComponent
-  },
-  {
-    path: 'modify/:idPerson' ,component:ModifyComponent
-  },
-  
- 
+
+
+
 
 
 // user routes
@@ -107,6 +99,11 @@ const routes: Routes = [
   {
     path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard,UserGuard]
   },
+  // { path: 'person-vaccinee' Component : },
+  { path: 'person-vaccinee/person', component: PersonneComponent },
+  { path: 'person-vaccinee/new', component: NewPersonneComponent },
+  { path: 'person-vaccinee/modify/:idPerson', component: EditPersonneComponent },
+  { path: 'person-vaccinee/info/:idPerson', component: PersonInfoComponent },
 
 
 
@@ -139,7 +136,11 @@ const routes: Routes = [
     StockComponent,
     UtilisateurComponent,
     ProfileComponent,
-    AdminProfileComponent
+    AdminProfileComponent,
+    NewPersonneComponent,
+    PersonneComponent,
+    EditPersonneComponent,
+    PersonInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -151,7 +152,8 @@ const routes: Routes = [
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
-     ],
+    QRCodeModule,
+   ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import {  Observable, throwError } from 'rxjs';
+import {  Observable, from, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { PersonVaccinee } from './person-vaccinee';
+import { PersonVaccinee } from '../user/personne-vaccinee';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonVaccineeService {
+export class PersonneVaccineeService {
 
   private apiURL = "http://localhost:8000/api/person/";
 
@@ -65,5 +65,4 @@ export class PersonVaccineeService {
    }
    return throwError(errorMessage);
  }
-
 }

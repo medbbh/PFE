@@ -14,32 +14,23 @@
           <div class="mb-2 col-lg-6 px-3">
             <label for="nom" class="form-label">Nom de Vaccin</label>
             <input type="text" class="form-control" formControlName="nom" placeholder="le nom de vaccin">
-            <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
-              <div *ngIf="f.nom.errors?.required">*Name is required.</div>
-            </div>
           </div>
 
           <div class="mb-2 col-lg-6 px-3">
             <label for="type" class="form-label">Fabricant</label>
             <input type="text" class="form-control" formControlName="fabricant" placeholder="lefabricant de vaccin">
-            <div *ngIf="f.fabricant.touched && f.fabricant.invalid" class="alert alert-danger">
-              <div *ngIf="f.fabricant.errors?.required">*Fabricant is required.</div>
-            </div>
+
           </div>
 
           <div class="mb-2 col-lg-6 px-3">
             <label for="type" class="form-label">Date de Production</label>
             <input type="date" class="form-control" formControlName="date_fab">
-            <div *ngIf="f.date_fab.touched && f.date_fab.invalid" class="alert alert-danger">
-              <div *ngIf="f.date_fab.errors?.required">*Date fab is required.</div>
-            </div>
+
           </div>
           <div class="mb-2 col-lg-6 px-3">
             <label for="type" class="form-label">Date d'Expiration</label>
             <input type="date" class="form-control" formControlName="date_exp">
-            <div *ngIf="f.date_exp.touched && f.date_exp.invalid" class="alert alert-danger">
-              <div *ngIf="f.date_exp.errors?.required">*Date exp is required.</div>
-            </div>
+            
           </div>
 
 
