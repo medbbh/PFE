@@ -151,7 +151,8 @@ const routes: Routes = [
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
-     ],
+     
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
