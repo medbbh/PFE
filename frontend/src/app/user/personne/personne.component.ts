@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
-import { PersonVaccineeService } from '../person-vaccinee.service';
-import { PersonVaccinee } from '../person-vaccinee';
+import { PersonneVaccineeService } from '../../service/personne-vaccinee.service';
+import { PersonVaccinee } from '../personne-vaccinee';
 
 @Component({
-  selector: 'app-person',
-  templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  selector: 'app-personne',
+  templateUrl: './personne.component.html',
+  styleUrls: ['./personne.component.css']
 })
-export class PersonComponent implements OnInit {
+export class PersonneComponent implements OnInit {
 
   persons: PersonVaccinee[] = [];
 
+
   // constructor() { }
-  constructor(public personvaccineeService: PersonVaccineeService) { }
+  constructor(public personvaccineeService: PersonneVaccineeService) { }
 
   ngOnInit(): void {
     this.personvaccineeService.getAll().subscribe((data: PersonVaccinee[])=>{

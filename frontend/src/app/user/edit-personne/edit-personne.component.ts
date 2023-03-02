@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-
-import { PersonVaccineeService } from '../person-vaccinee.service';
+import { PersonneVaccineeService } from 'src/app/service/personne-vaccinee.service';
+import { PersonVaccinee } from '../personne-vaccinee'
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { PersonVaccinee } from '../person-vaccinee';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-modify',
-  templateUrl: './modify.component.html',
-  styleUrls: ['./modify.component.css']
+  selector: 'app-edit-personne',
+  templateUrl: './edit-personne.component.html',
+  styleUrls: ['./edit-personne.component.css']
 })
-export class ModifyComponent implements OnInit {
+export class EditPersonneComponent implements OnInit {
 
   id!: any;
   personvaccinee!: PersonVaccinee;
   form!: FormGroup;
 
   constructor(
-    public personvaccineeService: PersonVaccineeService,
+    public personvaccineeService: PersonneVaccineeService,
     private route: ActivatedRoute,
     private router: Router
   ) { }

@@ -31,6 +31,7 @@ class PersonController extends Controller
           'message' => "Successfully created",
           'success' => true
       ], 200);
+      
     }
 
     public function delete($id){
