@@ -3,6 +3,7 @@ import { PersonneVaccineeService } from 'src/app/service/personne-vaccinee.servi
 import { PersonVaccinee } from '../personne-vaccinee'
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-edit-personne',
@@ -10,7 +11,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./edit-personne.component.css']
 })
 export class EditPersonneComponent implements OnInit {
-
+  // font awesome icons
+  faArrowLeft = faArrowLeft
+// end
   id!: any;
   personvaccinee!: PersonVaccinee;
   form!: FormGroup;
@@ -28,14 +31,14 @@ export class EditPersonneComponent implements OnInit {
     });
 
     this.form = new FormGroup({
-      nni: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
-      name:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      prenom: new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      age: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
-      sex:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      nomvaccin:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      nbrdose: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
-      terminervaccin:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
+      nni: new FormControl('', [ Validators.required ]),
+      name:  new FormControl('', [ Validators.required ]),
+      prenom: new FormControl('', [ Validators.required ]),
+      age: new FormControl('', [ Validators.required ]),
+      sex:  new FormControl('', [ Validators.required ]),
+      nomvaccin:  new FormControl('', [ Validators.required ]),
+      nbrdose: new FormControl('', [ Validators.required ]),
+      terminervaccin:  new FormControl('', [ Validators.required ]),
       dateprochaine: new FormControl('', [ Validators.required ]),
       dateactuel: new FormControl('', [ Validators.required ]),
     });

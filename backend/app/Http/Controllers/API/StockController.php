@@ -39,11 +39,7 @@ class StockController extends Controller
         ], 200);
     }
 
-    public function get($id)
-    {
-        $data = Stock::find($id);
-        return response()->json($data, 200);
-    }
+    
 
     public function update(Request $request, $id)
     {

@@ -1,3 +1,5 @@
+<app-admin-home></app-admin-home>
+
 <div class="mx-3 mb-5">
   <div class="container bg-white rounded d-flex justify-content-center">
     <div class="row">
@@ -21,21 +23,11 @@
             [ngClass]="{'is-invalid': submitted && f['email'].errors}">
 
         </div>
-
-        <!-- centre input -->
-        <div class="form-group mb-2 col-lg-12">
-          <label for="centre">Centre</label>
-          <input type="text" class="form-control" formControlName="centre" name="centre" placeholder="Enter centre"
-          [ngClass]="{'is-invalid': submitted && f['centre'].errors}">
-
-        </div>
-
         <!-- password input -->
         <div class="form-group  mb-2 col-lg-12">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password"
             [ngClass]="{'is-invalid': submitted && f['password'].errors}">
-
 
 
 
@@ -46,22 +38,12 @@
           <label for="comfirmPsswd">Confirm password</label>
           <input type="password" class="form-control" formControlName="confirmpassword" name="confirmpassword"
             placeholder="Confirm password" [ngClass]="{'is-invalid': submitted && f['confirmpassword'].errors}">
-            <div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger">
-              <div *ngIf="f.confirm_password.errors?.required">Password is required.</div>
-              <div *ngIf="f.confirm_password.errors?.confirmedValidator">Password and Confirm Password must be match.</div>
-          </div>
+
         </div>
 
         <!-- submit button -->
         <div class="col-lg-12 my-4 d-flex align-items-center justify-content-center">
           <button type="submit" class="btn btn-primary">S'inscrire</button>
-        </div>
-        <!-- ou bien connecter -->
-        <div class="col-lg-12">
-          <p><span>ou</span></p>
-          <div class="my-4 d-flex justify-content-center">
-            <a routerLink="/login" class="btn btn-dark text-semibold">Connecter</a>
-          </div>
         </div>
 
       </form>

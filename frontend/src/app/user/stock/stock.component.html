@@ -1,5 +1,11 @@
 <app-home></app-home>
 
+<!-- <div *ngFor="let stock of stocks">
+  <div *ngIf="stock.quantite <=50">
+    <h3>le stock  + {{stock.nomvaccin}} + est vare9</h3>
+  </div>
+</div> -->
+
 <div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
 
   <h6 class="position-absolute top-0 start-0 translate-middle ps-5 ms-5 pb-4">Le Stock des vaccins</h6>
@@ -24,7 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let stock of stocks ; let i = index">
+      <tr *ngFor="let stock of stocks ; let i = index" [ngClass]="{'outOfStock': stock.quantite <= 50 }">
         <td scope="row">{{i + 1}}</td>
         <td>{{ stock.nomvaccin }}</td>
         <td>{{ stock.quantite }}</td>

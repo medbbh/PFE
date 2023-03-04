@@ -41,14 +41,23 @@
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
             <label for="sex" class="form-label">Sex:</label>
-            <input formControlName="sex" id="sex" type="text" class="form-control">
+            <!-- <input formControlName="sex" id="sex" type="text" class="form-control"> -->
+            <select class="form-select" formControlName="sex" id="sex">
+              <option value="" disabled selected>Selectionnez votre sex</option>
+              <option value="Homme">Homme</option>
+              <option value="Femme">Femme</option>
+            </select>
 
           </div>
 
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
             <label for="nomvaccin" class="form-label">Nom de vaccin:</label>
-            <input formControlName="nomvaccin" id="nomvaccin" type="text" class="form-control">
+            <!-- <input formControlName="nomvaccin" id="nomvaccin" type="text" class="form-control"> -->
+            <select class="form-select" formControlName="nomvaccin" id="nomvaccin">
+              <option value="" disabled selected>Selectionnez le vaccin</option>
+              <option value="{{nom.nom}}" *ngFor="let nom of nomVaccin">{{nom.nom}}</option>
+            </select>
 
           </div>
 
@@ -68,21 +77,23 @@
 
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
-            <label for="dateprochaine" class="form-label">Date Prochaine:</label>
-            <input formControlName="dateprochaine" id="dateprochaine" type="date" class="form-control">
-          </div>
-
-          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
-
             <label for="dateactuel" class="form-label">Date Actuel:</label>
             <input formControlName="dateactuel" id="dateactuel" type="date" class="form-control">
 
           </div>
 
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="dateprochaine" class="form-label">Date Prochaine:</label>
+            <input formControlName="dateprochaine" id="dateprochaine" type="date" class="form-control">
+          </div>
+
+
+
           <div class="ms-lg-5 ms-md-5">
             <div class="my-4 col-lg-6 col-md-6 col-sm-12 text-center ms-lg-5 ms-md-5">
 
-              <button class="btn btn-success ms-lg-5 ms-md-5" type="submit" [disabled]="!form.valid">Ajouter</button>
+              <button class="btn btn-success ms-lg-5 ms-md-5" type="submit">Ajouter</button>
             </div>
           </div>
         </div>

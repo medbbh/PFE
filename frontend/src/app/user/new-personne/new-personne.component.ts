@@ -3,6 +3,8 @@ import { PersonneVaccineeService } from '../../service/personne-vaccinee.service
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { Vaccin } from 'src/app/admin/vaccin';
+import { vaccinService } from './../../service/vaccin.service';
 
 @Component({
   selector: 'app-new-personne',
@@ -15,9 +17,13 @@ export class NewPersonneComponent implements OnInit {
   // end
   form!: FormGroup;
 
+  nomVaccin: Vaccin[] = []
+
+
   constructor(
     public personvaccineeService: PersonneVaccineeService,
-    private router: Router
+    private router: Router,
+    private vaccinService : vaccinService,
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +39,11 @@ export class NewPersonneComponent implements OnInit {
       terminervaccin:  new FormControl('', [ Validators.required,]),
       dateprochaine: new FormControl('', [ Validators.required ]),
       dateactuel: new FormControl('', [ Validators.required ]),
+    });
+
+    this.vaccinService.getAll().subscribe((res: Vaccin[]) => {
+      this.nomVaccin = res;
+      console.log(this.nomVaccin);
     });
 
   }

@@ -1,16 +1,17 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ConfirmedValidator } from '../confirmed.validator';
-import { DataService } from '../service/data.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmedValidator } from 'src/app/confirmed.validator';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-new-user',
+  templateUrl: './new-user.component.html',
+  styleUrls: ['./new-user.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class NewUserComponent implements OnInit {
+
   form!: FormGroup;
   submitted = false
   data: any
@@ -24,12 +25,11 @@ export class RegisterComponent implements OnInit {
       {
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        centre: ['', [Validators.required]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         confirmpassword: ['', Validators.required]
 
       }, {
-      validator: ConfirmedValidator('password', 'confirmpassword')
+        validator: ConfirmedValidator('password', 'confirmpassword')
     }
     )
   }
@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
           timeOut : 2000,
           progressBar : true
         })
-        this.router.navigate(['login'])
+        this.router.navigate(['/admin/utilisateur'])
 
       }else {
         this.toastr.error(JSON.stringify(this.data.message),JSON.stringify(this.data.code), {
@@ -66,11 +66,11 @@ export class RegisterComponent implements OnInit {
       this.submitted = false
       this.form.get('name')?.reset()
       this.form.get('email')?.reset()
-      this.form.get('centre')?.reset()
       this.form.get('password')?.reset()
       this.form.get('confirmpassword')?.reset()
 
     })
 
   }
+
 }

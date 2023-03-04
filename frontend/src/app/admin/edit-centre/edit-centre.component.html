@@ -22,7 +22,12 @@
           </div>
           <div class="mb-2 col-lg-12">
             <label for="type" class="form-label">Type</label>
-            <input type="text" class="form-control" [(ngModel)]="centre.type" name="type" #type>
+            <select class="form-select" aria-label="Default select example" name="type" #type>
+              <option  value="{{centre.type}}" selected>{{centre.type}}</option>
+              <option value="Hopital">Hopital</option>
+              <option value="Centre de centé">Centre de centé</option>
+              <option value="Poste de centé">Poste de centé</option>
+            </select>
           </div>
 
           <div class="ms-lg-2">

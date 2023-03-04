@@ -33,3 +33,13 @@
     </div>
   </div>
 </nav>
+
+<!-- stock notification -->
+<div class="stockAlert" *ngFor="let stock of stocks">
+  <div class="alert alert-danger alert-dismissible fade show d-flex justify-content-between p-0 m-1" role="alert" *ngIf="stock.quantite <=50">
+    <p class="pt-3 ps-3"> le stock de {{stock.nomvaccin}} est sur le point d'épuiser</p>
+    <button type="button" class="close btn me-4 fs-3" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+  </div>
+</div>
+
+
