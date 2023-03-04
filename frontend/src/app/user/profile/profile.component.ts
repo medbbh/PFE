@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
 
 
 
-  update(nom:string ,email:string){
+  update(nom:string ,email:string,centre:string){
     this.profileService.update(this.id, this.user).subscribe(
       res=>{
             this.router.navigate(['/']);

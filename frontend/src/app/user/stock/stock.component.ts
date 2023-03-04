@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from 'src/app/service/stock.service';
 import { Stock } from '../stock';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'app-stock',
@@ -10,16 +11,17 @@ import { Stock } from '../stock';
 export class StockComponent implements OnInit {
 
   stocks: Stock[] = [];
+  id:any = 0
 
-  // constructor() { }
-  constructor(public stockService: StockService) { }
+  constructor(public stockService: StockService,public notificationService : NotificationService,notifierService: NotificationService) { }
 
   ngOnInit(): void {
     this.stockService.getAll().subscribe((data: Stock[])=>{
       this.stocks = data;
-      console.log(this.stocks);
+      // console.log(this.stocks);
     })
-  }
+
+}
 
   deleteStock(id: number){
     this.stockService.delete(id).subscribe(res => {
@@ -27,5 +29,6 @@ export class StockComponent implements OnInit {
          console.log('Stocks deleted successfully!');
     })
   }
+
 
 }

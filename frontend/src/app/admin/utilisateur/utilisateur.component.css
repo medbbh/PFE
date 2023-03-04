@@ -9,3 +9,7 @@ button{
 .add-btn button{
   font-size: 12px;
 }
+
+table button{
+  color: white;
+}

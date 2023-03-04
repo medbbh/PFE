@@ -85,8 +85,13 @@ Route::get('/user/{id}',[UserController::class ,'get']);
 
 Route::delete('/user/{id}' , [UserController::class ,'destroy']);
 
-// Route::put('/madeAdmin/{id}',[ UserController::class, 'madeAdmin']);
+Route::put('/madeAdmin/{id}',[ UserController::class, 'madeAdmin']);
+
+Route::put('/deleteAdmin/{id}',[ UserController::class, 'deleteAdmin']);
 
 Route::put('/user/{id}',[ UserController::class, 'update']);
 
 
+// notification
+
+Route::get('/send',[ UserController::class,'send']);

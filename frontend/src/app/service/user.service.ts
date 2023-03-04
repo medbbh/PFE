@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
+
   constructor(private http : HttpClient) { }
 
   httpOptions = {
@@ -34,11 +35,12 @@ export class UserService {
     return this.http.delete(environment.apiUrl +'/api/user/' + id,this.httpOptions);
   }
 
-  madeAdmin(id: string | number, user: any): Observable<User> {
-    return this.http.put<User>(environment.apiUrl +'/api/madeAdmin/' + id, JSON.stringify(user), this.httpOptions)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+  madeAdmin(id:number){
+    return this.http.put(environment.apiUrl +'/api/madeAdmin/' + id,this.httpOptions);
+  }
+
+  deleteAdmin(id:number){
+    return this.http.put(environment.apiUrl +'/api/deleteAdmin/' + id,this.httpOptions);
   }
 
   errorHandler(error: { error: { message: string; }; status: any; message: any; }) {

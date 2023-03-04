@@ -14,52 +14,40 @@
 
           <div class="form-group mb-2 col-lg-6 px-3">
             <label for="nomvaccin" class="form-label">Nom de vaccin:</label>
+
+
             <select class="form-select" formControlName="nomvaccin" aria-label="Default select example">
-              <option value="{{nom.nom}}" *ngFor="let nom of nomVaccin">{{nom.nom}}</option>
-            </select>
-            <div *ngIf="f.nomvaccin.touched && f.nomvaccin.invalid" class="alert alert-danger">
-              <div *ngIf="f.nomvaccin.errors?.required">*Name is required.</div>
-            </div>
+              <option value="" disabled selected>Selectionnez le vaccin</option>
+                <option value="{{nom.nom}}"  *ngFor="let nom of nomVaccin">{{nom.nom}}</option>
+              </select>
       </div>
 
           <div class="mb-2 col-lg-6">
               <label for="quantite" class="form-label">Quantité</label>
-              <input formControlName="quantite" [(ngModel)]="stock.quantite" id="quantite" type="text"
-                class="form-control">
-              <div *ngIf="f.quantite.touched && f.quantite.invalid" class="alert alert-danger">
-                <div *ngIf="f.quantite.errors?.required">*quantite is required.</div>
-                <div *ngIf="f.quantite.errors?.pattern">*The quantite must be a valid quantite address.</div>
-              </div>
+              <input formControlName="quantite" [(ngModel)]="stock.quantite" id="quantite" type="text" class="form-control">
+
             </div>
 
             <div class="form-group mb-2 col-lg-6 px-3">
               <label for="lieu" class="form-label">Lieu:</label>
               <select class="form-select" formControlName="lieu" aria-label="Default select example">
-                <option value="{{centre.nom + '--' + centre.localisation}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.localisation}}</option>
+              <option value="" disabled selected>Selectionnez le lieu</option>
+              <option value="{{centre.nom + '--' + centre.localisation}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.localisation}}</option>
               </select>
-              <div *ngIf="f.lieu.touched && f.lieu.invalid" class="alert alert-danger">
-                <div *ngIf="f.lieu.errors?.required">*lieu is required.</div>
-            </div>
             </div>
 
           <div class="mb-2 col-lg-6">
               <label for="dateproduction" class="form-label">Date de Production:</label>
               <input [(ngModel)]="stock.dateproduction" formControlName="dateproduction" id="dateproduction" type="date"
                 class="form-control">
-              <div *ngIf="f.dateproduction.touched && f.dateproduction.invalid" class="alert alert-danger">
-                <div *ngIf="f.dateproduction.errors?.required">*dateproduction is required.</div>
-                <div *ngIf="f.dateproduction.errors?.pattern">*The dateproduction must only contain numbers.</div>
-              </div>
+
             </div>
 
           <div class="mb-2 col-lg-6">
               <label for="dateexpiration" class="form-label">Date d'expiration:</label>
               <input [(ngModel)]="stock.dateexpiration" formControlName="dateexpiration" id="dateexpiration" type="date"
                 class="form-control">
-              <div *ngIf="f.dateexpiration.touched && f.dateexpiration.invalid" class="alert alert-danger">
-                <div *ngIf="f.dateexpiration.errors?.required">*dateexpiration is required.</div>
-                <div *ngIf="f.dateexpiration.errors?.pattern">*The dateexpiration must only contain numbers.</div>
-              </div>
+
             </div>
 
           <div class="ms-lg-2">

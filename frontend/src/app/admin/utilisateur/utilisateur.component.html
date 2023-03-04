@@ -3,8 +3,11 @@
 
 <div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
 
-  <h6 class="position-absolute top-0 start-0 translate-middle ps-5 ms-4 pb-4">Les Utilisateurs</h6>
+  <h6 class="position-absolute top-0 start-0 translate-middle ps-3 ms-5 pb-4">Les Utilisateurs</h6>
 
+  <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn">
+    <button type="button" class="btn btn-outline-primary py-2" routerLink="/admin/add-user">Ajouter un nouveaux utilisateur</button>
+  </div>
 
   <table class="table table-hover mt-5">
     <thead>
@@ -12,6 +15,7 @@
         <th scope="col">#</th>
         <th scope="col">Nom d'utilisateur</th>
         <th scope="col">Email</th>
+        <th scope="col">centre</th>
         <th scope="col">User Type</th>
         <th scope="col">Action</th>
 
@@ -22,11 +26,13 @@
         <th scope="row">{{i + 1}}</th>
         <td>{{user.nom}}</td>
         <td>{{user.email}}</td>
+        <td>{{user.centre}}</td>
           <td *ngIf="user.userType == 1">Admin</td>
           <td *ngIf="user.userType == 0">User</td>
         <td>
-          <button class="btn btn-info" (click)="madeAdmin(user.id)">Edit</button>&nbsp;
-          <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+          <button class="btn btn-success me-lg-4" *ngIf="user.userType == 0" (click)="madeAdmin(user.id)">Nommer admin</button>
+          <button class="btn btn-info me-lg-4" *ngIf="user.userType == 1" (click)="deleteAdmin(user.id)">Revoquer d'admin</button>
+          <button class="btn btn-danger " (click)="deleteUser(user.id)">Delete</button>
         </td>
       </tr>
     </tbody>

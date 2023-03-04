@@ -35,7 +35,7 @@ import { PersonneComponent } from './user/personne/personne.component';
 import { EditPersonneComponent } from './user/edit-personne/edit-personne.component';
 import { QRCodeModule } from 'angular2-qrcode';
 import { PersonInfoComponent } from './user/person-info/person-info.component';
-
+import { NewUserComponent } from './admin/new-user/new-user.component';
 
 
 const routes: Routes = [
@@ -74,8 +74,12 @@ const routes: Routes = [
     path: 'admin/utilisateur', component: UtilisateurComponent, canActivate: [AuthGuard, AdminGuard]
   },
   {
+    path: 'admin/add-user', component: NewUserComponent, canActivate: [AuthGuard, AdminGuard]
+  },
+  {
     path: 'admin/profile/:id', component: AdminProfileComponent, canActivate: [AuthGuard, AdminGuard]
   },
+
 
 
 
@@ -140,7 +144,8 @@ const routes: Routes = [
     NewPersonneComponent,
     PersonneComponent,
     EditPersonneComponent,
-    PersonInfoComponent
+    PersonInfoComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,

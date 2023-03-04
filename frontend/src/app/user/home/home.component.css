@@ -1,3 +1,10 @@
 ul a {
   cursor: pointer;
 }
+
+.stockAlert
+{
+  width: 20%;
+  max-height: max-content;
+  display: inline;
+}

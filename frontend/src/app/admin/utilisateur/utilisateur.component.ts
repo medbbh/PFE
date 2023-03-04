@@ -1,9 +1,6 @@
-import { User } from './../user';
-import { HttpClient } from '@angular/common/http';
 import { UserService } from './../../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-utilisateur',
@@ -14,8 +11,9 @@ export class UtilisateurComponent implements OnInit {
   index = 0
   users:any;
   role :string | undefined
-  userType:any
+  // userType:any
   id!: number;
+
   constructor(private userService : UserService,private route : Router) { }
 
   ngOnInit(): void {
@@ -40,11 +38,22 @@ export class UtilisateurComponent implements OnInit {
   }
 
   madeAdmin(id:any){
-    this.userService.madeAdmin(this.id,this.users).subscribe(res => {
-      console.log('userType');
-      // this.router.navigateByUrl('stock');
- })
+    this.userService.madeAdmin(id).subscribe(
+      res =>{
+        this.showUsers()
+      }
+    );
   }
+
+  deleteAdmin(id:any){
+    this.userService.deleteAdmin(id).subscribe(
+      res =>{
+        this.showUsers()
+      }
+    );
+  }
+
+
 
 
 }

@@ -9,7 +9,10 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 // use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\stockNotification;
+// use Illuminate\Notifications\Notification;
+use App\Models\Stock;
 
 class UserController extends Controller
 {
@@ -26,6 +29,7 @@ class UserController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
+                'centre' => $request->centre,
                 'password' => bcrypt($request->password),
             ]);
 
@@ -38,43 +42,41 @@ class UserController extends Controller
     }
 
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
 
-        $credentials = $request->only('email','password');
-        try{
-             if(!JWTAuth::attempt($credentials)){
-                $response['status'] =0;
+        $credentials = $request->only('email', 'password');
+        try {
+            if (!JWTAuth::attempt($credentials)) {
+                $response['status'] = 0;
                 $response['code'] = 401;
-                $response['data'] =null;
+                $response['data'] = null;
                 $response['message'] = 'Email or password is incorrect';
 
                 return response()->json($response);
-
-             };
-        } catch(JWTException $e){
-            $response['data'] =null;
+            };
+        } catch (JWTException $e) {
+            $response['data'] = null;
             $response['code'] = 500;
             $response['message'] = 'Could Not Create Token';
             return response()->json($response);
-
         }
 
         $user = auth()->user();
         $data['token'] = auth()->claims([
-            'user_id' =>$user->id,
-            'user_email' =>$user->email,
-            'user_type' =>$user->userType
+            'user_id' => $user->id,
+            'user_email' => $user->email,
+            'user_type' => $user->userType
         ])->attempt($credentials);
 
-        $response['data'] =$data;
-        $response['status'] =1;
+        $response['data'] = $data;
+        $response['status'] = 1;
         $response['code'] = 200;
         $response['message'] = 'Login succesfuly';
         $response['userType'] = $response['userType'] = Auth::user()->userType;
 
 
         return response()->json($response);
-
     }
 
 
@@ -82,45 +84,103 @@ class UserController extends Controller
     {
         $data =  User::find($id);
         return response()->json($data, 200);
+    }
+    public function madeAdmin(Request $request, $id)
+    {
+        if (User::where('id', $id)->exists()) {
+            $user = User::find($id);
 
+            $user->userType = 1;
 
+            $user->save();
+            return response()->json([
+                'message' => 'record updated successfully'
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Article not found'
+            ], 404);
+        }
+    }
+
+    public function deleteAdmin(Request $request, $id)
+    {
+        if (User::where('id', $id)->exists()) {
+            $user = User::find($id);
+
+            $user->userType = 0;
+
+            $user->save();
+            return response()->json([
+                'message' => 'record updated successfully'
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Article not found'
+            ], 404);
+        }
     }
 
     public function update(Request $request, $id)
     {
-        if(User::where('id' ,$id)->exists()){
+        if (User::where('id', $id)->exists()) {
             $user = User::find($id);
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->centre = $request->centre;
 
             $user->save();
             return response()->json([
-                'message'=>'record updated successfully'
-            ],200);
-        }else{
+                'message' => 'record updated successfully'
+            ], 200);
+        } else {
             return response()->json([
-                'message'=>'Article not found'
-            ],404);
+                'message' => 'Article not found'
+            ], 404);
         }
     }
 
 
-    public function destroy( $id)
+    public function destroy($id)
     {
-        if(User::where('id' ,$id)->exists()){
+        if (User::where('id', $id)->exists()) {
             $user = user::find($id);
             $user->delete();
 
 
             return response()->json([
-                'message'=>'user deleted successfully'
-            ],200);
-        }else{
+                'message' => 'user deleted successfully'
+            ], 200);
+        } else {
             return response()->json([
-                'message'=>'user not found'
-            ],404);
+                'message' => 'user not found'
+            ], 404);
         }
     }
 
 
+    public function send(Request $request)
+    {
+            $a = 200;
+            $quantites  = Stock::all()->quantite;
+
+            $user = User::all();
+
+            $details = [
+                'greeting' => $request->greeting,
+                'body' => $request->body,
+                'actiontext' => $request->actiontext,
+                'actionurl' => $request->actionurl,
+                'endpart' => $request->endpart,
+
+            ];
+            // foreach($quantites as $quantite)
+
+            // {
+            //     if( $quantite == 100)
+            // {
+                Notification::send($user, new stockNotification($details));
+            // }
+            // }
+    }
 }

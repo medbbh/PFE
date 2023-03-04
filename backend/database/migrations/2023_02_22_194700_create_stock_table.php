@@ -16,7 +16,7 @@ class CreateStockTable extends Migration
         Schema::create('stock', function (Blueprint $table) {
             $table->id();
             $table->string('nomvaccin');
-            $table->string('quantite');
+            $table->integer('quantite');
             $table->string('lieu');
             $table->date('dateproduction');
             $table->date('dateexpiration');
