@@ -25,6 +25,7 @@ export class NewUserComponent implements OnInit {
       {
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
+        centre: ['', [Validators.required]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         confirmpassword: ['', Validators.required]
 
@@ -66,6 +67,7 @@ export class NewUserComponent implements OnInit {
       this.submitted = false
       this.form.get('name')?.reset()
       this.form.get('email')?.reset()
+      this.form.get('centre')?.reset()
       this.form.get('password')?.reset()
       this.form.get('confirmpassword')?.reset()
 

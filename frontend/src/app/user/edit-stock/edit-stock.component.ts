@@ -15,7 +15,8 @@ import { vaccinService } from './../../service/vaccin.service';
   styleUrls: ['./edit-stock.component.css']
 })
 export class EditStockComponent implements OnInit {
-  // font awesome icons
+
+// font awesome icons
   faArrowLeft = faArrowLeft
 // end
 
@@ -23,11 +24,11 @@ export class EditStockComponent implements OnInit {
   stock!: Stock;
   form!: FormGroup;
 
-  nomVaccin: Vaccin[] = []
+  Vaccin: Vaccin[] = []
   nomCentre: Centre[] = []
 
   constructor(
-    public stockService: StockService,
+    private stockService: StockService,
     private vaccinService : vaccinService,
     private centreService : CentreService,
     private route: ActivatedRoute,
@@ -38,6 +39,7 @@ export class EditStockComponent implements OnInit {
     this.id = this.route.snapshot.params['idStock']
     this.stockService.find(this.id).subscribe((data: Stock)=>{
       this.stock = data;
+      console.log(this.stock)
     });
 
     this.form = new FormGroup({
@@ -50,14 +52,14 @@ export class EditStockComponent implements OnInit {
 
     // vaccin info
     this.vaccinService.getAll().subscribe((res: Vaccin[]) => {
-      this.nomVaccin = res;
-      console.log(this.nomVaccin);
+      this.Vaccin = res;
+      // console.log(this.Vaccin);
     });
 
     // centre info
       this.centreService.listCentre().subscribe((centre : Centre[]) => {
       this.nomCentre = centre
-      console.log(this.nomCentre)
+      // console.log(this.nomCentre)
     });
 
   }

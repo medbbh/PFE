@@ -9,3 +9,11 @@ a:hover{
   color:  rgb(232, 232, 232);
   cursor: pointer;
 }
+
+.pieCanvas{
+  background-color: white;
+  box-shadow: gray 5px 5px 22px;
+  border: gray 1px transparent;
+  max-width: max-content;
+  margin:10px 20px ;
+}

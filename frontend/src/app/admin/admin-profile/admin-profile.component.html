@@ -44,8 +44,17 @@
             </div>
 
             <div class="row">
+              <div class="col-sm-3 col-lg-4">
+                <label class="mb-0">Centre</label>
+              </div>
+              <div class="col-sm-9 col-lg-8 mb-3">
+                <input type="text" class="text-muted mb-0" class="form-control" [(ngModel)]="user.centre" name="centre" #centre>
+              </div>
+            </div>
+
+            <div class="row">
               <div class="col-sm-9 col-lg-12">
-                <button type="submit" class="btn btn-success " (click)="update(nom.value ,email.value)">Modifier</button>
+                <button type="submit" class="btn btn-success " (click)="update(nom.value ,email.value,centre.value)">Modifier</button>
               </div>
             </div>
 

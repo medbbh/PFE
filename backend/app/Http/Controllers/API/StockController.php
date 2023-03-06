@@ -30,6 +30,11 @@ class StockController extends Controller
         ], 200);
     }
 
+    public function get($id)
+    {
+        return Stock::find($id);
+    }
+
     public function delete($id)
     {
         $res = Stock::find($id)->delete();
@@ -39,7 +44,6 @@ class StockController extends Controller
         ], 200);
     }
 
-    
 
     public function update(Request $request, $id)
     {

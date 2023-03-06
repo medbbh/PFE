@@ -36,6 +36,9 @@ import { EditPersonneComponent } from './user/edit-personne/edit-personne.compon
 import { QRCodeModule } from 'angular2-qrcode';
 import { PersonInfoComponent } from './user/person-info/person-info.component';
 import { NewUserComponent } from './admin/new-user/new-user.component';
+import { SearchPipe } from './search.pipe';
+
+
 
 
 const routes: Routes = [
@@ -145,7 +148,8 @@ const routes: Routes = [
     PersonneComponent,
     EditPersonneComponent,
     PersonInfoComponent,
-    NewUserComponent
+    NewUserComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
