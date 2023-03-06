@@ -24,7 +24,7 @@ export class UtilisateurComponent implements OnInit {
   showUsers(){
     this.users = this.userService.listUser().subscribe(user=>{
       this.users=user;
-      // console.log(this.users);
+
     });
   }
 

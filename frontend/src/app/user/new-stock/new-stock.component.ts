@@ -54,9 +54,7 @@ export class NewStockComponent implements OnInit {
 
 
   }
-  showCentres(){
 
-  }
 
   get f(){
     return this.form.controls;

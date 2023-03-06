@@ -23,6 +23,15 @@
             [ngClass]="{'is-invalid': submitted && f['email'].errors}">
 
         </div>
+
+         <!-- centre input -->
+         <div class="form-group mb-2 col-lg-12">
+          <label for="centre">Centre</label>
+          <input type="text" class="form-control" formControlName="centre" name="centre" placeholder="Enter centre"
+          [ngClass]="{'is-invalid': submitted && f['centre'].errors}">
+
+        </div>
+        
         <!-- password input -->
         <div class="form-group  mb-2 col-lg-12">
           <label for="exampleInputPassword1">Password</label>

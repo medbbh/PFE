@@ -56,12 +56,16 @@
 
           <div class="form-group mb-2 col-lg-6 px-3">
             <label for="nomvaccin">Nom de vaccin:</label>
-            <input formControlName="nomvaccin" [(ngModel)]="personvaccinee.nomvaccin" id="nomvaccin" type="text"
+            <!-- <input formControlName="nomvaccin" [(ngModel)]="personvaccinee.nomvaccin" id="nomvaccin" type="text"
               class="form-control">
             <div *ngIf="f.nomvaccin.touched && f.nomvaccin.invalid" class="alert alert-danger">
               <div *ngIf="f.nomvaccin.errors?.required">*Name de vaccin is required.</div>
               <div *ngIf="f.nomvaccin.errors?.pattern">*The name de vaccin must only contain letters.</div>
-            </div>
+            </div> -->
+            <select class="form-select" formControlName="nomvaccin" id="nomvaccin">
+              <option value="" disabled selected>Selectionnez le vaccin</option>
+              <option value="{{nom.nom}}" *ngFor="let nom of nomVaccin">{{nom.nom}}</option>
+            </select>
           </div>
 
           <div class="form-group mb-2 col-lg-6 px-3">

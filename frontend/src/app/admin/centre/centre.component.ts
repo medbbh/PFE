@@ -32,4 +32,6 @@ export class CentresComponent implements OnInit{
       }
     );
   }
+
+  searchText =''
 }

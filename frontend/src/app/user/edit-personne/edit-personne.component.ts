@@ -1,9 +1,11 @@
+import { vaccinService } from './../../service/vaccin.service';
 import { Component, OnInit } from '@angular/core';
 import { PersonneVaccineeService } from 'src/app/service/personne-vaccinee.service';
 import { PersonVaccinee } from '../personne-vaccinee'
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import { Vaccin } from 'src/app/admin/vaccin';
 
 @Component({
   selector: 'app-edit-personne',
@@ -17,9 +19,11 @@ export class EditPersonneComponent implements OnInit {
   id!: any;
   personvaccinee!: PersonVaccinee;
   form!: FormGroup;
+  nomVaccin: Vaccin[] = []
 
   constructor(
     public personvaccineeService: PersonneVaccineeService,
+    public vaccinService : vaccinService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -43,6 +47,10 @@ export class EditPersonneComponent implements OnInit {
       dateactuel: new FormControl('', [ Validators.required ]),
     });
 
+    this.vaccinService.getAll().subscribe((res: Vaccin[]) => {
+      this.nomVaccin = res;
+      console.log(this.nomVaccin);
+    });
   }
 
   get f(){
