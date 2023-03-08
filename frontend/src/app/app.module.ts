@@ -37,6 +37,8 @@ import { QRCodeModule } from 'angular2-qrcode';
 import { PersonInfoComponent } from './user/person-info/person-info.component';
 import { NewUserComponent } from './admin/new-user/new-user.component';
 import { SearchPipe } from './search.pipe';
+import { PieChartComponent } from './dashbord/pie-chart/pie-chart.component';
+import { NavbarComponent } from './admin/navbar/navbar.component';
 
 
 
@@ -149,7 +151,9 @@ const routes: Routes = [
     EditPersonneComponent,
     PersonInfoComponent,
     NewUserComponent,
-    SearchPipe
+    SearchPipe,
+    PieChartComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

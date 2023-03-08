@@ -24,6 +24,13 @@ export class vaccinService {
     )
   }
 
+  getVaccin() {
+    return this.http.get(environment.apiUrl + '/api/vaccin')
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
   create(vaccin: any): Observable<Vaccin> {
     return this.http.post<Vaccin>(environment.apiUrl + '/api/vaccin', JSON.stringify(vaccin), this.httpOptions)
     .pipe(

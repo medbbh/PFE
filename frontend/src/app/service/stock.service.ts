@@ -24,6 +24,13 @@ export class StockService {
    )
  }
 
+ getStock() {
+  return this.httpClient.get(this.apiURL)
+  .pipe(
+    catchError(this.errorHandler)
+  )
+}
+
  create(stock: any): Observable<Stock> {
    return this.httpClient.post<Stock>(this.apiURL, JSON.stringify(stock), this.httpOptions)
    .pipe(

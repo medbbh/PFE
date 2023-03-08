@@ -1,14 +1,4 @@
-*{
-  color: white;
-}
 
-nav{
-  background-color: rgba(60, 67, 76, 0.986);
-}
-a:hover{
-  color:  rgb(232, 232, 232);
-  cursor: pointer;
-}
 
 .pieCanvas{
   background-color: white;
