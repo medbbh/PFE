@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+=======
+
+>>>>>>> cdafbae7ce63074f53a67904d9eb74c31f37a534
 
 @Component({
   selector: 'app-admin-home',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor() { }
 
   ngOnInit(): void {
   }
+=======
+  
+  constructor() { }
+
+  ngOnInit(): void {
+
+
+  }
+
+ 
+
+  
+>>>>>>> cdafbae7ce63074f53a67904d9eb74c31f37a534
 
 }
