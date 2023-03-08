@@ -5,6 +5,7 @@ import {  Observable, from, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { PersonVaccinee } from '../user/personne-vaccinee';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,12 @@ export class PersonneVaccineeService {
    .pipe(
      catchError(this.errorHandler)
    )
+ }
+
+ getPerson(){
+  return this.httpClient.get(this.apiURL).pipe(
+    catchError(this.errorHandler)
+  )
  }
 
  create(person: any): Observable<PersonVaccinee> {

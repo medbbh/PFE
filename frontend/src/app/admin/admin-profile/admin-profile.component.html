@@ -1,4 +1,4 @@
-<app-admin-home></app-admin-home>
+<app-admin-nav-bar></app-admin-nav-bar>
 
 <section>
   <div class="container py-5">
@@ -11,6 +11,7 @@
               class="rounded-circle img-fluid" style="width: 150px;">
             <h5 class="my-3">{{user.name}}</h5>
             <p class="text-muted mb-1">{{user.email}}</p>
+            <h5 class="my-3">{{user.centre}}</h5>
             <div>
               <p class="text-muted mb-4" *ngIf="user.userType == 1">Admin</p>
               <p class="text-muted mb-4" *ngIf="user.userType == 0">Utilisateur</p>
