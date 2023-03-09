@@ -42,6 +42,7 @@ import { PieChartComponent } from './dashbord/pie-chart/pie-chart.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
 import { BarChartComponent } from './dashbord/bar-chart/bar-chart.component';
 import { NavBarComponent } from './user/nav-bar/nav-bar.component';
+import { MvmtStockComponent } from './dashbord/mvmt-stock/mvmt-stock.component';
 
 
 
@@ -157,7 +158,8 @@ const routes: Routes = [
     PieChartComponent,
     NavbarComponent,
     NavBarComponent,
-    BarChartComponent
+    BarChartComponent,
+    MvmtStockComponent
     
   ],
   imports: [

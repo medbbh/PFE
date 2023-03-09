@@ -1,3 +1,4 @@
+import { CentreService } from './../../service/centre.service';
 import { Component, OnInit } from '@angular/core';
 import { PersonneVaccineeService } from '../../service/personne-vaccinee.service';
 import { Router } from '@angular/router';
@@ -5,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Vaccin } from 'src/app/admin/vaccin';
 import { vaccinService } from './../../service/vaccin.service';
+import { Centre } from 'src/app/admin/centre';
 
 @Component({
   selector: 'app-new-personne',
@@ -18,12 +20,13 @@ export class NewPersonneComponent implements OnInit {
   form!: FormGroup;
 
   nomVaccin: Vaccin[] = []
-
+  nomCentre: Centre[] = []
 
   constructor(
     public personvaccineeService: PersonneVaccineeService,
     private router: Router,
     private vaccinService : vaccinService,
+    private centreService : CentreService
   ) { }
 
   ngOnInit(): void {
@@ -38,13 +41,18 @@ export class NewPersonneComponent implements OnInit {
       nbrdose: new FormControl('', [ Validators.required]),
       terminervaccin:  new FormControl('', [ Validators.required,]),
       dateprochaine: new FormControl('', [ Validators.required ]),
-      dateactuel: new FormControl('', [ Validators.required ]),
+      lieu: new FormControl('', [ Validators.required ]),
     });
 
     this.vaccinService.getAll().subscribe((res: Vaccin[]) => {
       this.nomVaccin = res;
       // console.log(this.nomVaccin);
     });
+      // centre info
+        this.centreService.listCentre().subscribe((centre : Centre[]) => {
+        this.nomCentre = centre
+        console.log(this.nomCentre)
+      });
 
   }
 

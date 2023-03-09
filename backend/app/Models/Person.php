@@ -21,6 +21,6 @@ class Person extends Model
         'nbrdose',
         'terminervaccin',
         'dateprochaine',
-        'dateactuel',
+        'lieu',
     ];
 }

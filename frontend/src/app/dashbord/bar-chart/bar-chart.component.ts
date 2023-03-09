@@ -10,6 +10,7 @@ import { PersonneVaccineeService } from 'src/app/service/personne-vaccinee.servi
 })
 export class BarChartComponent implements OnInit {
   @ViewChild('barCanvas') barCanvas: ElementRef | undefined;
+
   barChart: any;
 
   person: any;
@@ -28,13 +29,11 @@ export class BarChartComponent implements OnInit {
       for (const num of this.person) {
         this.counts[num.age] = this.counts[num.age] ? this.counts[num.age] + 1 : 1;
       }
+
       this.keys = Object.keys(this.counts)
       this.values = Object.values(this.counts)
-
-      // console.log(this.keys)
-      // console.log(this.values)
-
       this.barChartMethod(this.keys, this.values);
+      
     })
 
   }

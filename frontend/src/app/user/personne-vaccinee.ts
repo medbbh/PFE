@@ -9,5 +9,5 @@ export interface PersonVaccinee {
   nbrdose: number;
   terminervaccin:boolean;
   dateprochaine:Date;
-  dateactuel:Date;
+  lieu:string;
 }

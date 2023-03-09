@@ -53,7 +53,6 @@
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
             <label for="nomvaccin" class="form-label">Nom de vaccin:</label>
-            <!-- <input formControlName="nomvaccin" id="nomvaccin" type="text" class="form-control"> -->
             <select class="form-select" formControlName="nomvaccin" id="nomvaccin">
               <option value="" disabled selected>Selectionnez le vaccin</option>
               <option value="{{nom.nom}}" *ngFor="let nom of nomVaccin">{{nom.nom}}</option>
@@ -77,9 +76,11 @@
 
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
-            <label for="dateactuel" class="form-label">Date Actuel:</label>
-            <input formControlName="dateactuel" id="dateactuel" type="date" class="form-control">
-
+            <label for="dateactuel" class="form-label">Lieu</label>
+            <select class="form-select" formControlName="lieu" aria-label="Default select example">
+              <option value="" disabled selected>Selectionnez le centre</option>
+              <option value="{{centre.nom + '--' + centre.localisation}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.localisation}}</option>
+            </select>
           </div>
 
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">

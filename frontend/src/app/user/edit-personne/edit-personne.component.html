@@ -12,105 +12,90 @@
       <form [formGroup]="form" (ngSubmit)="submit()" class="col-lg-12 p-3">
         <div class="row">
 
-          <div class="form-group mb-2 col-lg-6 px-3">
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12 ">
             <label for="nni" class="form-label">NNI:</label>
-            <input formControlName="nni" [(ngModel)]="personvaccinee.nni" id="nni" type="number" class="form-control">
-          </div>
+            <input formControlName="nni" id="nni" type="number" [(ngModel)]="personvaccinee.nni" class="form-control" placeholder="votre NNI">
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="name">Nom:</label>
-            <input formControlName="name" [(ngModel)]="personvaccinee.name" id="name" type="text" class="form-control">
-            <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
-              <div *ngIf="f.name.errors?.required">*Name is required.</div>
-              <div *ngIf="f.name.errors?.pattern">*The name must only contain letters.</div>
-            </div>
           </div>
 
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="prenom">Prénom:</label>
-            <input formControlName="prenom" [(ngModel)]="personvaccinee.prenom" id="prenom" type="text"
-              class="form-control">
-            <div *ngIf="f.prenom.touched && f.prenom.invalid" class="alert alert-danger">
-              <div *ngIf="f.prenom.errors?.required">*Prenom is required.</div>
-              <div *ngIf="f.prenom.errors?.pattern">*The prenom must be a valid email address.</div>
-            </div>
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="name" class="form-label">Nom:</label>
+            <input formControlName="name" id="name" type="text" [(ngModel)]="personvaccinee.name"  class="form-control" placeholder="votre nom">
+
           </div>
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="age">Age:</label>
-            <input formControlName="age" [(ngModel)]="personvaccinee.age" id="age" type="number" class="form-control">
-            <div *ngIf="f.age.touched && f.age.invalid" class="alert alert-danger">
-              <div *ngIf="f.age.errors?.required">*Age is required.</div>
-              <div *ngIf="f.age.errors?.pattern">*The age must only contain numbers.</div>
-            </div>
-          </div>
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="sex">Sex:</label>
-            <input formControlName="sex" [(ngModel)]="personvaccinee.sex" id="sex" type="text" class="form-control">
-            <div *ngIf="f.sex.touched && f.sex.invalid" class="alert alert-danger">
-              <div *ngIf="f.sex.errors?.required">*Sex is required.</div>
-              <div *ngIf="f.sex.errors?.pattern">*The sex must only contain letters.</div>
-            </div>
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="prenom" class="form-label">Prénom:</label>
+            <input formControlName="prenom" id="prenom" type="text" [(ngModel)]="personvaccinee.prenom" class="form-control" placeholder="votre prenom">
+
           </div>
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="nomvaccin">Nom de vaccin:</label>
-            <!-- <input formControlName="nomvaccin" [(ngModel)]="personvaccinee.nomvaccin" id="nomvaccin" type="text"
-              class="form-control">
-            <div *ngIf="f.nomvaccin.touched && f.nomvaccin.invalid" class="alert alert-danger">
-              <div *ngIf="f.nomvaccin.errors?.required">*Name de vaccin is required.</div>
-              <div *ngIf="f.nomvaccin.errors?.pattern">*The name de vaccin must only contain letters.</div>
-            </div> -->
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="age" class="form-label">Age:</label>
+            <input formControlName="age" id="age" type="number" [(ngModel)]="personvaccinee.age"  class="form-control" placeholder="votre age">
+
+          </div>
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="sex" class="form-label">Sex:</label>
+            <!-- <input formControlName="sex" id="sex" type="text" class="form-control"> -->
+            <select class="form-select" formControlName="sex" id="sex">
+              <option value="" disabled selected>Selectionnez votre sex</option>
+              <option value="Homme">Homme</option>
+              <option value="Femme">Femme</option>
+            </select>
+
+          </div>
+
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="nomvaccin" class="form-label">Nom de vaccin:</label>
             <select class="form-select" formControlName="nomvaccin" id="nomvaccin">
               <option value="" disabled selected>Selectionnez le vaccin</option>
               <option value="{{nom.nom}}" *ngFor="let nom of nomVaccin">{{nom.nom}}</option>
             </select>
+
           </div>
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="nbrdose">Nombr de dose:</label>
-            <input formControlName="nbrdose" [(ngModel)]="personvaccinee.nbrdose" id="nbrdose" type="number"
-              class="form-control">
-            <div *ngIf="f.nbrdose.touched && f.nbrdose.invalid" class="alert alert-danger">
-              <div *ngIf="f.nbrdose.errors?.required">*Nombre de dose is required.</div>
-              <div *ngIf="f.nbrdose.errors?.pattern">*The nomber de dose must only contain letters.</div>
-            </div>
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="nbrdose" class="form-label">Nombr de dose:</label>
+            <input formControlName="nbrdose" id="nbrdose" [(ngModel)]="personvaccinee.nbrdose"  type="number" class="form-control">
+
           </div>
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="terminervaccin">Terminer le vaccin:</label>
-            <input formControlName="terminervaccin" [(ngModel)]="personvaccinee.terminervaccin" id="terminervaccin"
-              type="boolean" class="form-control">
-            <div *ngIf="f.terminervaccin.touched && f.terminervaccin.invalid" class="alert alert-danger">
-              <div *ngIf="f.terminervaccin.errors?.required">*The person terminer le vaccin is required.</div>
-              <div *ngIf="f.terminervaccin.errors?.pattern">*The terminervaccin must only contain letters.</div>
-            </div>
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="terminervaccin" class="form-label">Terminer le vaccin:</label>
+            <input formControlName="terminervaccin" [(ngModel)]="personvaccinee.terminervaccin" id="terminervaccin" type="boolean" class="form-control">
+
           </div>
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="dateprochaine">Date Prochaine:</label>
-            <input formControlName="dateprochaine" [(ngModel)]="personvaccinee.dateprochaine" id="dateprochaine"
-              type="date" class="form-control">
-            <div *ngIf="f.dateprochaine.touched && f.dateprochaine.invalid" class="alert alert-danger">
-              <div *ngIf="f.dateprochaine.errors?.required">*Date Prochaine is required.</div>
-              <div *ngIf="f.dateprochaine.errors?.pattern">*The date prochaine must only contain letters.</div>
-            </div>
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="dateactuel" class="form-label">Lieu</label>
+            <select class="form-select" formControlName="lieu" aria-label="Default select example">
+              <option value="" disabled selected>Selectionnez le centre</option>
+              <option value="{{centre.nom + '--' + centre.localisation}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.localisation}}</option>
+            </select>
           </div>
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="dateactuel">Date Actuel:</label>
-            <input formControlName="dateactuel" [(ngModel)]="personvaccinee.dateactuel" id="dateactuel" type="date"
-              class="form-control">
-            <div *ngIf="f.dateactuel.touched && f.dateactuel.invalid" class="alert alert-danger">
-              <div *ngIf="f.dateactuel.errors?.required">*Date Actuel is required.</div>
-              <div *ngIf="f.dateactuel.errors?.pattern">*The date actuel must only contain letters.</div>
-            </div>
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="dateprochaine" class="form-label">Date Prochaine:</label>
+            <input formControlName="dateprochaine" id="dateprochaine"[(ngModel)]="personvaccinee.dateprochaine" type="date" class="form-control">
           </div>
 
-          <div class="ms-lg-5">
-            <div class="my-4 col-lg-6 text-center ms-lg-5">
-              <button class="btn btn-success ms-lg-5" type="submit">Modifier</button>
+
+
+          <div class="ms-lg-5 ms-md-5">
+            <div class="my-4 col-lg-6 col-md-6 col-sm-12 text-center ms-lg-5 ms-md-5">
+
+              <button class="btn btn-success ms-lg-5 ms-md-5" type="submit">Ajouter</button>
             </div>
           </div>
         </div>

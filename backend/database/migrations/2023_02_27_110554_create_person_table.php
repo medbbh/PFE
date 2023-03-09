@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('nbrdose');
             $table->boolean('terminervaccin');
             $table->date('dateprochaine');
-            $table->date('dateactuel');
+            $table->date('lieu');
             $table->timestamps();
         });
     }

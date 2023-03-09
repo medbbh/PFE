@@ -1,0 +1,25 @@
+  <h3 class="text-secondary ms-lg-5 ">L'état du stock</h3>
+    <div class="col-12 col-md-6 row etat-stock">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="ps-3 row">
+
+            <div *ngFor="let item of stock" class="col-lg-4">
+
+              <p class="fw-semibold">{{item.lieu}}</p>
+              <p ></p>
+
+            <div  class="col-8 vaccin mb-2 align-baseline">
+              <h3 class="text-white "><span class="fs-6 text-light me-5">{{item.nomvaccin}}</span>{{item.quantite}}</h3>
+            </div>
+
+            <div class="col-4 mvmt bg-dark text-center mb-2">
+            <p class="text-white">+2<p>
+            </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
