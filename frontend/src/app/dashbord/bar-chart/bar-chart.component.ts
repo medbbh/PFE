@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { PersonneVaccineeService } from '../service/personne-vaccinee.service';
+import { map } from 'rxjs';
+import { PersonneVaccineeService } from 'src/app/service/personne-vaccinee.service';
 
 @Component({
   selector: 'app-bar-chart',
@@ -12,51 +13,54 @@ export class BarChartComponent implements OnInit {
   barChart: any;
 
   person: any;
-  age: any[]=[];
+  counts: any = {};
+  keys: any[] = []
+  values: any[] = []
+  realVal:any[] =[]
 
 
-
-  constructor(private personvaccineeservice :PersonneVaccineeService) {}
+  constructor(private personvaccineeservice: PersonneVaccineeService) { }
 
   ngOnInit(): void {
-    this.personvaccineeservice.getPerson().subscribe(data =>{
+    this.personvaccineeservice.getPerson().subscribe(data => {
       this.person = data;
-      if(this.person != null){
-        for(const item of this.person){
-          if(!this.age.includes(item.age)){
-            this.age.push(item.age);
-          }
-        }
+
+      for (const num of this.person) {
+        this.counts[num.age] = this.counts[num.age] ? this.counts[num.age] + 1 : 1;
       }
-      console.log(this.age)
-      this.barChartMethod(this.age);
+      this.keys = Object.keys(this.counts)
+      this.values = Object.values(this.counts)
+
+      // console.log(this.keys)
+      // console.log(this.values)
+
+      this.barChartMethod(this.keys, this.values);
     })
-    
-   
+
   }
 
-  barChartMethod( age:any) {
+  barChartMethod(age: any, counts: any) {
     this.barChart = new Chart(this.barCanvas?.nativeElement, {
       type: 'bar',
       data: {
-        labels:age,
+        labels: age,
         datasets: [
           {
-            label: '# of Votes',
-            data: [5,10,15,20,25,30],
+            label: 'Diagramme d\'age',
+            data: counts,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(255, 200, 192, 0.2)',
               'rgba(255, 206, 86, 0.2)',
               'rgba(75, 192, 192, 0.2)',
-             
+
             ],
             borderColor: [
               'rgba(255,99,132,1)',
               'rgba(54, 162, 235, 1)',
               'rgba(255, 206, 86, 1)',
               'rgba(75, 192, 192, 1)',
-              
+
             ],
             borderWidth: 1,
           },

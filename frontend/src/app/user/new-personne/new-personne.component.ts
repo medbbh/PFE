@@ -43,7 +43,7 @@ export class NewPersonneComponent implements OnInit {
 
     this.vaccinService.getAll().subscribe((res: Vaccin[]) => {
       this.nomVaccin = res;
-      console.log(this.nomVaccin);
+      // console.log(this.nomVaccin);
     });
 
   }

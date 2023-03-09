@@ -37,15 +37,11 @@ import { QRCodeModule } from 'angular2-qrcode';
 import { PersonInfoComponent } from './user/person-info/person-info.component';
 import { NewUserComponent } from './admin/new-user/new-user.component';
 import { SearchPipe } from './search.pipe';
-<<<<<<< HEAD
+
 import { PieChartComponent } from './dashbord/pie-chart/pie-chart.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
-=======
-import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { BarChartComponent } from './dashbord/bar-chart/bar-chart.component';
 import { NavBarComponent } from './user/nav-bar/nav-bar.component';
-import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.component';
->>>>>>> cdafbae7ce63074f53a67904d9eb74c31f37a534
-
 
 
 
@@ -158,14 +154,11 @@ const routes: Routes = [
     PersonInfoComponent,
     NewUserComponent,
     SearchPipe,
-<<<<<<< HEAD
     PieChartComponent,
-    NavbarComponent
-=======
-    BarChartComponent,
+    NavbarComponent,
     NavBarComponent,
-    AdminNavBarComponent
->>>>>>> cdafbae7ce63074f53a67904d9eb74c31f37a534
+    BarChartComponent
+    
   ],
   imports: [
     BrowserModule,
