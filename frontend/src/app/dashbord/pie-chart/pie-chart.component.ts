@@ -37,10 +37,10 @@ export class PieChartComponent implements OnInit {
           this.qt.push(item.quantite)
           this.nomVaccin.push(item.nomvaccin)
         }
-        console.log(this.nomVaccin)
-        console.log(this.qt)
+        // console.log(this.nomVaccin)
+        // console.log(this.qt)
 
-        
+
         this.pieChartBrowser(this.nomVaccin, this.qt)
 
       }

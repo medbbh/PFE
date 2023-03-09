@@ -40,11 +40,16 @@ import { SearchPipe } from './search.pipe';
 
 import { PieChartComponent } from './dashbord/pie-chart/pie-chart.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
+<<<<<<< HEAD
 
 import { BarChartComponent } from './dashbord/bar-chart/bar-chart.component';
 import { NavBarComponent } from './user/nav-bar/nav-bar.component';
 
 
+=======
+import { BarChartComponent } from './dashbord/bar-chart/bar-chart.component';
+import { NavBarComponent } from './user/nav-bar/nav-bar.component';
+>>>>>>> 16446863003b0c6db1706953b3fa000ef814939a
 
 
 
@@ -157,6 +162,7 @@ const routes: Routes = [
     PersonInfoComponent,
     NewUserComponent,
     SearchPipe,
+<<<<<<< HEAD
 
     PieChartComponent,
     NavbarComponent,
@@ -165,6 +171,13 @@ const routes: Routes = [
     NavBarComponent,
    
 
+=======
+    PieChartComponent,
+    NavbarComponent,
+    NavBarComponent,
+    BarChartComponent
+    
+>>>>>>> 16446863003b0c6db1706953b3fa000ef814939a
   ],
   imports: [
     BrowserModule,
