@@ -1,3 +1,4 @@
+import { StockService } from './../../service/stock.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -8,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
- 
+
   constructor() { }
 
   ngOnInit(): void {
 
+
   }
 
- 
+
 
 }

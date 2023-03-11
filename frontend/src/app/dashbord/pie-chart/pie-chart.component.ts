@@ -30,7 +30,6 @@ export class PieChartComponent implements OnInit {
               this.stock.splice(j, 1)
             }
           }
-
         }
 
         for (const item of this.stock) {

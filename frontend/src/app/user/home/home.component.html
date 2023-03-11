@@ -1,8 +1,22 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 16446863003b0c6db1706953b3fa000ef814939a
 <app-nav-bar></app-nav-bar>
+<div class="bg-white mx-2 p-4">
+  <div class="row">
 
-<app-bar-chart></app-bar-chart>
+    <div class="col-lg-12">
+      <app-mvmt-stock></app-mvmt-stock>
+    </div>
 
+    <div class="pie-chart col-lg-6 shadow card text-center">
+    <h3 class="text-secondary">L'état des vaccin</h3>
+      <app-pie-chart></app-pie-chart>
+    </div>
+
+
+
+    <div class="bar-chart col-lg-6 shadow card text-center mt-5">
+    <h3 class="text-secondary">Les vaccinées Selon L'age</h3>
+
+      <app-bar-chart></app-bar-chart>
+
+    </div>
+  </div>

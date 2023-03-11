@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Person;
+use App\Models\Stock;
 Use Log;
 
 class PersonController extends Controller
@@ -25,13 +26,15 @@ class PersonController extends Controller
       $data['nbrdose'] = $request['nbrdose'];
       $data['terminervaccin'] = $request['terminervaccin'];
       $data['dateprochaine'] = $request['dateprochaine'];
-      $data['dateactuel'] = $request['dateactuel'];
+      $data['lieu'] = $request['lieu'];
       Person::create($data);
+      Stock::find($data['nomvaccin'])->update($data);
+
       return response()->json([
           'message' => "Successfully created",
           'success' => true
       ], 200);
-      
+
     }
 
     public function delete($id){
