@@ -13,6 +13,8 @@ export class UtilisateurComponent implements OnInit {
   role :string | undefined
   // userType:any
   id!: number;
+  searchText =''
+
 
   constructor(private userService : UserService,private route : Router) { }
 

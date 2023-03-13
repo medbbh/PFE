@@ -1,6 +1,9 @@
-.pie-chart
-{
-  max-width: 100%;
-  max-height: fit-content;
-  /* border: gray 1px solid; */
+h5{
+  background-color: #031633;
+  /* width: 100%; */
+}
+
+canvas{
+  background-color: white;
+
 }

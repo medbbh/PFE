@@ -77,7 +77,7 @@
 
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
-            <label for="dateactuel" class="form-label">Lieu</label>
+            <label for="lieu" class="form-label">Lieu</label>
             <select class="form-select" formControlName="lieu" aria-label="Default select example">
               <option value="" disabled selected>Selectionnez le centre</option>
               <option value="{{centre.nom + '--' + centre.localisation}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.localisation}}</option>

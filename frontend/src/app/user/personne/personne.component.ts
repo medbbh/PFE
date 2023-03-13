@@ -10,6 +10,8 @@ import { PersonVaccinee } from '../personne-vaccinee';
 export class PersonneComponent implements OnInit {
 
   persons: PersonVaccinee[] = [];
+  searchText =''
+
 
 
   // constructor() { }

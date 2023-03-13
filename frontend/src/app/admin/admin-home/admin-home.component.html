@@ -1,3 +1,24 @@
 <app-navbar></app-navbar>
-<app-pie-chart></app-pie-chart>
-<app-bar-chart></app-bar-chart>
+<div class="mx-2 p-4">
+  <div class="row">
+
+    <div class="col-lg-12">
+      <app-mvmt-stock></app-mvmt-stock>
+    </div>
+
+    <div class="row">
+      <div class="bar-chart col-lg-6 text-center mt-3">
+        <app-bar-chart></app-bar-chart>
+      </div>
+
+      <div class="pie-chart col-lg-6 col-sm-12 ext-center mt-3">
+        <app-pie-chart></app-pie-chart>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- footer -->
+<app-admin-footer></app-admin-footer>

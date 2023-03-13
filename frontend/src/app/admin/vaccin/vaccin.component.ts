@@ -13,6 +13,8 @@ export class VaccinComponent implements OnInit {
   constructor(private vaccinService: vaccinService, private router: Router) { }
   index = 0
   vaccins: Vaccin[] = []
+  searchText =''
+
 
   ngOnInit(): void {
     this.vaccinService.getAll().subscribe((data: Vaccin[]) => {

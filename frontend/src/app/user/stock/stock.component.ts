@@ -12,6 +12,8 @@ export class StockComponent implements OnInit {
 
   stocks: Stock[] = [];
   id:any = 0
+  searchText =''
+
 
   constructor(public stockService: StockService,public notificationService : NotificationService,notifierService: NotificationService) { }
 

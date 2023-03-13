@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('sex');
             $table->string('nomvaccin');
             $table->integer('nbrdose');
-            $table->boolean('terminervaccin');
+            $table->string('terminervaccin');
             $table->date('dateprochaine');
-            $table->date('lieu');
+            $table->string('lieu');
             $table->timestamps();
         });
     }

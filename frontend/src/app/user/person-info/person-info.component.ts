@@ -40,6 +40,8 @@ export class PersonInfoComponent implements OnInit {
       terminervaccin:  new FormControl('', [ Validators.required ]),
       dateprochaine: new FormControl('', [ Validators.required ]),
       dateactuel: new FormControl('', [ Validators.required ]),
+      lieu: new FormControl('', [ Validators.required ]),
+
     });
 
   }

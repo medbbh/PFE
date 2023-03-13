@@ -1,18 +1,24 @@
 <app-navbar></app-navbar>
 
 
-<div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
+<div class="container bg-white position-relative my-5 px-5 pb-5 pt-2 rounded shadow-sm">
 
   <h6 class="position-absolute top-0 start-0 translate-middle ps-5 ms-4 pb-4">Les Vaccins</h6>
 
+  <div>
+    <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn ms-3">
+     <button type="button" class="btn btn-outline-primary py-2" routerLink="/admin/add-vaccin">Ajouter nouveaux vaccin</button>
+   </div>
 
-  <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn">
-    <button type="button" class="btn btn-outline-primary py-2" routerLink="/admin/add-vaccin">Ajouter nouveaux vaccin</button>
-
-
-  </div>
-
-  <table class="table table-hover mt-5">
+   <!-- search bar -->
+   <div class="input-group row w-50 me-4 d-flex align-items-center justify-content-center">
+     <div class="form-outline col-lg-12 col-md-12">
+       <input type="search" id="form1" class="form-control" placeholder=Recherche class="form-control" [(ngModel)]="searchText"/>
+     </div>
+   </div>
+   </div>
+   <div class="table-responsive fs-sm-5 ">
+    <table class="table table-hover mt-5" >
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -25,7 +31,7 @@
       </tr>
     </thead>
     <tbody *ngIf="vaccins.length">
-      <tr *ngFor="let vaccin of vaccins ; let i = index">
+      <tr *ngFor="let vaccin of vaccins | search : searchText ; let i = index">
         <th scope="row">{{i + 1}}</th>
         <td>{{vaccin.nom}}</td>
         <td>{{vaccin.fabricant}}</td>
@@ -38,4 +44,5 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>

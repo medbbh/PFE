@@ -1,22 +1,25 @@
 <app-nav-bar></app-nav-bar>
 
-<!-- <div *ngFor="let stock of stocks">
-  <div *ngIf="stock.quantite <=50">
-    <h3>le stock  + {{stock.nomvaccin}} + est vare9</h3>
-  </div>
-</div> -->
-
-<div class="container bg-white position-relative my-5 p-5 rounded shadow-sm">
+<div class="container bg-white position-relative my-5 px-5 pb-5 pt-2 rounded shadow-sm">
 
   <h6 class="position-absolute top-0 start-0 translate-middle ps-5 ms-5 pb-4">Le Stock des vaccins</h6>
 
-
-  <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn">
+  <div>
+   <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn ms-3">
     <button type="button" class="btn btn-outline-primary py-2" routerLink="/stock/create">Ajouter un nouveaux
       stock</button>
   </div>
 
-  <table class="table ">
+  <!-- search bar -->
+  <div class="input-group row w-50 me-4 d-flex align-items-center justify-content-center">
+    <div class="form-outline col-lg-12 col-md-12">
+      <input type="search" id="form1" class="form-control" placeholder=Recherche class="form-control" [(ngModel)]="searchText"/>
+    </div>
+  </div>
+  </div>
+
+  <div class="table-responsive fs-sm-5 ">
+    <table class="table mt-4">
     <thead>
 
       <tr>
@@ -30,7 +33,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let stock of stocks ; let i = index" [ngClass]="{'outOfStock': stock.quantite <= 50 }">
+      <tr *ngFor="let stock of stocks | search : searchText ; let i = index" [ngClass]="{'outOfStock': stock.quantite <= 50 }">
         <td scope="row">{{i + 1}}</td>
         <td>{{ stock.nomvaccin }}</td>
         <td>{{ stock.quantite }}</td>
@@ -45,4 +48,5 @@
     </tbody>
 
   </table>
+  </div>
 </div>

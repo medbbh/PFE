@@ -43,7 +43,11 @@ import { NavbarComponent } from './admin/navbar/navbar.component';
 import { BarChartComponent } from './dashbord/bar-chart/bar-chart.component';
 import { NavBarComponent } from './user/nav-bar/nav-bar.component';
 import { MvmtStockComponent } from './dashbord/mvmt-stock/mvmt-stock.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FooterComponent } from './user/footer/footer.component';
 
+import { DatePipe } from '@angular/common';
+import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
 
 
 const routes: Routes = [
@@ -111,7 +115,6 @@ const routes: Routes = [
   {
     path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard,UserGuard]
   },
-  // { path: 'person-vaccinee' Component : },
   { path: 'person-vaccinee/person', component: PersonneComponent },
   { path: 'person-vaccinee/new', component: NewPersonneComponent },
   { path: 'person-vaccinee/modify/:idPerson', component: EditPersonneComponent },
@@ -159,8 +162,10 @@ const routes: Routes = [
     NavbarComponent,
     NavBarComponent,
     BarChartComponent,
-    MvmtStockComponent
-    
+    MvmtStockComponent,
+    FooterComponent,
+    AdminFooterComponent
+
   ],
   imports: [
     BrowserModule,
@@ -172,9 +177,10 @@ const routes: Routes = [
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
-    QRCodeModule
+    QRCodeModule,
+    MatPaginatorModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

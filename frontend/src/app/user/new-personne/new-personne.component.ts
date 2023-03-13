@@ -7,6 +7,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Vaccin } from 'src/app/admin/vaccin';
 import { vaccinService } from './../../service/vaccin.service';
 import { Centre } from 'src/app/admin/centre';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-new-personne',
@@ -21,15 +22,26 @@ export class NewPersonneComponent implements OnInit {
 
   nomVaccin: Vaccin[] = []
   nomCentre: Centre[] = []
+  currentDate = new Date();
+  nextDate = new Date();
+
 
   constructor(
     public personvaccineeService: PersonneVaccineeService,
     private router: Router,
     private vaccinService : vaccinService,
-    private centreService : CentreService
-  ) { }
+    private centreService : CentreService,
+    private datePipe: DatePipe
+  ) {
+
+   }
 
   ngOnInit(): void {
+
+    this.nextDate.setDate(this.currentDate.getDate() + 60);
+    // console.log(this.datePipe.transform(this.nextDate, 'yyyy-MM-dd'));
+
+
 
     this.form = new FormGroup({
       nni: new FormControl('', [ Validators.required]),
@@ -40,7 +52,8 @@ export class NewPersonneComponent implements OnInit {
       nomvaccin:  new FormControl('', [ Validators.required,]),
       nbrdose: new FormControl('', [ Validators.required]),
       terminervaccin:  new FormControl('', [ Validators.required,]),
-      dateprochaine: new FormControl('', [ Validators.required ]),
+      dateprochaine: new FormControl(this.datePipe.transform(this.nextDate, 'yyyy-MM-dd'), [ Validators.required ]),
+      dateactuel: new FormControl(this.datePipe.transform(this.currentDate, 'yyyy-MM-dd'), [ Validators.required ]),
       lieu: new FormControl('', [ Validators.required ]),
     });
 
@@ -51,7 +64,7 @@ export class NewPersonneComponent implements OnInit {
       // centre info
         this.centreService.listCentre().subscribe((centre : Centre[]) => {
         this.nomCentre = centre
-        console.log(this.nomCentre)
+        // console.log(this.nomCentre)
       });
 
   }

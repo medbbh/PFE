@@ -10,13 +10,14 @@ Use Log;
 
 class PersonController extends Controller
 {
-    // https://carbon.now.sh/
+
     public function getAll(){
       $data = Person::get();
       return response()->json($data, 200);
     }
 
     public function create(Request $request){
+
       $data['nni'] = $request['nni'];
       $data['name'] = $request['name'];
       $data['prenom'] = $request['prenom'];
@@ -26,9 +27,11 @@ class PersonController extends Controller
       $data['nbrdose'] = $request['nbrdose'];
       $data['terminervaccin'] = $request['terminervaccin'];
       $data['dateprochaine'] = $request['dateprochaine'];
+      $data['dateactuel'] = $request['dateactuel'];
       $data['lieu'] = $request['lieu'];
+
       Person::create($data);
-      Stock::find($data['nomvaccin'])->update($data);
+
 
       return response()->json([
           'message' => "Successfully created",
@@ -60,7 +63,7 @@ class PersonController extends Controller
         $data['nbrdose'] = $request['nbrdose'];
         $data['terminervaccin'] = $request['terminervaccin'];
         $data['dateprochaine'] = $request['dateprochaine'];
-        $data['dateactuel'] = $request['dateactuel'];
+        $data['lieu'] = $request['lieu'];
       Person::find($id)->update($data);
       return response()->json([
           'message' => "Successfully updated",

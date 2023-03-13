@@ -1,0 +1,49 @@
+<div class="footer pt-5 text-white-50 text-center text-md-start">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6 col-lg-5">
+        <div class="info mb-5">
+          <i class="fa-solid fa-skull mb-4 fs-1 text-white-50"></i>
+          <p class="mb-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,aectet conetsur adi ismi cipng
+          </p>
+          <div class="copyright">
+            <p>Créé par <span class="text-white fw-semibold">Syskat Technology</span></p>
+            <div>&copy; {{year}} - <span>Inc</span></div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="links">
+          <h5 class="text-light">Links</h5>
+          <ul class="list-unstyled lh-lg ">
+            <li><a routerLink="/admin/centre" class="links">Les centres</a></li>
+            <li><a routerLink="/admin/add-centre" class="links">Ajouter un centre</a></li>
+            <li><a routerLink="/admin/vaccin" class="links">Les vaccins</a></li>
+            <li><a routerLink="/admin/add-vaccin" class="links">Ajouter un vaccin</a></li>
+            <li><a routerLink="/admin/utilisateur" class="links">Les utilisateurs</a></li>
+            <li><a routerLink="/admin/add-user" class="links">Ajouter un utilisateur</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="contact">
+          <h5 class="text-light">Contact Us</h5>
+          <p class="lh-lg mt-3 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi necessita</p>
+          <div class="box mb-3" routerLink="/admin/profile/{{id}}" data-work="Profile">
+            <a class="btn border rounded-pill w-100 text-white profile" data-work="Profile">{{email}}
+              <small class="text-muted" *ngIf="userType == 1">Admin</small> <small class="text-muted"
+                *ngIf="userType == 0">User</small></a>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

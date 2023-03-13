@@ -1,13 +1,13 @@
-.vaccin{
-  background-color: rgba(0, 0, 255, 0.682);
-  padding: 2px 0px 1px 10px;
-  /* margin-right: 5px; */
+
+.etat-stock
+{
+  min-width:220px;
+  border-left: 5px #031633e7 solid ;
 }
-.mvmt {
-  padding: 2px 15px 0px 10px;
-  margin: 0px 2px 0px 5px;
-  max-width:max-content;
+
+.qt{
+  border-top: #0F65E4 1px solid;
+  /* border-bottom: #0F65E4 1px solid; */
+  /* border-radius: 3px; */
 }
-.etat-stock{
-  min-width: 100%;
-}
+
