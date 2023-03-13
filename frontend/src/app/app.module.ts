@@ -40,6 +40,8 @@ import { SearchPipe } from './search.pipe';
 
 import { PieChartComponent } from './dashbord/pie-chart/pie-chart.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
+
+
 import { BarChartComponent } from './dashbord/bar-chart/bar-chart.component';
 import { NavBarComponent } from './user/nav-bar/nav-bar.component';
 import { MvmtStockComponent } from './dashbord/mvmt-stock/mvmt-stock.component';
@@ -48,6 +50,8 @@ import { FooterComponent } from './user/footer/footer.component';
 
 import { DatePipe } from '@angular/common';
 import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
+
+
 
 
 const routes: Routes = [
@@ -158,6 +162,7 @@ const routes: Routes = [
     PersonInfoComponent,
     NewUserComponent,
     SearchPipe,
+
     PieChartComponent,
     NavbarComponent,
     NavBarComponent,
