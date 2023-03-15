@@ -1,7 +1,7 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="mx-5">
-  <div class="container bg-white rounded d-flex justify-content-center position-relative shadow-sm">
+  <div class="container my-5  bg-white rounded d-flex justify-content-center position-relative shadow-sm">
     <div class="row">
       <div class="position-absolute top-0 end-0 pt-3 pe-auto">
         <fa-icon [icon]="faArrowLeft" routerLink="/person-vaccinee/person" role="button"></fa-icon>
@@ -41,7 +41,6 @@
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
             <label for="sex" class="form-label">Sex:</label>
-            <!-- <input formControlName="sex" id="sex" type="text" class="form-control"> -->
             <select class="form-select" formControlName="sex" id="sex">
               <option value="" disabled selected>Selectionnez votre sex</option>
               <option value="Homme">Homme</option>
@@ -63,14 +62,13 @@
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
             <label for="nbrdose" class="form-label">Nombr de dose:</label>
-            <input formControlName="nbrdose" id="nbrdose" type="number" class="form-control">
+            <input formControlName="nbrdose" id="nbrdose" type="number" class="form-control" placeholder="C'est votre quelle dose">
 
           </div>
 
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
             <label for="terminervaccin" class="form-label">Terminer le vaccin:</label>
-            <!-- <input formControlName="terminervaccin" id="terminervaccin" type="boolean" class="form-control"> -->
             <select class="form-select" formControlName="terminervaccin" id="terminervaccin">
               <option value="" disabled selected>C'est votre dernier dose ?</option>
               <option value="Non" selected>Non</option>
@@ -79,12 +77,12 @@
 
           </div>
 
-          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+          <div class="mb-2 col-lg-12 col-md-12 col-sm-12">
 
             <label for="lieu" class="form-label">Lieu</label>
             <select class="form-select" formControlName="lieu" aria-label="Default select example">
               <option value="" disabled selected>Selectionnez le centre</option>
-              <option value="{{centre.nom + '--' + centre.localisation}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.localisation}}</option>
+              <option value="{{centre.nom + '--' + centre.wilayaa + '--' + centre.mougataa}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.wilayaa}} -- {{centre.mougataa}}</option>
             </select>
           </div>
 

@@ -30,13 +30,10 @@ export class EditCentreComponent implements OnInit{
     })
   };
 
-  update(nom:string ,localisation:string, type:string){
+  update(nom:string ,wilayaa:string,mougataa:string, type:string){
     this.centreservice.update(this.centreId, this.centre).subscribe(
       res=>{
             this.router.navigate(['/admin/centre']);
-
-      // console.log(res)
-      // centre = res.
     });
   }
 }

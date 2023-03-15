@@ -20,7 +20,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem('token')
     this.userData = jwt_decode(this.token)
-    console.log(this.userData)
+    // console.log(this.userData)
     this.email = this.userData.user_email.substring(0,this.userData.user_email.indexOf("@"))
     this.userType= this.userData.user_type
     this.id= this.userData.user_id

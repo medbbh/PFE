@@ -11,22 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vaccins', function (Blueprint $table) {
+        Schema::table('centres', function (Blueprint $table) {
+            $table->string('wilayaa');
+            $table->string('mougataa');
 
-        $table->id();
-        $table->string('nom');
-        $table->string('pays');
-        $table->string('nbr_dose');
-        $table->string('fabricant');
-        $table->timestamps();
-    });
-}
+        });
+    }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('vaccins');
-
+        Schema::table('centres', function (Blueprint $table) {
+            
+        });
     }
 };

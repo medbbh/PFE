@@ -33,8 +33,8 @@ export class EditVaccinComponent implements OnInit {
 
     this.form = new FormGroup({
       nom:  new FormControl('', [ Validators.required ]),
-      date_fab: new FormControl('', [ Validators.required]),
-      date_exp: new FormControl('', [ Validators.required]),
+      pays: new FormControl('', [ Validators.required]),
+      nbr_dose: new FormControl('', [ Validators.required]),
       fabricant: new FormControl('', [ Validators.required])
     });
   };

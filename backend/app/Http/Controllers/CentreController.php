@@ -40,7 +40,9 @@ class CentreController extends Controller
         if(Centre::where('id' ,$id)->exists()){
             $centre = Centre::find($id);
             $centre->nom = $request->nom;
-            $centre->localisation = $request->localisation;
+            // $centre->localisation = $request->localisation;
+            $centre->wilayaa = $request->wilayaa;
+            $centre->mougataa = $request->mougataa;
             $centre->type = $request->type;
 
             $centre->save();

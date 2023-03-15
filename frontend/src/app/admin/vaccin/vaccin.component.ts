@@ -19,7 +19,6 @@ export class VaccinComponent implements OnInit {
   ngOnInit(): void {
     this.vaccinService.getAll().subscribe((data: Vaccin[]) => {
       this.vaccins = data;
-      // console.log(this.vaccins);
     });
   }
 

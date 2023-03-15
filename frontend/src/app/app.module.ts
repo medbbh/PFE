@@ -50,6 +50,7 @@ import { FooterComponent } from './user/footer/footer.component';
 
 import { DatePipe } from '@angular/common';
 import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
+import { CartographieComponent } from './dashbord/cartographie/cartographie.component';
 
 
 
@@ -169,7 +170,8 @@ const routes: Routes = [
     BarChartComponent,
     MvmtStockComponent,
     FooterComponent,
-    AdminFooterComponent
+    AdminFooterComponent,
+    CartographieComponent
 
   ],
   imports: [

@@ -17,6 +17,7 @@ export class PieChartComponent implements OnInit {
   stock: any
   vaccin: any
 
+
   ngOnInit(): void {
 
     this.stockService.getStock().subscribe(data => {
@@ -32,12 +33,13 @@ export class PieChartComponent implements OnInit {
           }
         }
 
+
         for (const item of this.stock) {
           this.qt.push(item.quantite)
           this.nomVaccin.push(item.nomvaccin)
         }
-        // console.log(this.nomVaccin)
-        // console.log(this.qt)
+
+        console.log(this.nomVaccin)
 
 
         this.pieChartBrowser(this.nomVaccin, this.qt)

@@ -10,6 +10,6 @@ class vaccins extends Model
 
     use HasFactory;
 
-    protected $fillable = ['nom','date_fab','date_exp','fabricant'];
+    protected $fillable = ['nom','pays','nbr_dose','fabricant'];
     protected $table = 'vaccins';
 }

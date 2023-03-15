@@ -20,16 +20,14 @@ class VaccinController extends Controller
     {
         $data['nom'] = $request['nom'];
         $data['fabricant'] = $request['fabricant'];
-        $data['date_fab'] = $request['date_fab'];
-        $data['date_exp'] = $request['date_exp'];
+        $data['pays'] = $request['pays'];
+        $data['nbr_dose'] = $request['nbr_dose'];
         vaccins::create($data);
         return response()->json([
             'message' => "Successfully created",
             'success' => true
         ], 200);
 
-
-        // return Vaccins::create($request->all());
 
 
     }
@@ -57,8 +55,8 @@ class VaccinController extends Controller
     public function update(Request $request, $id)
     {
         $data['nom'] = $request['nom'];
-        $data['date_fab'] = $request['date_fab'];
-        $data['date_exp'] = $request['date_exp'];
+        $data['pays'] = $request['pays'];
+        $data['nbr_dose'] = $request['nbr_dose'];
         $data['fabricant'] = $request['fabricant'];
 
         vaccins::find($id)->update($data);

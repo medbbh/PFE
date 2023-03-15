@@ -20,10 +20,11 @@ export class NewCentreComponent implements OnInit {
 
   }
 
-  add(nom: string, localisation: string, type: string) {
+  add(nom: string,wilayaa:string,mougataa:string, type: string) {
     this.centres = {
       'nom': nom,
-      'localisation': localisation,
+      'wilayaa': wilayaa,
+      'mougataa': mougataa,
       'type': type,
     };
     this.centreservice.addCentre(this.centres as any).subscribe(centre => {

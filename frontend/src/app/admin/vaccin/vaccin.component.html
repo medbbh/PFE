@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 
 <app-navbar></app-navbar>
-
-=======
-<app-navbar></app-navbar>
->>>>>>> 16446863003b0c6db1706953b3fa000ef814939a
-
 
 <div class="container bg-white position-relative my-5 px-5 pb-5 pt-2 rounded shadow-sm">
 
@@ -30,8 +24,8 @@
         <th scope="col">#</th>
         <th scope="col">Nom de Vaccin</th>
         <th scope="col">Fabricant</th>
-        <th scope="col">Date de Production</th>
-        <th scope="col">Date d'expiration</th>
+        <th scope="col">Pays Fabricant</th>
+        <th scope="col">Nbr De Dose Max</th>
         <th scope="col">Action</th>
 
       </tr>
@@ -41,8 +35,8 @@
         <th scope="row">{{i + 1}}</th>
         <td>{{vaccin.nom}}</td>
         <td>{{vaccin.fabricant}}</td>
-        <td>{{vaccin.date_fab}}</td>
-        <td>{{vaccin.date_exp}}</td>
+        <td>{{vaccin.pays}}</td>
+        <td>{{vaccin.nbr_dose}}</td>
         <td>
           <button class="btn btn-info" routerLink="/admin/edit-vaccin/{{vaccin.id}}">Edit</button>&nbsp;
           <button class="btn btn-danger" (click)="deleteVaccin(vaccin.id)">Delete</button>

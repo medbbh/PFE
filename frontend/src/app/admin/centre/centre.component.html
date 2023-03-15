@@ -27,7 +27,8 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nom de Centre</th>
-      <th scope="col">Localisation</th>
+      <th scope="col">Wilayaa</th>
+      <th scope="col">Mougataa</th>
       <th scope="col">Type</th>
       <th scope="col">Action</th>
 
@@ -37,7 +38,8 @@
     <tr *ngFor="let centre of centres | search : searchText ;let i = index">
       <th scope="row">{{i + 1}}</th>
       <td>{{centre.nom}}</td>
-      <td>{{centre.localisation}}</td>
+      <td>{{centre.wilayaa}}</td>
+      <td>{{centre.mougataa}}</td>
       <td>{{centre.type}}</td>
       <td><button class="btn btn-info" routerLink="/admin/edit-centre/{{centre.id}}">Edit</button>&nbsp; <button class="btn btn-danger" (click)="deleteCentre(centre.id)" >Delete</button></td>
     </tr>

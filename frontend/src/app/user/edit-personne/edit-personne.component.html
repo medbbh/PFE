@@ -75,22 +75,14 @@
 
           </div>
 
-          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+          <div class="mb-2 col-lg-12 col-md-12 col-sm-12">
 
             <label for="lieu" class="form-label">Lieu</label>
             <select class="form-select" formControlName="lieu" aria-label="Default select example">
               <option value="" disabled selected>Selectionnez le centre</option>
-              <option value="{{centre.nom + '--' + centre.localisation}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.localisation}}</option>
+              <option value="{{centre.nom + '--' + centre.wilayaa + '--' + centre.mougataa}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.wilayaa}} -- {{centre.mougataa}}</option>
             </select>
           </div>
-
-          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
-
-            <label for="dateprochaine" class="form-label">Date Prochaine:</label>
-            <input formControlName="dateprochaine" id="dateprochaine"[(ngModel)]="personvaccinee.dateprochaine" type="date" class="form-control">
-          </div>
-
-
 
           <div class="ms-lg-5 ms-md-5">
             <div class="my-4 col-lg-6 col-md-6 col-sm-12 text-center ms-lg-5 ms-md-5">

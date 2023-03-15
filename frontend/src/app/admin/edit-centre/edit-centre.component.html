@@ -15,15 +15,22 @@
 
           <div class="mb-2 col-lg-12">
             <label for="nom" class="form-label">Nom de Centre</label>
-            <input type="text" class="form-control" [(ngModel)]="centre.nom"  name="nom" #nom>
+            <input type="text" name="nom" class="form-control" [(ngModel)]="centre.nom"  name="nom" #nom>
           </div>
+
           <div class="mb-2 col-lg-12">
-            <label for="localisation" class="form-label">Localisation</label>
-            <input type="text" class="form-control"  [(ngModel)]="centre.localisation" name="localisation" #localisation>
+            <label for="wilayaa" class="form-label">Wilayaa</label>
+            <input type="text" name="wilayaa" class="form-control" [(ngModel)]="centre.wilayaa" #wilayaa>
           </div>
+
+          <div class="mb-2 col-lg-12">
+            <label for="mougataa" class="form-label">Mougataa</label>
+            <input type="text" name="mougataa" class="form-control" [(ngModel)]="centre.mougataa" #mougataa>
+          </div>
+
           <div class="mb-2 col-lg-12">
             <label for="type" class="form-label">Type</label>
-            <select class="form-select" aria-label="Default select example" name="type" #type>
+            <select class="form-select" name="type" aria-label="Default select example" name="type" #type>
               <option  value="{{centre.type}}" selected>{{centre.type}}</option>
               <option value="Hopital">Hopital</option>
               <option value="Centre de centé">Centre de centé</option>
@@ -34,7 +41,7 @@
           <div class="ms-lg-2">
             <div class="my-4 col-lg-6 text-center ms-lg-5">
 
-              <button type="submit" class="btn btn-success ms-lg-5" (click)="update(nom.value ,localisation.value, type.value)">Modifier</button>
+              <button type="submit" class="btn btn-success ms-lg-5" (click)="update(nom.value,wilayaa.value,mougataa.value, type.value)">Modifier</button>
 
             </div>
           </div>

@@ -9,7 +9,7 @@ class Centre extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nom' ,'localisation','type'
+        'nom' ,'wilayaa','mougataa','type'
     ];
     protected $table = 'centres';
 }

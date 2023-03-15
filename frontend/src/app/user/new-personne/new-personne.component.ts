@@ -2,7 +2,7 @@ import { CentreService } from './../../service/centre.service';
 import { Component, OnInit } from '@angular/core';
 import { PersonneVaccineeService } from '../../service/personne-vaccinee.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, MinLengthValidator } from '@angular/forms';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Vaccin } from 'src/app/admin/vaccin';
 import { vaccinService } from './../../service/vaccin.service';
@@ -44,7 +44,7 @@ export class NewPersonneComponent implements OnInit {
 
 
     this.form = new FormGroup({
-      nni: new FormControl('', [ Validators.required]),
+      nni: new FormControl('', [ Validators.required,Validators.minLength(8)]),
       name:  new FormControl('', [ Validators.required,]),
       prenom: new FormControl('', [ Validators.required,]),
       age: new FormControl('', [ Validators.required]),
@@ -74,6 +74,7 @@ export class NewPersonneComponent implements OnInit {
   }
 
   submit(){
+    
     console.log(this.form.value);
     this.personvaccineeService.create(this.form.value).subscribe(res => {
          console.log('Person created successfully!');

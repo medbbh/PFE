@@ -22,24 +22,25 @@
           </div>
           <div class="mb-2 col-lg-6 px-3">
             <label for="type" class="form-label">Fabricant</label>
-            <input type="text" class="form-control" formControlName="fabricant" [(ngModel)]="vaccin.fabricant" placeholder="lefabricant de vaccin"
-              #fabricant>
+            <input type="text" class="form-control" formControlName="fabricant" [(ngModel)]="vaccin.fabricant" #fabricant>
             <div *ngIf="f.fabricant.touched && f.fabricant.invalid" class="alert alert-danger">
               <div *ngIf="f.fabricant.errors?.required">*Fabricant is required.</div>
             </div>
           </div>
+
           <div class="mb-2 col-lg-6 px-3">
-            <label for="type" class="form-label">Date de Production</label>
-            <input type="date" class="form-control" formControlName="date_fab" [(ngModel)]="vaccin.date_fab" #date_fab>
-            <div *ngIf="f.date_fab.touched && f.date_fab.invalid" class="alert alert-danger">
-              <div *ngIf="f.date_fab.errors?.required">*Date fab is required.</div>
+            <label for="pays" class="form-label">Pays Fabricant</label>
+            <input type="text" class="form-control" formControlName="pays" [(ngModel)]="vaccin.pays" #pays>
+            <div *ngIf="f.pays.touched && f.pays.invalid" class="alert alert-danger">
+              <div *ngIf="f.pays.errors?.required">*Date fab is required.</div>
             </div>
           </div>
+
           <div class="mb-2 col-lg-6 px-3">
-            <label for="type" class="form-label">Date d'Expiration</label>
-            <input type="date" class="form-control" formControlName="date_exp" [(ngModel)]="vaccin.date_exp" #date_exp>
-            <div *ngIf="f.date_exp.touched && f.date_exp.invalid" class="alert alert-danger">
-              <div *ngIf="f.date_exp.errors?.required">*Date exp is required.</div>
+            <label for="type" class="form-label">Nombre de dose max</label>
+            <input type="text" class="form-control" formControlName="nbr_dose" [(ngModel)]="vaccin.nbr_dose" #nbr_dose>
+            <div *ngIf="f.nbr_dose.touched && f.nbr_dose.invalid" class="alert alert-danger">
+              <div *ngIf="f.nbr_dose.errors?.required">*Date exp is required.</div>
             </div>
           </div>
 

@@ -32,7 +32,7 @@ export class MvmtStockComponent implements OnInit {
           }
         }
       }
-      console.log(this.stock)
+      // console.log(this.stock)
       this.personvaccineeService.getAll().subscribe((data: PersonVaccinee[])=>{
         this.person = data
         for (let i=0; i<this.stock.length;i++){
@@ -40,19 +40,19 @@ export class MvmtStockComponent implements OnInit {
             if (this.stock[i].nomvaccin === this.person[k].nomvaccin && this.stock[i].lieu === this.person[k].lieu) {
               this.stock[i].quantite -= 1
               this.nb =this.stock[i].quantite -(this.stock[i].quantite -1)
-              
+
             }
           }
-         
+
         }
-        
-        
-        console.log(this.person)
+
+
+        // console.log(this.person)
       })
 
     })
-    
-   
+
+
   }
 
 }
