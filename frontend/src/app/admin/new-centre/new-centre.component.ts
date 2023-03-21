@@ -1,3 +1,4 @@
+import { rim, wilayaas } from 'src/app/cartographie';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CentreService } from '../../service/centre.service';
@@ -13,12 +14,31 @@ export class NewCentreComponent implements OnInit {
   faArrowLeft = faArrowLeft
   // end
   constructor(private centreservice: CentreService,private router : Router) { }
-
   centres: any;
 
   ngOnInit(): void {
 
+    // this.wilayaas = Object.keys(rim)
+    // this.mougataas = Object.values(rim)
+
   }
+
+  // men hown
+
+  filteredStates:any[] = [];
+  countries = wilayaas
+
+  states:any = rim
+
+  selectedCountry = '';
+  selectedState = '';
+
+  onCountrySelect(selectedCountry:any) {
+    this.filteredStates = this.states.find((item: { country: any; }) => item.country === selectedCountry).stateList;
+  }
+
+  // yle hown_
+
 
   add(nom: string,wilayaa:string,mougataa:string, type: string) {
     this.centres = {

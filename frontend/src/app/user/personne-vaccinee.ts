@@ -1,4 +1,5 @@
 export interface PersonVaccinee {
+  length: number;
   id: number;
   nni: number;
   name: string;
@@ -11,4 +12,5 @@ export interface PersonVaccinee {
   dateprochaine:Date;
   dateactuel:Date;
   lieu:string;
+  N_lot:string
 }

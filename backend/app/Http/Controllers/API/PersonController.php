@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Person;
 use App\Models\Stock;
-Use Log;
 
 class PersonController extends Controller
 {
@@ -30,8 +29,12 @@ class PersonController extends Controller
       $data['dateactuel'] = $request['dateactuel'];
       $data['lieu'] = $request['lieu'];
 
+      $code = Stock::select('N_lot')->where('nomvaccin','=',$data['nomvaccin'],'and','lieu','=',$data['lieu'])->first();
+      $data['N_lot'] = $code->value('N_lot');
+
       Person::create($data);
 
+      Stock::select('quantite')->where('nomvaccin','=',$data['nomvaccin'],'and','lieu','=',$data['lieu'])->decrement('quantite');
 
       return response()->json([
           'message' => "Successfully created",
@@ -64,11 +67,14 @@ class PersonController extends Controller
         $data['terminervaccin'] = $request['terminervaccin'];
         $data['dateprochaine'] = $request['dateprochaine'];
         $data['lieu'] = $request['lieu'];
-      Person::find($id)->update($data);
+        Person::find($id)->update($data);
+
       return response()->json([
           'message' => "Successfully updated",
           'success' => true
       ], 200);
     }
+
+
 }
 

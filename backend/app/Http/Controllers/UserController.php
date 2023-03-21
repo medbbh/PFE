@@ -67,6 +67,7 @@ class UserController extends Controller
             'user_id' => $user->id,
             'user_email' => $user->email,
             'user_type' => $user->userType,
+            'centre' => $user->centre,
         ])->attempt($credentials);
 
         $response['data'] = $data;
@@ -159,28 +160,21 @@ class UserController extends Controller
     }
 
 
-    public function send(Request $request)
-    {
-            $a = 200;
-            $quantites  = Stock::all()->quantite;
+    // public function send(Request $request)
+    // {
+    //         $a = 200;
+    //         $quantites  = Stock::all()->quantite;
 
-            $user = User::all();
+    //         $user = User::all();
 
-            $details = [
-                'greeting' => $request->greeting,
-                'body' => $request->body,
-                'actiontext' => $request->actiontext,
-                'actionurl' => $request->actionurl,
-                'endpart' => $request->endpart,
+    //         $details = [
+    //             'greeting' => $request->greeting,
+    //             'body' => $request->body,
+    //             'actiontext' => $request->actiontext,
+    //             'actionurl' => $request->actionurl,
+    //             'endpart' => $request->endpart,
 
-            ];
-            // foreach($quantites as $quantite)
-
-            // {
-            //     if( $quantite == 100)
-            // {
-                Notification::send($user, new stockNotification($details));
-            // }
-            // }
-    }
+    //         ];
+    //             Notification::send($user, new stockNotification($details));
+    // }
 }

@@ -13,16 +13,17 @@ export class StockComponent implements OnInit {
   stocks: Stock[] = [];
   id:any = 0
   searchText =''
+  // dtoptions:DataTables.Settings={}
 
 
   constructor(public stockService: StockService,public notificationService : NotificationService,notifierService: NotificationService) { }
 
   ngOnInit(): void {
+
     this.stockService.getAll().subscribe((data: Stock[])=>{
       this.stocks = data;
       // console.log(this.stocks);
     })
-
 }
 
   deleteStock(id: number){
@@ -31,6 +32,5 @@ export class StockComponent implements OnInit {
          console.log('Stocks deleted successfully!');
     })
   }
-
 
 }

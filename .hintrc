@@ -14,7 +14,8 @@
     "axe/aria": [
       "default",
       {
-        "aria-command-name": "off"
+        "aria-command-name": "off",
+        "aria-allowed-attr": "off"
       }
     ],
     "no-inline-styles": "off",

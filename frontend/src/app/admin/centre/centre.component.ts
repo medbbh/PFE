@@ -11,6 +11,7 @@ export class CentresComponent implements OnInit{
 
   constructor(private centreservice:CentreService ,private router:Router){}
 
+
   index = 0
 
   centres:any;

@@ -1,0 +1,17 @@
+h5{
+  background-color: #031633;
+  width: 100%;
+}
+
+canvas{
+background-color: white;
+}
+span{
+  font-size: 12px;
+  cursor: pointer;
+  color: gainsboro;
+}
+span:hover{
+  color: antiquewhite;
+}
+

@@ -18,7 +18,7 @@
   </div>
   </div>
 
-  <div class="table-responsive fs-sm-5 ">
+  <div class="table-responsive fs-sm-5">
     <table class="table mt-4">
     <thead>
 
@@ -29,6 +29,7 @@
         <th scope="col">Lieu</th>
         <th scope="col">Date de Production</th>
         <th scope="col">Date d'expiration</th>
+        <th scope="col">№ lot</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -39,10 +40,11 @@
         <td>{{ stock.quantite }}</td>
         <td>{{ stock.lieu }}</td>
         <td>{{stock.dateproduction}}</td>
-        <td>{{stock.dateexpiration}}</td>
+        <td>{{stock.dateproduction}}</td>
+        <td>{{stock.N_lot}}</td>
         <td>
-          <button routerLink="/stock/edit/{{stock.id}}" class="btn btn-info text-white">Edit</button>
-          <button class="btn btn-danger ms-2" (click)="deleteStock(stock.id)">Delete</button>
+          <button routerLink="/stock/edit/{{stock.id}}" class="btn btn-info text-white col-sm-12 w-75">Edit</button>
+          <button class="btn btn-danger mt-1 col-sm-12 w-75" (click)="deleteStock(stock.id)">Delete</button>
         </td>
       </tr>
     </tbody>
@@ -50,3 +52,5 @@
   </table>
   </div>
 </div>
+
+

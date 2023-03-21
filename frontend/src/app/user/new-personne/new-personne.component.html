@@ -36,7 +36,6 @@
 
             <label for="age" class="form-label">Age:</label>
             <input formControlName="age" id="age" type="number" class="form-control" placeholder="votre age">
-
           </div>
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
@@ -56,7 +55,6 @@
               <option value="" disabled selected>Selectionnez le vaccin</option>
               <option value="{{nom.nom}}" *ngFor="let nom of nomVaccin">{{nom.nom}}</option>
             </select>
-
           </div>
 
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
@@ -85,6 +83,7 @@
               <option value="{{centre.nom + '--' + centre.wilayaa + '--' + centre.mougataa}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.wilayaa}} -- {{centre.mougataa}}</option>
             </select>
           </div>
+
 
 
           <div class="ms-lg-5 ms-md-5">

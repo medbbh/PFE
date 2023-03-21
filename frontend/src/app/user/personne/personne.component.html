@@ -17,15 +17,15 @@
    </div>
    </div>
 
-  <div class="table-responsive fs-sm-5 ">
+  <div class="table-responsive fs-sm-5">
 
-      <table class="table table-hover mt-5 fs-md-6" [(ngModel)]="searchText">
+      <table class="table mt-5 fs-md-6" [(ngModel)]="searchText">
         <thead>
         <tr>
           <th scope="col">ID</th>
           <th scope="col">NNI</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Prenom</th>
+          <th scope="col">Nom et Prenom</th>
+          <th scope="col">Lieu</th>
           <th scope="col">vaccin</th>
           <th scope="col">Nbr dose</th>
           <th scope="col">Terminer le Vaccin</th>
@@ -36,15 +36,14 @@
 
           <th scope="row">{{i + 1}}</th>
           <td>{{person.nni}}</td>
-          <td>{{ person.name }}</td>
-          <td>{{ person.prenom }}</td>
+          <td>{{ person.name }} {{ person.prenom }}</td>
+          <td>{{person.lieu}}</td>
           <td>{{person.nomvaccin}}</td>
           <td>{{person.nbrdose}}</td>
           <td>{{person.terminervaccin}}</td>
           <td>
             <button routerLink="/person-vaccinee/modify/{{person.id}}" class="btn bg-info text-white">Edit</button>
             <button  class="btn btn-black bg-secondary text-white ms-2" routerLink="/person-vaccinee/info/{{person.id}}">voir plus</button>
-
             <button class="btn btn-danger ms-2 bg-danger" (click)="deletePerson(person.id)">Delete</button>
           </td>
           </tbody>

@@ -5,4 +5,5 @@ export interface Stock {
   lieu: string;
   dateproduction: Date;
   dateexpiration: Date;
+  N_lot: string;
 }

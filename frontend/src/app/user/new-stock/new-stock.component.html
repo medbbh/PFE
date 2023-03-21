@@ -22,15 +22,7 @@
 
           </div>
 
-          <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="lieu" class="form-label">Lieu:</label>
-            <select class="form-select" data-live-search="true" formControlName="lieu"
-              aria-label="Default select example">
-              <option value="" disabled selected>Selectionnez le centre</option>
-              <option value="{{centre.nom + '--' + centre.wilayaa + '--' + centre.mougataa}}"
-                *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.wilayaa}} -- {{centre.mougataa}}</option>
-            </select>
-          </div>
+
 
           <div class="mb-2 col-lg-6 px-3">
             <label for="quantite" class="form-label">Quantité:</label>
@@ -49,6 +41,17 @@
             <label for="dateexpiration" class="form-label">Date d'expiration:</label>
             <input formControlName="dateexpiration" id="dateexpiration" type="date" class="form-control">
           </div>
+
+          <div class="form-group mb-2 col-lg-12 px-3">
+            <label for="lieu" class="form-label">Lieu:</label>
+            <select class="form-select" data-live-search="true" formControlName="lieu"
+              aria-label="Default select example">
+              <option value="" disabled selected>Selectionnez le centre</option>
+              <option value="{{centre.nom + '--' + centre.wilayaa + '--' + centre.mougataa}}"
+                *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.wilayaa}} -- {{centre.mougataa}}</option>
+            </select>
+          </div>
+          
           <div class="ms-lg-5 pt-3">
             <div class="my-4 col-lg-7 text-center ms-lg-5">
               <button class="btn btn-success ms-lg-5" type="submit">Submit</button>

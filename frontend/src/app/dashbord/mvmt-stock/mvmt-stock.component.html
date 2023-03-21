@@ -1,10 +1,12 @@
-<div class="card-group mb-5">
 
+<h5 class="text-secondary py-2">Le mouvement de stock</h5>
 
-  <div class="row">
-    <div class="card etat-stock ms-3 mb-1  rounded col-lg-2" *ngFor="let item of stock">
+<!-- Admin cards -->
+<div class="card-group mb-5 scrolling-wrapper" *ngIf="role.user_type == 1">
+  <div *ngFor="let item of stock" >
+    <div class="card etat-stock ms-3 mb-1  rounded">
       <div class="card-body">
-        <h6 class="card-title">{{item.lieu}}</h6>
+        <h6 class="card-title" >{{item.lieu}}</h6>
         <div class="card-text">
           <p>{{item.nomvaccin}}</p>
           <div class="align-baseline fw-semibold qt">
@@ -16,6 +18,23 @@
       </div>
     </div>
   </div>
-
 </div>
 
+<!-- User Cards -->
+<div class="card-group mb-5 scrolling-wrapper" *ngIf="role.user_type == 0">
+  <div *ngFor="let item of stock">
+    <div class="card etat-stock ms-3 mb-1  rounded"  *ngIf="role.centre == item.lieu">
+      <div class="card-body">
+        <h6 class="card-title" >{{item.lieu}}</h6>
+        <div class="card-text">
+          <p>{{item.nomvaccin}}</p>
+          <div class="align-baseline fw-semibold qt">
+            <span class="text-dark px-4 py-1">{{item.quantite}}</span>
+            <span class="float-end text-muted pe-2">-{{this.nb}}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

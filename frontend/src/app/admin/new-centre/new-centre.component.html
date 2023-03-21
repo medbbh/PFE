@@ -19,12 +19,17 @@
 
           <div class="mb-2 col-lg-12">
             <label for="wilayaa" class="form-label">Wilayaa</label>
-            <input type="text" class="form-control" #wilayaa>
+            <select name="countryName" class="form-select" [(ngModel)]="selectedCountry" (ngModelChange)="onCountrySelect($event)" #wilayaa>
+              <option *ngFor="let w of countries" value="{{ w }}">{{ w }}</option>
+          </select>
+
           </div>
 
           <div class="mb-2 col-lg-12">
             <label for="mougataa" class="form-label">Mougataa</label>
-            <input type="text" class="form-control" #mougataa>
+            <select name="states" class="form-select" id="states" [(ngModel)]="selectedState" #mougataa>
+              <option *ngFor="let m of filteredStates" value="{{ m }}">{{ m }}</option>
+            </select>
           </div>
 
           <div class="mb-2 col-lg-12">
@@ -49,3 +54,7 @@
     </div>
   </div>
 </div>
+
+
+
+

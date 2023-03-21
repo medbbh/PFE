@@ -20,14 +20,18 @@ export class PersonneComponent implements OnInit {
   ngOnInit(): void {
     this.personvaccineeService.getAll().subscribe((data: PersonVaccinee[])=>{
       this.persons = data;
-      console.log(this.persons);
+
+      for(let i=0;i<this.persons.length;i++)
+      {
+      this.persons[i].lieu = this.persons[i].lieu.substring(0,this.persons[i].lieu.indexOf("--"))
+      }
     })
   }
 
   deletePerson(id: number){
     this.personvaccineeService.delete(id).subscribe(res => {
          this.persons = this.persons.filter(item => item.id !== id);
-         console.log('Person deleted successfully!');
+        //  console.log('Person deleted successfully!');
     })
   }
 

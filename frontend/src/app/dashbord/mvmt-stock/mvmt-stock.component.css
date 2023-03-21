@@ -1,7 +1,7 @@
 
 .etat-stock
 {
-  min-width:220px;
+  min-width:250px;
   border-left: 5px #031633e7 solid ;
 }
 
@@ -9,3 +9,12 @@
   border-top: #0F65E4 1px solid;
 }
 
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+}
+.scrolling-wrapper .card-carto {
+    flex: 0 0 auto;
+  }

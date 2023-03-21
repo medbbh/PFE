@@ -20,10 +20,11 @@
               <li class="text-muted"> <span class="fw-bold">NNI :
                 </span>{{personvaccinee.nni}}</li>
               <li class="text-muted"> <span class="fw-bold">Nom et Prenom :
-                  </span>{{personvaccinee.name + ' ' + personvaccinee.prenom}}</li>
+                </span>{{personvaccinee.name + ' ' + personvaccinee.prenom}}</li>
               <li class="text-muted"> <span class="me-1 fw-bold">Age : </span>{{personvaccinee.age}}</li>
 
               <li class="text-muted"> <span class="me-1 fw-bold">Sexe : </span>{{personvaccinee.sex}}</li>
+              <li class="text-muted"> <span class="me-1 fw-bold">№ Lot </span>{{personvaccinee.N_lot}}</li>
             </ul>
 
           </div>
@@ -64,10 +65,39 @@
           <div class="col-xl-2">
             <button (click)="printPage()" class="btn btn-primary text-capitalize btn-print">print</button>
 
-            <button type="button" class="btn btn-danger text-capitalize ms-3 btn-print">Envoyer</button>
+            <button type="button" class="btn btn-danger text-capitalize ms-3 btn-print" data-bs-toggle="modal" data-bs-target="#exampleModalLong">Envoyer</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title bg-white" id="exampleModalLongTitle">Cartographie</h5>
+        <button type="button" class="close rounded bg-danger px-2 text-white" ata-bs-dismiss="modal" aria-bs-label="Close">
+          <span aria-bs-hidden="true text-white">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group mb-2 col-lg-12">
+          <label for="name">Email de vaccinée</label>
+          <input type="text" class="form-control" formControlName="email" name="email" placeholder="Email">
+        </div>
+
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

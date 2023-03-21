@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { map } from 'rxjs';
 import { PersonneVaccineeService } from 'src/app/service/personne-vaccinee.service';
 
 @Component({
@@ -18,17 +17,33 @@ export class BarChartComponent implements OnInit {
   keys: any[] = []
   values: any[] = []
   realVal:any[] =[]
-
-
+  token:any
+  tokenData:any
+  role:any
   constructor(private personvaccineeservice: PersonneVaccineeService) { }
 
   ngOnInit(): void {
+    this.token = localStorage.getItem('token');
+    this.tokenData = JSON.parse(atob(this.token.split('.')[1]))
+    this.role = this.tokenData
+
     this.personvaccineeservice.getPerson().subscribe(data => {
       this.person = data;
 
-      for (const num of this.person) {
+      if(this.role.user_type == 1){
+        for (const num of this.person) {
+
         this.counts[num.age] = this.counts[num.age] ? this.counts[num.age] + 1 : 1;
       }
+      }else{
+        for (const num of this.person) {
+          num.lieu = num.lieu.substr(0, num.lieu.indexOf("--"))
+          if(num.lieu == this.role.centre){
+          this.counts[num.age] = this.counts[num.age] ? this.counts[num.age] + 1 : 1;
+          }
+        }
+      }
+
 
       this.keys = Object.keys(this.counts)
       this.values = Object.values(this.counts)
@@ -45,7 +60,7 @@ export class BarChartComponent implements OnInit {
         labels: age,
         datasets: [
           {
-            label: 'Diagramme d\'age',
+            label: 'Age',
             data: counts,
             backgroundColor: [
               // 'rgba(255, 100, 1, 1)',
@@ -76,9 +91,8 @@ export class BarChartComponent implements OnInit {
             beginAtZero: true,
 
           },
-
-
         },
+        indexAxis: 'y'
       },
     });
   }

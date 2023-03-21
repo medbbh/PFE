@@ -5,10 +5,10 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Stock;
-use Log;
 
 class StockController extends Controller
 {
+
 
     public function getAll()
     {
@@ -18,11 +18,14 @@ class StockController extends Controller
 
     public function create(Request $request)
     {
+
         $data['nomvaccin'] = $request['nomvaccin'];
         $data['quantite'] = $request['quantite'];
         $data['lieu'] = $request['lieu'];
         $data['dateproduction'] = $request['dateproduction'];
         $data['dateexpiration'] = $request['dateexpiration'];
+        $data['N_lot'] = $request['N_lot'];
+
         Stock::create($data);
         return response()->json([
             'message' => "Successfully created",

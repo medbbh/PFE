@@ -24,15 +24,6 @@
             <input formControlName="quantite" [(ngModel)]="stock.quantite" id="quantite" type="number" class="form-control">
           </div>
 
-          <!-- <div class="form-group mb-2 col-lg-6 px-3">
-            <label for="lieu" class="form-label">Lieu:</label>
-            <select class="form-select" formControlName="lieu" aria-label="Default select example">
-              <option value="" disabled selected>Selectionnez le lieu</option>
-              <option value="{{centre.nom + '--' + centre.localisation}}" *ngFor="let centre of nomCentre">
-                {{centre.nom}} -- {{centre.localisation}}</option>
-            </select>
-          </div> -->
-
           <div class="mb-2 col-lg-6 px-3">
             <label for="dateproduction" class="form-label">Date de Production:</label>
             <input formControlName="dateproduction" [(ngModel)]="stock.dateproduction" id="dateproduction" type="date" class="form-control">
@@ -43,6 +34,17 @@
             <label for="dateexpiration" class="form-label">Date d'expiration:</label>
             <input formControlName="dateexpiration" [(ngModel)]="stock.dateexpiration" id="dateexpiration" type="date" class="form-control">
           </div>
+
+          <div class="form-group mb-2 col-lg-12 px-3">
+            <label for="lieu" class="form-label">Lieu:</label>
+            <select class="form-select" formControlName="lieu" aria-label="Default select example">
+              <option value="" disabled selected>Selectionnez le lieu</option>
+              <option value="{{centre.nom + '--' + centre.wilayaa + '--' + centre.mougataa }}" *ngFor="let centre of nomCentre">
+                {{centre.nom}} -- {{centre.wilayaa}} -- {{centre.mougataa}}</option>
+            </select>
+          </div>
+
+
           <div class="ms-lg-5 pt-3">
             <div class="my-4 col-lg-6 text-center ms-lg-5">
               <button class="btn btn-success ms-lg-5" type="submit">Submit</button>

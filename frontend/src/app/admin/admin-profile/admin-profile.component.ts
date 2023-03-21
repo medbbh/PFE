@@ -2,7 +2,7 @@ import { Profile } from 'src/app/profile';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from 'src/app/service/profile.service';
-import { imgGenerate } from 'src/app/img-profile'
+
 @Component({
   selector: 'app-admin-profile',
   templateUrl: './admin-profile.component.html',

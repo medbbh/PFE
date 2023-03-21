@@ -8,11 +8,9 @@ use App\Http\Controllers\API\StockController;
 use App\Http\Controllers\API\PersonController;
 use App\Models\Centre;
 use App\Http\Resources\CentreResource;
-use App\Http\Resources\VaccinResource;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Http\Resources\UserResource;
-use App\Models\vaccins;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,4 +92,10 @@ Route::put('/user/{id}',[ UserController::class, 'update']);
 
 // notification
 
-Route::get('/send',[ UserController::class,'send']);
+// Route::get('/send',[ UserController::class,'send']);
+
+// sms
+// Route::get('send-sms', [ SmsController::class, 'index' ]);
+// Route::post('send-sms', [ SmsController::class, 'sendMessage' ]);
+
+

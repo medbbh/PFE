@@ -54,7 +54,6 @@ import { CartographieComponent } from './dashbord/cartographie/cartographie.comp
 
 
 
-
 const routes: Routes = [
 
   {
@@ -120,12 +119,10 @@ const routes: Routes = [
   {
     path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard,UserGuard]
   },
-  { path: 'person-vaccinee/person', component: PersonneComponent },
-  { path: 'person-vaccinee/new', component: NewPersonneComponent },
-  { path: 'person-vaccinee/modify/:idPerson', component: EditPersonneComponent },
-  { path: 'person-vaccinee/info/:idPerson', component: PersonInfoComponent },
-
-
+  { path: 'person-vaccinee/person', component: PersonneComponent , canActivate: [AuthGuard,UserGuard] },
+  { path: 'person-vaccinee/new', component: NewPersonneComponent , canActivate: [AuthGuard,UserGuard]},
+  { path: 'person-vaccinee/modify/:idPerson', component: EditPersonneComponent , canActivate: [AuthGuard,UserGuard]},
+  { path: 'person-vaccinee/info/:idPerson', component: PersonInfoComponent , canActivate: [AuthGuard,UserGuard]},
 
 
 
@@ -171,7 +168,7 @@ const routes: Routes = [
     MvmtStockComponent,
     FooterComponent,
     AdminFooterComponent,
-    CartographieComponent
+    CartographieComponent,
 
   ],
   imports: [
@@ -186,7 +183,10 @@ const routes: Routes = [
     FontAwesomeModule,
     QRCodeModule,
     MatPaginatorModule,
+
+
   ],
+
   providers: [DatePipe],
   bootstrap: [AppComponent]
 })

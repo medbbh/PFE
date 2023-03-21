@@ -8,6 +8,8 @@ import { Vaccin } from 'src/app/admin/vaccin';
 import { vaccinService } from './../../service/vaccin.service';
 import { Centre } from 'src/app/admin/centre';
 import { DatePipe } from '@angular/common';
+import { StockService } from 'src/app/service/stock.service';
+import { Stock } from '../stock';
 
 @Component({
   selector: 'app-new-personne',
@@ -22,15 +24,21 @@ export class NewPersonneComponent implements OnInit {
 
   nomVaccin: Vaccin[] = []
   nomCentre: Centre[] = []
+  stocks:any
   currentDate = new Date();
   nextDate = new Date();
 
+  nomvaccin = ''
+  lieu = ''
+
+  // N_lot = 'hhh'
 
   constructor(
     public personvaccineeService: PersonneVaccineeService,
     private router: Router,
     private vaccinService : vaccinService,
     private centreService : CentreService,
+    private stockService : StockService,
     private datePipe: DatePipe
   ) {
 
@@ -38,9 +46,20 @@ export class NewPersonneComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.nextDate.setDate(this.currentDate.getDate() + 60);
-    // console.log(this.datePipe.transform(this.nextDate, 'yyyy-MM-dd'));
 
+
+    // this.stockService.getStock().subscribe(res =>{
+    //   this.stocks = res
+
+    //   for(const item of this.stocks){
+    //     console.log(item)
+    //     if(item.nomvaccin == this.nomvaccin && item.lieu == this.lieu){
+    //       this.N_lot = item.N_lot
+    //     }
+    //   }
+    // })
+
+    this.nextDate.setDate(this.currentDate.getDate() + 60);
 
 
     this.form = new FormGroup({
@@ -74,7 +93,7 @@ export class NewPersonneComponent implements OnInit {
   }
 
   submit(){
-    
+
     console.log(this.form.value);
     this.personvaccineeService.create(this.form.value).subscribe(res => {
          console.log('Person created successfully!');

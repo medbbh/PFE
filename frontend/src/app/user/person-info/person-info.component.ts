@@ -22,11 +22,14 @@ export class PersonInfoComponent implements OnInit {
     private router: Router
   ) { }
 
+
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['idPerson'];
     this.personvaccineeService.find(this.id).subscribe((data: PersonVaccinee)=>{
       this.personvaccinee = data;
       this.qrData = JSON.stringify(this.personvaccinee)
+
     });
 
     this.form = new FormGroup({

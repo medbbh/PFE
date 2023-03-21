@@ -18,7 +18,15 @@ export class PieChartComponent implements OnInit {
   vaccin: any
 
 
+  token:any
+  tokenData:any
+  role:any
+
   ngOnInit(): void {
+
+    this.token = localStorage.getItem('token');
+    this.tokenData = JSON.parse(atob(this.token.split('.')[1]))
+    this.role = this.tokenData
 
     this.stockService.getStock().subscribe(data => {
       this.stock = data
@@ -33,13 +41,23 @@ export class PieChartComponent implements OnInit {
           }
         }
 
-
-        for (const item of this.stock) {
+        if(this.role.user_type == 1){
+          for (const item of this.stock) {
           this.qt.push(item.quantite)
           this.nomVaccin.push(item.nomvaccin)
         }
+        }
 
-        console.log(this.nomVaccin)
+        if(this.role.user_type == 0){
+          for (const item of this.stock) {
+          item.lieu = item.lieu.substr(0, item.lieu.indexOf("--"))
+          if(item.lieu == this.role.centre)
+          {
+            this.qt.push(item.quantite)
+            this.nomVaccin.push(item.nomvaccin)
+          }
+        }
+        }
 
 
         this.pieChartBrowser(this.nomVaccin, this.qt)

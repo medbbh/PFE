@@ -16,7 +16,8 @@ class Stock extends Model
       'quantite',
       'lieu',
       'dateproduction',
-      'dateexpiration'
+      'dateexpiration',
+      'N_lot'
     ];
- 
+
 }

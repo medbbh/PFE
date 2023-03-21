@@ -21,7 +21,16 @@ export class NewStockComponent implements OnInit {
 
   nomVaccin: Vaccin[] = []
   nomCentre: Centre[] = []
+  N_lot:any
 
+  randomString(length:any) {
+    var randomChars = '1234567890abcdefghijklmnopqrstuvwxyz';
+    var result = '';
+    for ( var i = 0; i < length; i++ ) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
+}
 
   constructor(
     private stockService: StockService,
@@ -32,12 +41,16 @@ export class NewStockComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.N_lot = this.randomString(10)
+    console.log(this.N_lot)
+
     this.form = new FormGroup({
       nomvaccin:  new FormControl('', [ Validators.required ]),
       quantite: new FormControl('', [ Validators.required]),
       lieu: new FormControl('', [ Validators.required]),
       dateproduction: new FormControl('', [ Validators.required]),
-      dateexpiration: new FormControl('', [ Validators.required])
+      dateexpiration: new FormControl('', [ Validators.required]),
+      N_lot: new FormControl(this.N_lot, [ Validators.required])
     });
 
     // vaccin info

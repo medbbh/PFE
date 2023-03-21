@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Carbon;
 
 class Person extends Model
 {
@@ -24,6 +23,7 @@ class Person extends Model
         'dateprochaine',
         'dateactuel',
         'lieu',
+        'N_lot',
     ];
 
 }
