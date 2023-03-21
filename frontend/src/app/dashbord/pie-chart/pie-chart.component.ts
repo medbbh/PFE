@@ -27,7 +27,7 @@ export class PieChartComponent implements OnInit {
         for (let i = 0; i < this.stock.length; i++) {
           for (let j = i + 1; j < this.stock.length; j++) {
             if (this.stock[i].nomvaccin === this.stock[j].nomvaccin) {
-              this.stock[i].quantite += this.stock[j].quantite
+              this.stock[i].quantite = Number(this.stock[i].quantite) + Number(this.stock[j].quantite)
               this.stock.splice(j, 1)
             }
           }

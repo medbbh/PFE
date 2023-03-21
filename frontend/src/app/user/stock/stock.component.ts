@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { StockService } from 'src/app/service/stock.service';
 import { Stock } from '../stock';
 import { NotificationService } from 'src/app/service/notification.service';
+import { PersonneVaccineeService } from 'src/app/service/personne-vaccinee.service';
+import { PersonVaccinee } from '../personne-vaccinee';
 
 @Component({
   selector: 'app-stock',
@@ -11,17 +13,27 @@ import { NotificationService } from 'src/app/service/notification.service';
 export class StockComponent implements OnInit {
 
   stocks: Stock[] = [];
+  person:PersonVaccinee[] =[];
   id:any = 0
   searchText =''
 
 
-  constructor(public stockService: StockService,public notificationService : NotificationService,notifierService: NotificationService) { }
+  constructor(public stockService: StockService,public notificationService : NotificationService,notifierService: NotificationService ,private personvaccineeService:PersonneVaccineeService) { }
 
   ngOnInit(): void {
     this.stockService.getAll().subscribe((data: Stock[])=>{
       this.stocks = data;
       // console.log(this.stocks);
+      for (let i=0; i<this.stocks.length;i++){
+        for(let j=i+1; j<this.stocks.length;j++){
+          if (this.stocks[i].nomvaccin === this.stocks[j].nomvaccin && this.stocks[i].lieu === this.stocks[j].lieu) {
+            this.stocks[i].quantite = Number(this.stocks[i].quantite) + Number(this.stocks[j].quantite)
+            this.stocks.splice(j, 1)
+          }
+        }
+      }
     })
+   
 
 }
 
