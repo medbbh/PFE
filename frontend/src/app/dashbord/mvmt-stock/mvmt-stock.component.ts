@@ -21,7 +21,7 @@ export class MvmtStockComponent implements OnInit {
   tokenData: any
   role: any
 
-  constructor(private stockService: StockService, private personvaccineeService: PersonneVaccineeService) { }
+  constructor(private stockService :StockService ,private personvaccineeService:PersonneVaccineeService) { }
 
   ngOnInit(): void {
 
@@ -39,6 +39,7 @@ export class MvmtStockComponent implements OnInit {
           if (this.stock[i].lieu === this.stock[j].lieu && this.stock[i].nomvaccin === this.stock[j].nomvaccin) {
             this.stock[i].quantite += this.stock[j].quantite
             this.stock.splice(j, 1)
+
           }
         }
       }

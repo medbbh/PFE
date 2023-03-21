@@ -32,13 +32,16 @@ class PersonController extends Controller
       $code = Stock::select('N_lot')->where('nomvaccin','=',$data['nomvaccin'],'and','lieu','=',$data['lieu'])->first();
       $data['N_lot'] = $code->value('N_lot');
 
+      $diminition_stock = Stock::select('quantite')->where('nomvaccin','=' ,$data['nomvaccin'],'and','lieu','=',$data['lieu'])->decrement('quantite');
+
       Person::create($data);
 
       Stock::select('quantite')->where('nomvaccin','=',$data['nomvaccin'],'and','lieu','=',$data['lieu'])->decrement('quantite');
 
       return response()->json([
           'message' => "Successfully created",
-          'success' => true
+          'success' => true,
+
       ], 200);
 
     }
@@ -67,8 +70,7 @@ class PersonController extends Controller
         $data['terminervaccin'] = $request['terminervaccin'];
         $data['dateprochaine'] = $request['dateprochaine'];
         $data['lieu'] = $request['lieu'];
-        Person::find($id)->update($data);
-
+      Person::find($id)->update($data);
       return response()->json([
           'message' => "Successfully updated",
           'success' => true

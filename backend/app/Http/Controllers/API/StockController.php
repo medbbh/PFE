@@ -27,10 +27,19 @@ class StockController extends Controller
         $data['N_lot'] = $request['N_lot'];
 
         Stock::create($data);
-        return response()->json([
+
+        $regroupe_stock = Stock::select('quantite')->where('nomvaccin','=' ,$data['nomvaccin'],'and','lieu','=',$data['lieu'])->get();
+        if($regroupe_stock){
+            Stock::select('quantite')->where('nomvaccin','=' ,$data['nomvaccin'],'and','lieu','=',$data['lieu'])->increment('quantite',$data['quantite']);
+        }
+        else{
+            Stock::create($data);
+            return response()->json([
             'message' => "Successfully created",
             'success' => true
         ], 200);
+        }
+
     }
 
     public function get($id)
