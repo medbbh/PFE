@@ -11,14 +11,13 @@ class SmsController extends Controller
     public function index()
     {
         return view('send-sms');
-
     }
 
 
     public function sendMessage(Request $request)
     {
         $tomorrow = date("Y-m-d", strtotime('+1 days'));
-        $data = Person::select('dateprochaine')->where('dateprochaine','=',$tomorrow)->get();
+        $data = Person::select('dateprochaine','num_tel','name')->where('dateprochaine','=',$tomorrow)->get();
         if ($data->value('dateprochaine') != NULL) {
             try {
                 $accountSid = getenv("TWILIO_SID");
@@ -29,7 +28,7 @@ class SmsController extends Controller
 
                 $client->messages->create('+222 34 50 37 10', [
                     'from' => $twilioNumber,
-                    'body' => "Noubliez pas votre rendez-Vous demain"
+                    'body' => $data->value('name')
                 ]);
                 return back()->with('success', 'Sms has been successfully sent.');
             } catch (\Exception $e) {

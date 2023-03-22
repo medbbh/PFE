@@ -15,7 +15,8 @@
       "default",
       {
         "aria-command-name": "off",
-        "aria-allowed-attr": "off"
+        "aria-allowed-attr": "off",
+        "aria-valid-attr": "off"
       }
     ],
     "no-inline-styles": "off",

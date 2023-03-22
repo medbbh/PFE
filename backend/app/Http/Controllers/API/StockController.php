@@ -26,11 +26,10 @@ class StockController extends Controller
         $data['dateexpiration'] = $request['dateexpiration'];
         $data['N_lot'] = $request['N_lot'];
 
-        Stock::create($data);
+        $regroupe_stock = Stock::select('quantite')->where([['nomvaccin','=',$data['nomvaccin']],['lieu','=',$data['lieu']]])->first();
 
-        $regroupe_stock = Stock::select('quantite')->where('nomvaccin','=' ,$data['nomvaccin'],'and','lieu','=',$data['lieu'])->get();
-        if($regroupe_stock){
-            Stock::select('quantite')->where('nomvaccin','=' ,$data['nomvaccin'],'and','lieu','=',$data['lieu'])->increment('quantite',$data['quantite']);
+        if($regroupe_stock != null){
+            Stock::select('quantite')->where('nomvaccin','=',$data['nomvaccin'])->where('lieu','=',$data['lieu'])->increment('quantite',$data['quantite']);
         }
         else{
             Stock::create($data);

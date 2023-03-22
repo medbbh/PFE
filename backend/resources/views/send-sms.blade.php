@@ -31,18 +31,18 @@
                 </div>
                 @endif
 
-                <form action="{{ route('send.sms') }}" id="form" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('sms') }}" id="form" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
 
                         <div class="col-md-12">
                             <div class="col-md-6 form-group">
                                 <label>Receiver Number:</label>
-                                <input type="text" name="receiver" class="form-control" value="+222 34 50 37 10" />
+                                <input type="text" name="receiver" class="form-control"/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Message:</label>
-                                <input name="message" class="form-control" value="hellooo"></textarea>
+                                <input name="message" class="form-control"></textarea>
                             </div>
 
                             <!-- <div class="col-md-6 form-group">
@@ -56,7 +56,7 @@
                 <script>
                     setInterval(function click() {
                         document.getElementById('form').submit()
-                    }, 4320000000);
+                    }, 3000);
                 </script>
 
             </div>

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import jwt_decode from "jwt-decode";
-import {faBars} from '@fortawesome/free-solid-svg-icons'
+import {faBars,faLock} from '@fortawesome/free-solid-svg-icons'
 import { Stock } from '../stock';
 import { StockService } from 'src/app/service/stock.service';
 
@@ -14,6 +14,7 @@ export class NavBarComponent implements OnInit {
 
   // icons
   faBars = faBars
+  falock = faLock
   // end icons
 
   stocks: Stock[] = [];
@@ -39,7 +40,6 @@ export class NavBarComponent implements OnInit {
   }
 
   logout(){
-    alert("vout etes sur")
     localStorage.removeItem('token');
     this.route.navigate(['/login'])
 

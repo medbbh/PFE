@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {faBars,faLock} from '@fortawesome/free-solid-svg-icons';
 import jwt_decode from "jwt-decode";
 
 @Component({
@@ -12,6 +12,8 @@ export class NavbarComponent implements OnInit {
 
    // icons
    faBars = faBars
+  falock = faLock
+
    // end icons
 
 

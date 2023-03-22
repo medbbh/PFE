@@ -25,7 +25,6 @@ export class StockComponent implements OnInit {
 
     this.stockService.getAll().subscribe((data: Stock[])=>{
       this.stocks = data;
-      // console.log(this.stocks);
       for (let i=0; i<this.stocks.length;i++){
         for(let j=i+1; j<this.stocks.length;j++){
           if (this.stocks[i].nomvaccin === this.stocks[j].nomvaccin && this.stocks[i].lieu === this.stocks[j].lieu) {
