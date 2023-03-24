@@ -29,7 +29,7 @@ class StockController extends Controller
         $regroupe_stock = Stock::select('quantite')->where([['nomvaccin','=',$data['nomvaccin']],['lieu','=',$data['lieu']]])->first();
 
         if($regroupe_stock != null){
-            Stock::select('quantite')->where('nomvaccin','=',$data['nomvaccin'])->where('lieu','=',$data['lieu'])->increment('quantite',$data['quantite']);
+            Stock::select('quantite')->where([['nomvaccin','=',$data['nomvaccin']],['lieu','=',$data['lieu']]])->increment('quantite',$data['quantite']);
         }
         else{
             Stock::create($data);

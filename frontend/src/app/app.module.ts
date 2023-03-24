@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './user/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -51,6 +51,8 @@ import { FooterComponent } from './user/footer/footer.component';
 import { DatePipe } from '@angular/common';
 import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
 import { CartographieComponent } from './dashbord/cartographie/cartographie.component';
+
+import { LoadingInterceptor } from './loading.interceptor';
 
 
 
@@ -187,7 +189,10 @@ const routes: Routes = [
 
   ],
 
-  providers: [DatePipe],
+  providers: [DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

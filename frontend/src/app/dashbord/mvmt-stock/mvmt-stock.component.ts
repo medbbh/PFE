@@ -48,9 +48,6 @@ export class MvmtStockComponent implements OnInit {
         this.stock[i].lieu = this.stock[i].lieu.substring(0, this.stock[i].lieu.indexOf("--"))
       }
 
-
-
-
       this.personvaccineeService.getAll().subscribe((data: PersonVaccinee[]) => {
         this.person = data
         for (let i = 0; i < this.stock.length; i++) {

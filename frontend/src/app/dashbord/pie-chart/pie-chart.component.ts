@@ -18,54 +18,52 @@ export class PieChartComponent implements OnInit {
   vaccin: any
 
 
-  token:any
-  tokenData:any
-  role:any
+  token: any
+  tokenData: any
+  role: any
 
   ngOnInit(): void {
 
     this.token = localStorage.getItem('token');
     this.tokenData = JSON.parse(atob(this.token.split('.')[1]))
     this.role = this.tokenData
+    console.log(this.role)
 
-    this.stockService.getStock().subscribe(data => {
-      this.stock = data
-      if (this.stock != null) {
+    this.stockService.getStock().subscribe((data) => {
 
-        for (let i = 0; i < this.stock.length; i++) {
-          for (let j = i + 1; j < this.stock.length; j++) {
-            if (this.stock[i].nomvaccin === this.stock[j].nomvaccin) {
-              this.stock[i].quantite = Number(this.stock[i].quantite) + Number(this.stock[j].quantite)
-              this.stock.splice(j, 1)
-            }
+      this.stock = data;
+      // console.log(this.stock)
+
+      for (let i = 0; i < this.stock.length; i++) {
+        for (let j = i + 1; j < this.stock.length; j++) {
+
+          if (this.stock[i].nomvaccin == this.stock[j].nomvaccin) {
+            this.stock[i].quantite += this.stock[j].quantite
+            this.stock.splice(j, 1)
           }
         }
+      }
 
-        if(this.role.user_type == 1){
-          for (const item of this.stock) {
-          this.qt.push(item.quantite)
-          this.nomVaccin.push(item.nomvaccin)
-        }
-        }
+      for (let i = 0; i < this.stock.length; i++) {
+        this.stock[i].lieu = this.stock[i].lieu.substring(0, this.stock[i].lieu.indexOf("--"))
+      }
 
-        if(this.role.user_type == 0){
-          for (const item of this.stock) {
-          item.lieu = item.lieu.substr(0, item.lieu.indexOf("--"))
-          if(item.lieu == this.role.centre)
-          {
-            this.qt.push(item.quantite)
+        for(const item of this.stock){
+          if(this.role.user_type == 0){
+            if(this.role.centre === item.lieu){
             this.nomVaccin.push(item.nomvaccin)
+            this.qt.push(item.quantite)
           }
-        }
-        }
+          }else{
+            this.nomVaccin.push(item.nomvaccin)
+            this.qt.push(item.quantite)
+          }
 
+        }
 
         this.pieChartBrowser(this.nomVaccin, this.qt)
 
-      }
-
-    });
-    // ngAfterViewInit(): void { }
+    })
   }
 
   canvas: any;

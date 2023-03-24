@@ -9,17 +9,18 @@
      <button type="button" class="btn btn-outline-primary py-2" routerLink="/person-vaccinee/new">Ajouter nouveaux vaccinee</button>
    </div>
 
-   <!-- search bar -->
-   <div class="input-group row w-50 me-4 d-flex align-items-center justify-content-center">
-     <div class="form-outline col-lg-12 col-md-12">
-       <input type="search" id="form1" class="form-control" placeholder=Recherche class="form-control" [(ngModel)]="searchText"/>
-     </div>
-   </div>
+  <!-- search bar -->
+  <div class="input-group row w-50 me-4 d-flex align-items-center justify-content-center">
+    <div class="form-outline col-lg-12 col-md-12">
+      <input type="search" id="form1" class="form-control" placeholder=Recherche class="form-control" [(ngModel)]="searchText"/>
+    </div>
+  </div>
+
    </div>
 
   <div class="table-responsive fs-sm-5">
 
-      <table class="table mt-5 fs-md-6" [(ngModel)]="searchText">
+      <table class="table mt-5 fs-md-6">
         <thead>
         <tr>
           <th scope="col">ID</th>
