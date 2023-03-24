@@ -27,7 +27,7 @@ export class PieChartComponent implements OnInit {
     this.token = localStorage.getItem('token');
     this.tokenData = JSON.parse(atob(this.token.split('.')[1]))
     this.role = this.tokenData
-    console.log(this.role)
+    // console.log(this.role)
 
     this.stockService.getStock().subscribe((data) => {
 
@@ -49,14 +49,17 @@ export class PieChartComponent implements OnInit {
       }
 
         for(const item of this.stock){
-          if(this.role.user_type == 0){
-            if(this.role.centre === item.lieu){
+          if(this.role.user_type == 1){
             this.nomVaccin.push(item.nomvaccin)
             this.qt.push(item.quantite)
-          }
+
           }else{
-            this.nomVaccin.push(item.nomvaccin)
-            this.qt.push(item.quantite)
+            if(this.role.centre == item.lieu){
+              console.log(item.lieu)
+
+              this.nomVaccin.push(item.nomvaccin)
+              this.qt.push(item.quantite)
+            }
           }
 
         }

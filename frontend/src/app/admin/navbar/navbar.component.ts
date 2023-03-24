@@ -34,10 +34,11 @@ export class NavbarComponent implements OnInit {
    }
 
    logout(){
-    alert("vout etes sur")
-
      localStorage.removeItem('token');
+     location.reload();
      this.route.navigate(['/login'])
+
+
 
    }
 

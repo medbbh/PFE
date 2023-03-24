@@ -52,8 +52,6 @@ import { DatePipe } from '@angular/common';
 import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
 import { CartographieComponent } from './dashbord/cartographie/cartographie.component';
 
-import { LoadingInterceptor } from './loading.interceptor';
-
 
 
 const routes: Routes = [
@@ -189,10 +187,7 @@ const routes: Routes = [
 
   ],
 
-  providers: [DatePipe,
-    {
-      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
-    }],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
