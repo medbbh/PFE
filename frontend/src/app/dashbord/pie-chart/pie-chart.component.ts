@@ -55,7 +55,7 @@ export class PieChartComponent implements OnInit {
         //       this.qt.push(item.quantite)
 
         if(this.role.user_type == 0){
-          if(item.lieu == 'Cheikh Zayed') {
+          if(item.lieu == this.role.centre) {
             this.nomVaccin.push(item.nomvaccin)
             this.qt.push(item.quantite)
           }
