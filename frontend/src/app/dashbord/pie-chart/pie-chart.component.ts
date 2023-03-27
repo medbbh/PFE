@@ -37,9 +37,10 @@ export class PieChartComponent implements OnInit {
       for (let i = 0; i < this.stock.length; i++) {
         for (let j = i + 1; j < this.stock.length; j++) {
 
-          if (this.stock[i].nomvaccin == this.stock[j].nomvaccin) {
+          if (this.stock[i].lieu === this.stock[j].lieu && this.stock[i].nomvaccin === this.stock[j].nomvaccin) {
             this.stock[i].quantite += this.stock[j].quantite
             this.stock.splice(j, 1)
+
           }
         }
       }
@@ -49,20 +50,33 @@ export class PieChartComponent implements OnInit {
       }
 
         for(const item of this.stock){
-          if(this.role.user_type == 1){
+          console.log(item.lieu)
+        //       this.nomVaccin.push(item.nomvaccin)
+        //       this.qt.push(item.quantite)
+
+        if(this.role.user_type == 0){
+          if(item.lieu == 'Cheikh Zayed') {
             this.nomVaccin.push(item.nomvaccin)
             this.qt.push(item.quantite)
-
-          }else{
-            if(this.role.centre == item.lieu){
-              console.log(item.lieu)
-
-              this.nomVaccin.push(item.nomvaccin)
-              this.qt.push(item.quantite)
-            }
           }
 
+        }else{
+          for (let i = 0; i < this.stock.length; i++) {
+            for (let j = i + 1; j < this.stock.length; j++) {
+              if (this.stock[i].nomvaccin === this.stock[j].nomvaccin) {
+                this.stock[i].quantite += this.stock[j].quantite
+                this.stock.splice(j, 1)
+              }
+            }
+          }
+          this.nomVaccin.push(item.nomvaccin)
+          this.qt.push(item.quantite)
+
         }
+          }
+
+
+
 
         this.pieChartBrowser(this.nomVaccin, this.qt)
 
