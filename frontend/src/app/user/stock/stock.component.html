@@ -16,7 +16,7 @@
       <input type="search" id="form1" class="form-control" placeholder=Recherche class="form-control" [(ngModel)]="searchText"/>
     </div>
   </div>
-  
+
   </div>
 
   <div class="table-responsive fs-sm-5">
@@ -44,8 +44,8 @@
         <td>{{stock.dateproduction}}</td>
         <td>{{stock.N_lot}}</td>
         <td>
-          <button routerLink="/stock/edit/{{stock.id}}" class="btn btn-info text-white col-sm-12 w-75">Edit</button>
-          <button class="btn btn-danger mt-1 col-sm-12 w-75" (click)="deleteStock(stock.id)">Delete</button>
+          <button routerLink="/stock/edit/{{stock.id}}" class="btn btn-info text-white col-sm-12 w-75">Modifier</button>
+          <button class="btn btn-danger mt-1 col-sm-12 w-75" (click)="deleteStock(stock.id)">Supprimer</button>
         </td>
       </tr>
     </tbody>

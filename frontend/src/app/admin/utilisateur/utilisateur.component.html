@@ -45,7 +45,7 @@
         <td>
           <button class="btn btn-success me-lg-4" *ngIf="user.userType == 0" (click)="madeAdmin(user.id)">Nommer admin</button>
           <button class="btn btn-info me-lg-4" *ngIf="user.userType == 1" (click)="deleteAdmin(user.id)">Revoquer d'admin</button>
-          <button class="btn btn-danger " (click)="deleteUser(user.id)">Delete</button>
+          <button class="btn btn-danger " (click)="deleteUser(user.id)">Supprimer</button>
         </td>
       </tr>
     </tbody>

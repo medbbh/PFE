@@ -38,8 +38,8 @@
         <td>{{vaccin.pays}}</td>
         <td>{{vaccin.nbr_dose}}</td>
         <td>
-          <button class="btn btn-info" routerLink="/admin/edit-vaccin/{{vaccin.id}}">Edit</button>&nbsp;
-          <button class="btn btn-danger" (click)="deleteVaccin(vaccin.id)">Delete</button>
+          <button class="btn btn-info text-white" routerLink="/admin/edit-vaccin/{{vaccin.id}}">Modifier</button>&nbsp;
+          <button class="btn btn-danger" (click)="deleteVaccin(vaccin.id)">Supprimer</button>
         </td>
       </tr>
     </tbody>

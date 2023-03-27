@@ -43,9 +43,9 @@
           <td>{{person.nbrdose}}</td>
           <td>{{person.terminervaccin}}</td>
           <td>
-            <button routerLink="/person-vaccinee/modify/{{person.id}}" class="btn bg-info text-white">Edit</button>
+            <button routerLink="/person-vaccinee/modify/{{person.id}}" class="btn bg-info text-white">Modifier</button>
             <button  class="btn btn-black bg-secondary text-white ms-2" routerLink="/person-vaccinee/info/{{person.id}}">voir plus</button>
-            <button class="btn btn-danger ms-2 bg-danger" (click)="deletePerson(person.id)">Delete</button>
+            <button class="btn btn-danger ms-2 bg-danger" (click)="deletePerson(person.id)">Supprimer</button>
           </td>
           </tbody>
       </table>
