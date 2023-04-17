@@ -35,7 +35,7 @@
       </tr>
     </thead>
     <tbody *ngIf="users.length">
-      <tr *ngFor="let user of users | search : searchText ; let i = index">
+      <tr *ngFor="let user of users | paginate: { itemsPerPage: 5, currentPage: p } | search : searchText ; let i = index">
         <th scope="row">{{i + 1}}</th>
         <td>{{user.nom}}</td>
         <td>{{user.email}}</td>
@@ -50,5 +50,10 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event"
+previousLabel="Précédent"
+nextLabel="suivant"
+class="text-end custom-pagination">
+</pagination-controls>
 </div>
 </div>

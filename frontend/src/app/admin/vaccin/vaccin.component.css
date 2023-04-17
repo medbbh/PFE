@@ -9,3 +9,7 @@ button{
 .add-btn button{
   font-size: 12px;
 }
+.custom-pagination ::ng-deep .ngx-pagination .current {
+  background: #0DCAF0;
+  border-radius: 2px;
+}

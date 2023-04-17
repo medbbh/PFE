@@ -31,7 +31,7 @@
       </tr>
     </thead>
     <tbody *ngIf="vaccins.length">
-      <tr *ngFor="let vaccin of vaccins | search : searchText ; let i = index">
+      <tr *ngFor="let vaccin of vaccins | paginate: { itemsPerPage: 5, currentPage: p } | search : searchText ; let i = index">
         <th scope="row">{{i + 1}}</th>
         <td>{{vaccin.nom}}</td>
         <td>{{vaccin.fabricant}}</td>
@@ -44,5 +44,10 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="p = $event"
+previousLabel="Précédent"
+nextLabel="suivant"
+class="text-end custom-pagination">
+</pagination-controls>
   </div>
 </div>

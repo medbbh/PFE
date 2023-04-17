@@ -4,6 +4,7 @@ export interface PersonVaccinee {
   nni: number;
   name: string;
   prenom: string;
+  numtel:number;
   age: number;
   sex: string;
   nomvaccin: string;

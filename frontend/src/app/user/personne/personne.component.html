@@ -6,22 +6,24 @@
 
   <div>
     <div class="position-absolute top-0 end-0 mt-2 me-2 add-btn ms-3">
-     <button type="button" class="btn btn-outline-primary py-2" routerLink="/person-vaccinee/new">Ajouter nouveaux vaccinee</button>
-   </div>
-
-  <!-- search bar -->
-  <div class="input-group row w-50 me-4 d-flex align-items-center justify-content-center">
-    <div class="form-outline col-lg-12 col-md-12">
-      <input type="search" id="form1" class="form-control" placeholder=Recherche class="form-control" [(ngModel)]="searchText"/>
+      <button type="button" class="btn btn-outline-primary py-2" routerLink="/person-vaccinee/new">Ajouter nouveaux
+        vaccinee</button>
     </div>
-  </div>
 
-   </div>
+    <!-- search bar -->
+    <div class="input-group row w-50 me-4 d-flex align-items-center justify-content-center">
+      <div class="form-outline col-lg-12 col-md-12">
+        <input type="search" id="form1" class="form-control" placeholder=Recherche class="form-control"
+          [(ngModel)]="searchText" />
+      </div>
+    </div>
+
+  </div>
 
   <div class="table-responsive fs-sm-5">
 
-      <table class="table mt-5 fs-md-6">
-        <thead>
+    <table class="table mt-5 fs-md-6">
+      <thead>
         <tr>
           <th scope="col">ID</th>
           <th scope="col">NNI</th>
@@ -33,7 +35,9 @@
           <th scope="col">Action</th>
         </tr>
       </thead>
-        <tbody *ngFor="let person of persons | search : searchText ;let i = index">
+      <tbody>
+        <tr
+          *ngFor="let person of persons | paginate: { itemsPerPage: 5, currentPage: p } | search : searchText ; let i = index">
 
           <th scope="row">{{i + 1}}</th>
           <td>{{person.nni}}</td>
@@ -44,9 +48,15 @@
           <td>{{person.terminervaccin}}</td>
           <td>
             <button routerLink="/person-vaccinee/modify/{{person.id}}" class="btn bg-info text-white">Modifier</button>
-            <button  class="btn btn-black bg-secondary text-white ms-2" routerLink="/person-vaccinee/info/{{person.id}}">voir plus</button>
+            <button class="btn btn-black bg-secondary text-white ms-2"
+              routerLink="/person-vaccinee/info/{{person.id}}">voir plus</button>
             <button class="btn btn-danger ms-2 bg-danger" (click)="deletePerson(person.id)">Supprimer</button>
           </td>
-          </tbody>
-      </table>
-      </div>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"
+    previousLabel="Précédent"
+    nextLabel="suivant"
+    class="text-end custom-pagination">
+    </pagination-controls>
+  </div>

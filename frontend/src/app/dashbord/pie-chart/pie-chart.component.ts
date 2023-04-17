@@ -50,7 +50,7 @@ export class PieChartComponent implements OnInit {
       }
 
         for(const item of this.stock){
-          console.log(item.lieu)
+          // console.log(item.lieu)
         //       this.nomVaccin.push(item.nomvaccin)
         //       this.qt.push(item.quantite)
 

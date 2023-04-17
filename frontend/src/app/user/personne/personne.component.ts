@@ -11,13 +11,13 @@ export class PersonneComponent implements OnInit {
 
   persons: PersonVaccinee[] = [];
   searchText =''
-
-
+  p: number = 1;
 
   // constructor() { }
   constructor(public personvaccineeService: PersonneVaccineeService) { }
 
   ngOnInit(): void {
+
     this.personvaccineeService.getAll().subscribe((data: PersonVaccinee[])=>{
       this.persons = data;
 
@@ -26,6 +26,8 @@ export class PersonneComponent implements OnInit {
       this.persons[i].lieu = this.persons[i].lieu.substring(0,this.persons[i].lieu.indexOf("--"))
       }
     })
+
+
   }
 
   deletePerson(id: number){

@@ -30,6 +30,8 @@ export class PersonInfoComponent implements OnInit {
       this.personvaccinee = data;
       this.qrData = JSON.stringify(this.personvaccinee)
 
+
+
     });
 
     this.form = new FormGroup({

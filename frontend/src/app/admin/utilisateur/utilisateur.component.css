@@ -13,3 +13,7 @@ button{
 table button{
   color: white;
 }
+.custom-pagination ::ng-deep .ngx-pagination .current {
+  background: #0DCAF0;
+  border-radius: 2px;
+}

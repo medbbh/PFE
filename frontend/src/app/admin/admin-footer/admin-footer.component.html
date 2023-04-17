@@ -19,28 +19,23 @@
       <div class="col-md-6 col-lg-3">
         <div class="links">
           <h5 class="text-light">Links</h5>
-          <ul class="list-unstyled lh-lg ">
-            <li><a routerLink="/admin/centre" class="links">Les structures sanitaires</a></li>
-            <li><a routerLink="/admin/add-centre" class="links">Ajouter un structures</a></li>
-            <li><a routerLink="/admin/vaccin" class="links">Les vaccins</a></li>
-            <li><a routerLink="/admin/add-vaccin" class="links">Ajouter un vaccin</a></li>
-            <li><a routerLink="/admin/utilisateur" class="links">Les utilisateurs</a></li>
-            <li><a routerLink="/admin/add-user" class="links">Ajouter un utilisateur</a></li>
+          <ul class="list-unstyled lh-lg row">
+            <li class="col-lg-6"><a routerLink="/admin/centre" class="links">Les structures sanitaires</a></li>
+            <li class="col-lg-6"><a routerLink="/admin/add-centre" class="links">Ajouter un structures</a></li>
+            <li class="col-lg-6"><a routerLink="/admin/vaccin" class="links">Les vaccins</a></li>
+            <li class="col-lg-6"><a routerLink="/admin/add-vaccin" class="links">Ajouter un vaccin</a></li>
+            <li class="col-lg-6"><a routerLink="/admin/utilisateur" class="links">Les utilisateurs</a></li>
+            <li class="col-lg-6"><a routerLink="/admin/add-user" class="links">Ajouter un utilisateur</a></li>
+            <li class="col-lg-10 mt-lg-4">
+              <div class="box mb-3" routerLink="/admin/profile/{{id}}" data-work="Profile">
+                <a class="btn border rounded-pill w-100 text-white profile" data-work="Profile">{{email}}
+                  <small class="text-muted" *ngIf="userType == 1">Admin</small> <small class="text-muted"
+                    *ngIf="userType == 0">User</small>
+                  </a>
+
+              </div>
+            </li>
           </ul>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="contact">
-          <h5 class="text-light">Contact Us</h5>
-          <p class="lh-lg mt-3 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi necessita</p>
-          <div class="box mb-3" routerLink="/admin/profile/{{id}}" data-work="Profile">
-            <a class="btn border rounded-pill w-100 text-white profile" data-work="Profile">{{email}}
-              <small class="text-muted" *ngIf="userType == 1">Admin</small> <small class="text-muted"
-                *ngIf="userType == 0">User</small></a>
-
-          </div>
-
         </div>
       </div>
 

@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// twilio
+Route::get('/sms', [ SmsController::class, 'sendMessage' ]);
 
-Route::get('send', [ SmsController::class, 'index' ]);
-
-Route::post('sms', [ SmsController::class, 'sendMessage']);
+// Route::post('/sms', [ SmsController::class, 'sendMessage']);

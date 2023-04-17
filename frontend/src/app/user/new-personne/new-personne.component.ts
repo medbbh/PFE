@@ -74,6 +74,7 @@ export class NewPersonneComponent implements OnInit {
       dateprochaine: new FormControl(this.datePipe.transform(this.nextDate, 'yyyy-MM-dd'), [ Validators.required ]),
       dateactuel: new FormControl(this.datePipe.transform(this.currentDate, 'yyyy-MM-dd'), [ Validators.required ]),
       lieu: new FormControl('', [ Validators.required ]),
+      numtel: new FormControl('', [ Validators.required ]),
     });
 
     this.vaccinService.getAll().subscribe((res: Vaccin[]) => {

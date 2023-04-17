@@ -35,7 +35,7 @@
     </tr>
   </thead>
   <tbody  *ngIf="centres.length">
-    <tr *ngFor="let centre of centres | search : searchText ;let i = index">
+    <tr *ngFor="let centre of centres | paginate: { itemsPerPage: 5, currentPage: p } | search : searchText | search : searchText ;let i = index">
       <th scope="row">{{i + 1}}</th>
       <td>{{centre.nom}}</td>
       <td>{{centre.wilayaa}}</td>
@@ -46,5 +46,10 @@
     </tr>
   </tbody>
 </table>
+<pagination-controls (pageChange)="p = $event"
+previousLabel="Précédent"
+nextLabel="suivant"
+class="text-end custom-pagination">
+</pagination-controls>
 </div>
 </div>

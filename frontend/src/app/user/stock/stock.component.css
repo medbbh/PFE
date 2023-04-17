@@ -13,3 +13,7 @@ button{
   background-color: rgb(184, 89, 89);
   color: white;
 }
+.custom-pagination ::ng-deep .ngx-pagination .current {
+  background: #0DCAF0;
+  border-radius: 2px;
+}

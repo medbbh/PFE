@@ -77,6 +77,5 @@ class PersonController extends Controller
       ], 200);
     }
 
-
 }
 

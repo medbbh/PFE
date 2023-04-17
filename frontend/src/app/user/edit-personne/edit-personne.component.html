@@ -14,7 +14,7 @@
 
           <div class="mb-2 col-lg-6 col-md-6 col-sm-12 ">
             <label for="nni" class="form-label">NNI:</label>
-            <input formControlName="nni" id="nni" type="number" [(ngModel)]="personvaccinee.nni" class="form-control" placeholder="votre NNI">
+            <input formControlName="nni" id="nni" type="number" [(ngModel)]="personvaccinee.nni" class="form-control" placeholder="votre NNI" maxlength="10">
 
           </div>
 
@@ -30,6 +30,13 @@
 
             <label for="prenom" class="form-label">Prénom:</label>
             <input formControlName="prenom" id="prenom" type="text" [(ngModel)]="personvaccinee.prenom" class="form-control" placeholder="votre prenom">
+
+          </div>
+
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
+
+            <label for="numtel" class="form-label">Num tel:</label>
+            <input formControlName="numtel" id="numtel" type="tel" [(ngModel)]="personvaccinee.numtel" class="form-control" placeholder="votre numéro telephone" maxlength="8">
 
           </div>
 
@@ -75,9 +82,9 @@
 
           </div>
 
-          <div class="mb-2 col-lg-12 col-md-12 col-sm-12">
+          <div class="mb-2 col-lg-6 col-md-6 col-sm-12">
 
-            <label for="lieu" class="form-label">Lieu</label>
+            <label for="lieu" class="form-label">Lieu:</label>
             <select class="form-select" formControlName="lieu" aria-label="Default select example">
               <option value="" disabled selected>Selectionnez le centre</option>
               <option value="{{centre.nom + '--' + centre.wilayaa + '--' + centre.mougataa}}" *ngFor="let centre of nomCentre">{{centre.nom}} -- {{centre.wilayaa}} -- {{centre.mougataa}}</option>

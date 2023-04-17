@@ -15,6 +15,8 @@ export class CentresComponent implements OnInit{
   index = 0
 
   centres:any;
+  p: number = 1;
+
 
   ngOnInit(): void {
     this.showCentres();

@@ -11,7 +11,7 @@ use App\Http\Resources\CentreResource;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Http\Resources\UserResource;
-
+use App\Http\Controllers\SmsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -95,7 +95,6 @@ Route::put('/user/{id}',[ UserController::class, 'update']);
 // Route::get('/send',[ UserController::class,'send']);
 
 // sms
-// Route::get('send-sms', [ SmsController::class, 'index' ]);
+Route::get('/sms', [ SmsController::class, 'sendMessage' ]);
+
 // Route::post('send-sms', [ SmsController::class, 'sendMessage' ]);
-
-

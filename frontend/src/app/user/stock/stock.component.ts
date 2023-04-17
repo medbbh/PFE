@@ -16,10 +16,9 @@ export class StockComponent implements OnInit {
   person:PersonVaccinee[] =[];
   id:any = 0
   searchText =''
-  // dtoptions:DataTables.Settings={}
+  p: number = 1;
 
-
-  constructor(public stockService: StockService,public notificationService : NotificationService,notifierService: NotificationService ,private personvaccineeService:PersonneVaccineeService) { }
+  constructor(public stockService: StockService,public notificationService : NotificationService,notifierService: NotificationService ,private personvaccineeService:PersonneVaccineeService) {}
 
   ngOnInit(): void {
 

@@ -34,8 +34,9 @@ export class NavbarComponent implements OnInit {
    }
 
    logout(){
+    location.reload();
+
      localStorage.removeItem('token');
-     location.reload();
      this.route.navigate(['/login'])
 
 

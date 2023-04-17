@@ -52,6 +52,7 @@ import { DatePipe } from '@angular/common';
 import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
 import { CartographieComponent } from './dashbord/cartographie/cartographie.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 const routes: Routes = [
@@ -183,6 +184,7 @@ const routes: Routes = [
     FontAwesomeModule,
     QRCodeModule,
     MatPaginatorModule,
+    NgxPaginationModule
 
 
   ],

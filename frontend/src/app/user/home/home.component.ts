@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/service/data.service';
 
 
 
@@ -9,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+
+    setInterval(() => { this.dataService.sendsms().subscribe(data=>{
+    }) },
+    43200000 );
+
+  }
+
+  sendSms(){
+    this.dataService.sendsms().subscribe(data=>{
+      console.log("yes")
+    })
 
   }
 }

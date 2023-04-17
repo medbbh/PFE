@@ -18,28 +18,24 @@
       <div class="col-md-6 col-lg-3">
         <div class="links">
           <h5 class="text-light">Links</h5>
-          <ul class="list-unstyled lh-lg ">
-            <li><a routerLink="/stock" class="links">Les Stocks</a></li>
-            <li><a routerLink="/stock/create" class="links">Ajouter un stocks</a></li>
-            <li><a routerLink="/person-vaccinee/person" class="links">Les vaccinées</a></li>
-            <li><a routerLink="/person-vaccinee/new" class="links">Ajouter un vaccinée</a></li>
+          <ul class="list-unstyled lh-lg row">
+            <li ><a routerLink="/stock" class="links">Les Stocks</a></li>
+            <li ><a routerLink="/stock/create" class="links">Ajouter un stocks</a></li>
+            <li ><a routerLink="/person-vaccinee/person" class="links">Les vaccinées</a></li>
+            <li ><a routerLink="/person-vaccinee/new" class="links">Ajouter un vaccinée</a></li>
+            <li class="col-lg-10 mt-lg-4" routerLink="/profile/{{id}}">
+              <div class="box mb-3"  data-work="Profile">
+                <a class="btn border rounded-pill w-100 text-white profile" data-work="Profile">{{email}}
+                  <small class="text-muted" *ngIf="userType == 1">Admin</small> <small class="text-muted"
+                    *ngIf="userType == 0">User</small>
+                  </a>
+
+              </div>
+            </li>
           </ul>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
-        <div class="contact">
-          <h5 class="text-light">Contact Us</h5>
-          <p class="lh-lg mt-3 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi necessita</p>
-          <div class="box mb-3" routerLink="/profile/{{id}}" data-work="Profile">
-            <a class="btn border rounded-pill w-100 text-white profile" data-work="Profile">{{email}}
-              <small class="text-muted" *ngIf="userType == 1">Admin</small> <small class="text-muted"
-                *ngIf="userType == 0">User</small></a>
-
-          </div>
-
-        </div>
-      </div>
     </div>
   </div>
 </div>

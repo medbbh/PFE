@@ -10,3 +10,7 @@ button{
   font-weight: 600;
 }
 
+.custom-pagination ::ng-deep .ngx-pagination .current {
+  background: #0DCAF0;
+  border-radius: 2px;
+}

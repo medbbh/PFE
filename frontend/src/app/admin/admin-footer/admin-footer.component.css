@@ -39,3 +39,6 @@ a{
   transform: translateX(0);
 
 }
+ul{
+  min-width: 450px;
+}

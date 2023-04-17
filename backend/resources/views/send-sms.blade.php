@@ -53,11 +53,11 @@
 
                 </form>
 
-                <script>
+                <!-- <script>
                     setInterval(function click() {
                         document.getElementById('form').submit()
-                    }, 3000);
-                </script>
+                    }, 30000);
+                </script> -->
 
             </div>
         </div>

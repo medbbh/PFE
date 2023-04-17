@@ -17,5 +17,10 @@ export class DataService {
     return this.http.post(environment.apiUrl + '/api/login/',data)
   }
 
+  sendsms(){
+    return this.http.get(environment.apiUrl + '/api/sms/')
+
+  }
+
 
 }

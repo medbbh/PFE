@@ -14,6 +14,8 @@ export class UtilisateurComponent implements OnInit {
   // userType:any
   id!: number;
   searchText =''
+  p: number = 1;
+
 
 
   constructor(private userService : UserService,private route : Router) { }

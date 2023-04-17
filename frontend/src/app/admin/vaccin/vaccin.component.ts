@@ -14,6 +14,8 @@ export class VaccinComponent implements OnInit {
   index = 0
   vaccins: Vaccin[] = []
   searchText =''
+  p: number = 1;
+
 
 
   ngOnInit(): void {

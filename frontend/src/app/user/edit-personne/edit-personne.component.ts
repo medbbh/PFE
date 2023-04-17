@@ -49,6 +49,7 @@ export class EditPersonneComponent implements OnInit {
       terminervaccin:  new FormControl('', [ Validators.required ]),
       dateprochaine: new FormControl('', [ Validators.required ]),
       lieu: new FormControl('', [ Validators.required ]),
+      numtel: new FormControl('', [ Validators.required ]),
     });
 
     this.vaccinService.getAll().subscribe((res: Vaccin[]) => {
