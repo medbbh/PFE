@@ -39,7 +39,6 @@ export class EditStockComponent implements OnInit {
     this.id = this.route.snapshot.params['idStock']
     this.stockService.find(this.id).subscribe((data: Stock)=>{
       this.stock = data;
-      console.log(this.stock)
     });
 
     this.form = new FormGroup({

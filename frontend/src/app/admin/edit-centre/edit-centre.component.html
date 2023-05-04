@@ -18,7 +18,7 @@
             <input type="text" name="nom" class="form-control" [(ngModel)]="centre.nom"  name="nom" #nom>
           </div>
 
-          <div class="mb-2 col-lg-12">
+          <!-- <div class="mb-2 col-lg-12">
             <label for="wilayaa" class="form-label">Wilayaa</label>
             <input type="text" name="wilayaa" class="form-control" [(ngModel)]="centre.wilayaa" #wilayaa>
           </div>
@@ -26,6 +26,21 @@
           <div class="mb-2 col-lg-12">
             <label for="mougataa" class="form-label">Mougataa</label>
             <input type="text" name="mougataa" class="form-control" [(ngModel)]="centre.mougataa" #mougataa>
+          </div> -->
+
+          <div class="mb-2 col-lg-12">
+            <label for="wilayaa" class="form-label">Wilayaa</label>
+            <select name="countryName" class="form-select" [(ngModel)]="selectedCountry" (ngModelChange)="onCountrySelect($event)" #wilayaa>
+              <option *ngFor="let w of countries" value="{{ w }}">{{ w }}</option>
+          </select>
+
+          </div>
+
+          <div class="mb-2 col-lg-12">
+            <label for="mougataa" class="form-label">Mougataa</label>
+            <select name="states" class="form-select" id="states" [(ngModel)]="selectedState" #mougataa>
+              <option *ngFor="let m of filteredStates" value="{{ m }}">{{ m }}</option>
+            </select>
           </div>
 
           <div class="mb-2 col-lg-12">

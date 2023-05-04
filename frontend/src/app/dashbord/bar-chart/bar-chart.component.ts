@@ -60,7 +60,7 @@ export class BarChartComponent implements OnInit {
         labels: age,
         datasets: [
           {
-            label: 'Age',
+            label: 'Nombre',
             data: counts,
             backgroundColor: [
               // 'rgba(255, 100, 1, 1)',

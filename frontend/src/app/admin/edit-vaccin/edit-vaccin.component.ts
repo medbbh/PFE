@@ -44,7 +44,6 @@ export class EditVaccinComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.form.value);
     this.vaccinService.update(this.id, this.form.value).subscribe(res => {
          console.log('Vaccin updated successfully!');
          this.router.navigateByUrl('admin/vaccin');
