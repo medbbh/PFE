@@ -8,8 +8,8 @@
         <!-- name input -->
 
         <div class="form-group mb-2 col-lg-12">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" formControlName="name" name="name" placeholder="Enter name"
+          <label for="name">Nom :</label>
+          <input type="text" class="form-control" formControlName="name" name="name" placeholder="Enter votre nom"
             [ngClass]="{'is-invalid': submitted && f['name'].errors}">
 
         </div>
@@ -17,7 +17,7 @@
 
         <div class="form-group  mb-2 col-lg-12">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" formControlName="email" name="email" placeholder="Enter email"
+          <input type="email" class="form-control" formControlName="email" name="email" placeholder="Enter votre email"
             [ngClass]="{'is-invalid': submitted && f['email'].errors}">
 
         </div>
@@ -25,15 +25,15 @@
         <!-- centre input -->
         <div class="form-group mb-2 col-lg-12">
           <label for="centre">Centre</label>
-          <input type="text" class="form-control" formControlName="centre" name="centre" placeholder="Enter centre"
+          <input type="text" class="form-control" formControlName="centre" name="centre" placeholder="Enter votre centre"
           [ngClass]="{'is-invalid': submitted && f['centre'].errors}">
 
         </div>
 
         <!-- password input -->
         <div class="form-group  mb-2 col-lg-12">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password"
+          <label for="exampleInputPassword1">Mot de passe :</label>
+          <input type="password" class="form-control" formControlName="password" name="password" placeholder="mot de passe"
             [ngClass]="{'is-invalid': submitted && f['password'].errors}">
 
 
@@ -43,9 +43,9 @@
         <!-- confirm password input -->
 
         <div class="form-group  mb-2 col-lg-12">
-          <label for="comfirmPsswd">Confirm password</label>
+          <label for="comfirmPsswd">Confirmez mot de passe</label>
           <input type="password" class="form-control" formControlName="confirmpassword" name="confirmpassword"
-            placeholder="Confirm password" [ngClass]="{'is-invalid': submitted && f['confirmpassword'].errors}">
+            placeholder="Confirmez mot de passe" [ngClass]="{'is-invalid': submitted && f['confirmpassword'].errors}">
             <div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger">
               <div *ngIf="f.confirm_password.errors?.required">Password is required.</div>
               <div *ngIf="f.confirm_password.errors?.confirmedValidator">Password and Confirm Password must be match.</div>
